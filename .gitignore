@@ -1,0 +1,7 @@
+.venv/
+.env
+__pycache__/
+*.pyc
+.vscode/
+results/
+Old data from earlier tests/
