@@ -1,0 +1,40 @@
+Experiment: context zero-shot
+Model: Qwen/Qwen3.8-27B-FP8
+Temperature: 0
+Input: input/figure_3_2.png
+Prompt: prompts/zero_shot_image.txt
+Context: context/context_rules.txt
+Time: 2026-09-08 18:38:58
+
+--- MODEL OUTPUT ---
+
+
+
+## 1. Components
+
+The following labeled components are visibly present in the diagram:
+
+- **BATTERY** – battery symbol on the left (two cells drawn as long/thin and short/thick plates).
+- **PUSHBUTTON** – symbol at top‑center (a horizontal cap line with a dashed line dropping down to the switch lever).
+- **SWITCH** – symbol at center (two solid black terminal dots with a lever line between them; the lever is drawn not touching the right dot).
+- **BELL** – circle with a filled center dot at top‑right.
+- **CLAPPER** – small open circle at top‑right.
+- **SOLENOID** – rectangle at right containing a coil (waveform) symbol.
+
+## 2. Connections
+
+Only lines that can be visually traced are listed:
+
+- **BATTERY (top terminal) → SWITCH (left terminal dot):** a wire runs up from the top of the battery, then horizontally right to the left black dot of the switch.
+- **SWITCH (left terminal dot) → SWITCH lever → PUSHBUTTON:** the lever line runs from the left dot up‑right, and a **dashed** line runs from the free end of the lever up to the pushbutton cap line.
+- **SWITCH (right terminal dot) → SOLENOID (left side):** a wire runs from the right black dot horizontally right, then down, then right into the left edge of the solenoid rectangle.
+- **SOLENOID (right side) → BATTERY (bottom terminal):** a wire runs from the right edge of the solenoid rectangle, right, down, left along the bottom, and up to the bottom of the battery.
+- **CLAPPER → SOLENOID (top side):** a line runs from the clapper circle down‑left to the top edge of the solenoid rectangle.
+
+## 3. Uncertainties
+
+- **BELL:** No line is drawn from the bell to any other component (not to the solenoid, clapper, or anything else). Its relationship to the rest of the diagram is not shown by a visible line.
+- **PUSHBUTTON–SWITCH link:** The line between the pushbutton and the switch lever is **dashed**, and its exact nature (e.g., a mechanical actuation link) is not labeled in the diagram.
+- **SWITCH state / flow:** The lever is drawn in a position that does not touch the right terminal dot, and no arrows or flow direction are shown anywhere; no current path or direction is indicated.
+- **SOLENOID internal coil:** The two external wires attach to the **left and right edges of the solenoid rectangle**, and the clapper line attaches to the **top edge**. The coil symbol drawn *inside* the rectangle has no visible connecting lines to the rectangle's edges, so a direct wire‑to‑coil connection is not explicitly drawn.
+- **CLAPPER / BELL to coil:** The clapper line ends at the top edge of the rectangle; no line connects the clapper or the bell to the coil itself.

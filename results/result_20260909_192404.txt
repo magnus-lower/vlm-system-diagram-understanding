@@ -1,0 +1,44 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Context: False
+OCR: False
+RAG: False
+Vectorized: False
+One-shot: False
+
+--- MODEL OUTPUT ---
+
+
+
+## What the diagram shows
+
+This is a **Piping & Instrumentation Diagram (P&ID) for a monopropellant thruster system** (e.g., hydrazine‑type). It combines the fluid lines (solid lines) with the electrical control circuit (dashed lines, relays K1–K6, switches S1–S3) that drives the solenoid valves. The system has two main fluid paths — **inert‑gas pressurization** and **propellant flow to the thruster** — plus a set of **relief valves** for over‑pressure protection.
+
+### 1. Inert‑gas pressurization loop (top right)
+- **TK1 – Inert gas pressurization tank:** source of pressurizing gas.
+- **RV1 – Relief valve:** protects TK1 from over‑pressure.
+- **IV1 – Inert gas isolation valve:** on/off valve isolating the gas supply.
+- **RG1 – Inert gas pressure regulator:** reduces/holds the gas pressure to the set value.
+- **CV1 – Inert gas check valve:** one‑way valve preventing backflow into the propellant tank.
+- The regulated gas enters the **gas side of PT1** (the bladder), pressurizing the propellant.
+
+### 2. Propellant tank and thrust loop (right)
+- **PT1 – Propellant tank with bladder:** the bladder separates the inert gas from the liquid propellant, so the gas never contacts the propellant.
+- **RV2 / RV3 – Relief valves:** over‑pressure protection on the tank (gas side and propellant side).
+- **IV2 – Thruster isolation valve:** main on/off valve for the propellant line.
+- **RV4 – Relief valve:** protects the line between IV2 and the thruster.
+- **IV3 – Thrust chamber inlet valve:** final valve feeding the thruster.
+- **Catalyst bed + thruster bell:** propellant decomposes on the catalyst to produce thrust.
+
+### 3. Electrical control circuit (left)
+- **S1, S2, S3** are manual/interlock switches; **K1–K6** are relay coils (with **K6 = timer relay** for sequencing).
+- Dashed lines from the relays to the valve symbols indicate **solenoid actuation** of the valves (IV1, IV2, IV3, etc.).
+- The circuit provides the start/stop and timed sequencing needed to open the pressurization and thrust valves in the correct order.
+
+### Typical operating sequence (implied by the logic)
+1. Close IV1, open gas path → TK1 gas through RG1/CV1 pressurizes PT1's bladder.
+2. Open IV2 and IV3 → propellant flows to the catalyst bed and thruster fires.
+3. Relief valves RV1–RV4 remain closed under normal pressure and open only on over‑pressure.
+
+**In short:** inert gas from TK1 pressurizes the bladder tank PT1; the propellant is then metered through IV2/IV3 over a catalyst to produce thrust, with relief valves RV1–RV4 as safety devices and the S/K relay network providing the electrical control and timing.
+
+If you'd like, tell me what specifically you need (e.g., a fault‑tree, the exact relay logic, a component list, or a step‑by‑step start‑up procedure) and I'll focus on that.

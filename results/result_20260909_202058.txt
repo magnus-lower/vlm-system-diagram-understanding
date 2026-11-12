@@ -1,0 +1,71 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Context: False
+OCR: False
+RAG: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: True
+
+--- MODEL OUTPUT ---
+
+
+
+## 1. Components
+
+**Tanks / vessels**
+- **TK1** – Inert gas pressurization tank (circular symbol, top right).
+- **PT1** – Propellant tank with bladder (container‑shaped symbol, middle right).
+
+**Valves on the fluid line**
+- **RV1** – Relief valve (top right, with discharge arrow).
+- **IV1** – Inert gas isolation valve.
+- **RG1** – Inert gas pressure regulator.
+- **CV1** – Inert gas check valve.
+- **RV2** – Relief valve (right side, upper, on PT1).
+- **RV3** – Relief valve (right side, lower, on PT1).
+- **IV2** – Thruster isolation valve.
+- **RV4** – Relief valve (right side, lower).
+- **IV3** – Thrust chamber inlet valve.
+
+**Thruster**
+- A bell‑shaped thruster symbol at the bottom, with a hatched region labeled **Catalyst** at its inlet.
+
+**Switches / switch contacts**
+- **S1** – changeover‑type switch (two contact sets) in the upper circuit.
+- **S2** – switch associated with a four‑contact (rectangular) element in the lower‑left circuit.
+- **S3** – switch contact in the middle circuit.
+
+**Relay / actuator elements (circles)**
+- **K1, K2, K3, K4, K5** – relay‑related circles.
+- **K6** – labeled "Timer relay".
+- Several **unlabeled circles** that sit directly on the valve lines (next to IV1, IV2, and IV3), presumably valve actuators/solenoids.
+
+**Power sources**
+- Multiple battery symbols (parallel‑line symbols) feeding the relay/switch circuits.
+
+**Lines**
+- Solid lines = physical (fluid/electrical) connections.
+- Dashed lines = control/signal connections.
+
+## 2. Connections
+
+**Inert‑gas / propellant fluid path (right side, top to bottom):**
+TK1 → (branch to) RV1; TK1 → IV1 → RG1 → CV1 → top of PT1. PT1 top also branches to RV2. Bottom of PT1 → (branch to) RV3 → IV2 → (branch to) RV4 → IV3 → Catalyst → thruster bell.
+
+**Upper electrical circuit:** A battery feeds K2; K2 connects through S1 to K1; K1 connects to the unlabeled actuator circle on the IV1 line. Dashed (control) lines run from K2 (long line down the left side) to a contact in the S3 area, and from K1 to the lower contact set of S1.
+
+**Middle circuit:** A battery feeds K3; K3 connects on its right to the S3 contact. A dashed line runs from K3 down to the upper switch contact of the lower‑left circuit.
+
+**Lower‑left circuit:** The upper switch contact connects to the four‑contact element tied to S2, which connects to K4; K4 and K5 are linked at the bottom, with K5 also tied to a battery and to a contact set feeding the IV3 actuator circle.
+
+**Timer circuit:** K6 (timer relay) connects to a switch contact and to the unlabeled actuator circle on the IV3 line; a battery is in this loop.
+
+## 3. Uncertainties
+
+- The **unlabeled circles** on the IV1, IV2, and IV3 lines are not named; I assume they are valve actuators/solenoids but the diagram does not state this.
+- Several **dashed control lines** are long and cross the page; their exact start/end points (e.g., the line from K2 down the left margin, and the line from K3) are difficult to trace with certainty.
+- The **switch states** (normally open vs. normally closed) for S1, S2, S3 and the contact sets are not unambiguously indicated.
+- The **four‑contact rectangular element** near S2 is not labeled, so its exact function (e.g., a 4‑way or changeover switch) is unclear.
+- **Flow direction** is not explicitly marked on the fluid line (only the relief‑valve discharge arrows point outward), so the intended direction of gas/propellant flow is not stated.
+- The relationship between the **Catalyst** region and the thruster bell (whether it is part of the thruster or a separate element) is shown only by a pointer label, not by a distinct symbol.

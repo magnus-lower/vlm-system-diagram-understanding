@@ -1,0 +1,39 @@
+Experiment: OCR zero-shot
+Model: mistralai/Mistral-Medium-3.5-128B
+Temperature: 0
+Input: input/figure_3_2.png
+Prompt: prompts/zero_shot_image.txt
+Time: 2026-09-08 18:13:05
+
+--- OCR OUTPUT ---
+
+- PUSHBUTTON
+
+BATTERY
+
+SWITCH
+
+BELL
+
+CLAPPER
+
+SOLENOID
+
+--- MODEL OUTPUT ---
+
+1. Components
+- Battery
+- Switch (with Pushbutton)
+- Solenoid
+- Bell (with Clapper)
+
+2. Connections
+- The Battery is connected to the Switch.
+- The Switch is connected to the Solenoid.
+- The Solenoid is connected to the Bell.
+- The Bell has a Clapper.
+
+3. Uncertainties
+- The exact type of battery (voltage, size) is not specified.
+- The nature of the connection between the Solenoid and the Bell (whether it is mechanical or electrical) is unclear.
+- The function of the Clapper in relation to the Bell and Solenoid is not explicitly detailed.

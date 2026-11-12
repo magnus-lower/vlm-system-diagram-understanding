@@ -1,0 +1,37 @@
+Experiment: OCR zero-shot
+Model: mistralai/Mistral-Medium-3.5-128B
+Temperature: 0
+Input: input/figure_4_17.png
+Prompt: prompts/zero_shot_image.txt
+Time: 2026-09-08 18:13:40
+
+--- OCR OUTPUT ---
+
+SWITCH
+
+a
+
+BATTERY ——
+
+MOTOR
+
+LOAD
+
+--- MODEL OUTPUT ---
+
+1. Components
+- Battery
+- Switch
+- Motor
+- Load (resistor)
+
+2. Connections
+- The battery is connected to the switch.
+- The switch is connected to the motor.
+- The motor is connected to the load.
+- The load is connected back to the battery, completing the circuit.
+
+3. Uncertainties
+- The exact type or specifications of the battery, switch, motor, and load are not provided.
+- The diagram does not indicate the polarity of the battery or the direction of current flow.
+- The OCR text includes an unclear character ("a") which does not correspond to any labeled component in the diagram.

@@ -1,0 +1,72 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_4.png
+Processed image: input/figure_4.png
+Context: False
+OCR: True
+Notation: False
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+For each connection, only use this format:
+
+Component A || Component B
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+OCR text from the diagram:
+Control room
+
+Pump indicator
+Power ~--@ start/stop
+supply + switch
+:
+H _ .
+: Transmission
+: line
+H !
+:
+Transfer
+ee
+pump Transmitter
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- Power supply
+- Control room
+- Pump start/stop switch
+- Indicator (L1)
+- Transmitter (LT)
+- Sensor
+- Transfer pump
+
+Connections:
+- Power supply || Pump start/stop switch
+- Pump start/stop switch || Transfer pump
+- Transfer pump || Sensor
+- Sensor || Transmitter (LT)
+- Transmitter (LT) || Indicator (L1)

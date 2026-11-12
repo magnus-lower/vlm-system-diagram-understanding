@@ -1,0 +1,66 @@
+Model: moonshotai/Kimi-K2.6
+Method: Literature Baseline - run 3
+Image: input/tank.png
+Processed image: input/tank.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+Two-stage: False
+
+--- PROMPT ---
+
+Express the attached System Diagram in JSON format as shown
+below. Include component labels and connections, including their directions, exactly as they
+appear in the diagram. If no direction is explicitly shown, set "directed" to false.
+
+{
+  "nodes": [
+    {"id": "A"},
+    {"id": "B"},
+    {"id": "C"}
+  ],
+  "edges": [
+    {"source": "A", "target": "B", "directed": true},
+    {"source": "B", "target": "C", "directed": false}
+  ]
+}
+
+--- RAW JSON ---
+
+ ```json
+{
+  "nodes": [
+    {"id": "Controller"},
+    {"id": "Valve B"},
+    {"id": "Valve A"},
+    {"id": "X"},
+    {"id": "Y"},
+    {"id": "Tank"}
+  ],
+  "edges": [
+    {"source": "Controller", "target": "Valve B", "directed": false},
+    {"source": "Controller", "target": "Y", "directed": false},
+    {"source": "Controller", "target": "X", "directed": false},
+    {"source": "Valve B", "target": "Tank", "directed": true},
+    {"source": "Tank", "target": "Valve A", "directed": false}
+  ]
+}
+```
+
+--- MODEL OUTPUT ---
+
+Components:
+- Controller
+- Valve B
+- Valve A
+- X
+- Y
+- Tank
+
+Connections:
+- Controller || Valve B
+- Controller || Y
+- Controller || X
+- Valve B -> Tank
+- Tank || Valve A

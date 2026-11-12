@@ -1,0 +1,58 @@
+Model: moonshotai/Kimi-K2.6
+Method: Literature Baseline - voting
+Image: input/figure_13_1.png
+Processed image: input/figure_13_1.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+Two-stage: False
+
+--- PROMPT ---
+
+Express the attached System Diagram in JSON format as shown
+below. Include component labels and connections, including their directions, exactly as they
+appear in the diagram. If no direction is explicitly shown, set "directed" to false.
+
+{
+  "nodes": [
+    {"id": "A"},
+    {"id": "B"},
+    {"id": "C"}
+  ],
+  "edges": [
+    {"source": "A", "target": "B", "directed": true},
+    {"source": "B", "target": "C", "directed": false}
+  ]
+}
+
+
+--- MODEL OUTPUT ---
+
+Components:
+- A1
+- A2
+- Cold Spare A
+- Memory Interface Unit 1
+- Memory Interface Unit 2
+- M1
+- M2
+- M3
+- M4
+- M5
+- Operator console, Operator, & Software
+- Redundant Bus
+
+Connections:
+- A1 || Redundant Bus
+- A2 || Redundant Bus
+- Cold Spare A || Redundant Bus
+- Memory Interface Unit 1 || Redundant Bus
+- Memory Interface Unit 2 || Redundant Bus
+- Operator console, Operator, & Software || Redundant Bus
+- Memory Interface Unit 1 || M1
+- Memory Interface Unit 1 || M2
+- Memory Interface Unit 1 || M3
+- Memory Interface Unit 2 || M3
+- Memory Interface Unit 2 || M4
+- Memory Interface Unit 2 || M5

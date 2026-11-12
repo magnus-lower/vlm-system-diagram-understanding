@@ -1,0 +1,71 @@
+Model: zai-org/GLM-5.3-Flash
+Method: Literature Baseline - run 2
+Image: input/figure_1.png
+Processed image: input/figure_1.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+Two-stage: False
+
+--- PROMPT ---
+
+Express the attached System Diagram in JSON format as shown
+below. Include component labels and connections, including their directions, exactly as they
+appear in the diagram. If no direction is explicitly shown, set "directed" to false.
+
+{
+  "nodes": [
+    {"id": "A"},
+    {"id": "B"},
+    {"id": "C"}
+  ],
+  "edges": [
+    {"source": "A", "target": "B", "directed": true},
+    {"source": "B", "target": "C", "directed": false}
+  ]
+}
+
+--- RAW JSON ---
+
+```json
+{
+  "nodes": [
+    {"id": "Tail Gas"},
+    {"id": "Booster Fan (A)"},
+    {"id": "Filter"},
+    {"id": "(2) Quench Pumps (B,C)"},
+    {"id": "Feedwater Pump (D)"},
+    {"id": "Scrubber"},
+    {"id": "(2) Scrubber Circulation Pumps (E,F)"},
+    {"id": "Purge Stream"},
+    {"id": "To Absorber"}
+  ],
+  "edges": [
+    {"source": "Tail Gas", "target": "Booster Fan (A)", "directed": true},
+    {"source": "Booster Fan (A)", "target": "Filter", "directed": true},
+    {"source": "(2) Quench Pumps (B,C)", "target": "Filter", "directed": true},
+    {"source": "Filter", "target": "Scrubber", "directed": true},
+    {"source": "Feedwater Pump (D)", "target": "Scrubber", "directed": true},
+    {"source": "Scrubber", "target": "(2) Scrubber Circulation Pumps (E,F)", "directed": true},
+    {"source": "(2) Scrubber Circulation Pumps (E,F)", "target": "Scrubber", "directed": true},
+    {"source": "(2) Scrubber Circulation Pumps (E,F)", "target": "Purge Stream", "directed": true},
+    {"source": "Scrubber", "target": "To Absorber", "directed": true}
+  ]
+}
+```
+
+Notes on the diagram interpretation:
+- **Tail Gas** enters the **Booster Fan (A)** from the left (arrow into the fan).
+- The fan discharges into the unlabeled hatched component (represented here as **Filter**), which then flows into the **Scrubber**.
+- The **Quench Pumps (B,C)** send quench water up into the hatched filter component.
+- The **Feedwater Pump (D)** line rises and enters the **Scrubber** on its upper-left side (arrow into the vessel).
+- The **Scrubber** outlet flows to the **Scrubber Circulation Pumps (E,F)**; part is recirculated back into the scrubber (arrow into the vessel's upper-right side), and part leaves as the **Purge Stream**.
+- The **Scrubber** vent flows upward **To Absorber** (arrow pointing up).
+- All connections in the diagram show explicit arrowheads, so every edge is marked `"directed": true`.
+
+--- MODEL OUTPUT ---
+
+Components:
+
+Connections:

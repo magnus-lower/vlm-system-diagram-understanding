@@ -1,0 +1,67 @@
+Experiment: context zero-shot
+Model: MiniMaxAI/MiniMax-M3-MXFP8
+Temperature: 0
+Input: input/figure_11_1.png
+Prompt: prompts/zero_shot_image.txt
+Context: context/context_rules.txt
+Time: 2026-09-08 18:51:54
+
+--- MODEL OUTPUT ---
+
+# System Diagram Analysis
+
+## 1. Components
+
+**Fluid/Gas System (right side):**
+- **TK1** – Inert gas pressurization tank
+- **RV1** – Relief valve (on TK1)
+- **IV1** – Inert gas isolation valve
+- **RG1** – Inert gas pressure regulator
+- **CV1** – Inert gas check valve
+- **PT1** – Propellant tank with bladder
+- **RV2** – Relief valve (on PT1)
+- **IV2** – Thruster isolation valve
+- **RV3** – Relief valve (on IV2 line)
+- **IV3** – Thrust chamber inlet valve
+- **RV4** – Relief valve (on IV3 line)
+- **Catalyst** – at the thrust chamber (bottom)
+
+**Electrical/Control Circuit (left side):**
+- **S1** – Switch (top)
+- **K1** – Relay/coil
+- **K2** – Relay with contacts
+- **K3** – Relay/coil
+- **S3** – Switch
+- **S2** – Switch
+- **K4** – Relay with contacts
+- **K5** – Relay/coil
+- **K6** – Timer relay
+- Two battery symbols (one upper-left, one lower-center)
+
+## 2. Connections
+
+**Fluid/Gas Flow Path (top to bottom):**
+- TK1 → IV1 → RG1 → CV1 → PT1 → IV2 → IV3 → Thrust chamber (with catalyst)
+- RV1 branches off from TK1
+- RV2 branches off from PT1
+- RV3 branches off from the line between PT1 and IV2
+- RV4 branches off from the line between IV2 and IV3
+
+**Electrical Circuit (visible traces):**
+- S1 is connected in series with K2 contacts at the top of the circuit
+- K2 coil connects to the upper battery
+- K1 coil is connected in the upper portion of the circuit
+- K3 coil is in the middle-left, with S3 nearby
+- K4 contacts and S2 are in the lower-left branch
+- K5 coil is in the lower portion
+- K6 (timer relay) is connected near the lower battery
+- Dashed lines connect the electrical circuit to the fluid system valves (IV1, IV2, IV3), suggesting control signal links
+
+## 3. Uncertainties
+
+- **Electrical circuit tracing:** The control circuit on the left is dense with overlapping lines, dashed control lines, and multiple relay contacts. Individual point-to-point connections between K1, K2, K3, K4, K5, K6, S1, S2, S3, and the batteries **cannot be traced with high confidence**. The components appear to be interconnected through the control circuit, but the exact wiring is uncertain.
+- **Dashed lines:** Several dashed lines cross between the electrical and fluid sections. Their exact endpoints (which valve each controls) are not clearly traceable.
+- **Direction of flow:** No explicit flow arrows are shown in the fluid system; the flow direction is inferred from component arrangement (top to bottom) but not explicitly indicated.
+- **Contact states:** Whether relay contacts (K2, K4) are shown in normally-open or normally-closed state cannot be determined with certainty.
+- **Battery polarity:** The orientation/polarity of the battery symbols is not clearly indicated.
+- **K6 timer relay connections:** The exact wiring of the timer relay to other components is unclear due to overlapping lines.

@@ -1,0 +1,105 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_13_1.png
+Processed image: input/figure_13_1.png
+Context: False
+OCR: True
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: True
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show visible connections between components. Depending on the diagram, these can be electrical, physical, or fluid connections.
+- Dashed lines can represent control or signal connections.
+- Labels such as K1, K2, etc. can refer to relays.
+- Labels such as S1, S2, etc. can refer to switches or switch contacts.
+- FC can mean flow controller.
+- FM can mean flow meter.
+- LC can mean level controller.
+- LS can mean level sensor.
+- Valve symbols are usually placed directly on fluid lines.
+- RV can mean relief valve.
+- IV can mean isolation valve.
+- CV can mean check valve.
+- Pumps can be connected directly to fluid lines.
+- Tanks, vessels, and reboilers can be shown using container-like shapes.
+- Arrows can show direction when they are clearly visible.
+- A bus can be shown as one or more shared lines connected to several components.
+- Components that are connected to the same bus are not necessarily directly connected to each other.
+- A line that splits can show one connection branching into several paths.
+
+Do not assume the direction of flow unless it is clearly shown.
+Do not guess the control logic if the connections are difficult to trace.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+OCR text from the diagram:
+Redundant Bus
+
+Cold
+Spare A
+
+Memory Memory
+Interface Interface
+Unit 1 Unit 2
+M1 M2 M3 M4 M5
+
+Operator console,
+Operator,
+
+& Software
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Redundant Bus** – two parallel horizontal lines running across the top of the diagram, labeled "Redundant Bus" on the right.
+- **A1** – rectangular box on the left.
+- **A2** – rectangular box positioned below and slightly right of A1.
+- **Cold Spare A** – rectangular box.
+- **Memory Interface Unit 1** – rectangular box (center‑left).
+- **Memory Interface Unit 2** – rectangular box (center‑right).
+- **Operator console, Operator, & Software** – rounded‑rectangle box on the right.
+- **M1, M2, M3, M4, M5** – five small rectangular boxes in a row at the bottom.
+
+**2. Connections**
+
+- The **Redundant Bus** consists of two horizontal lines. Vertical lines drop from these bus lines down to the top of: A1, A2, Cold Spare A, Memory Interface Unit 1, Memory Interface Unit 2, and the Operator console box. (Each of these components appears to tap both bus lines.)
+- **Memory Interface Unit 1** has three lines fanning down to **M1**, **M2**, and **M3**.
+- **Memory Interface Unit 2** has three lines fanning down to **M3**, **M4**, and **M5**.
+- Thus **M3** is connected to both Memory Interface Unit 1 and Memory Interface Unit 2.
+- M1 and M2 connect only to Memory Interface Unit 1; M4 and M5 connect only to Memory Interface Unit 2.
+
+**3. Uncertainties**
+
+- The exact number of vertical bus taps per component is hard to count precisely; it is not fully clear whether A1 and A2 each connect to both bus lines or share taps.
+- The precise origin of each fanned line from the Memory Interface Units (especially the shared M3 line) is inferred from line positions and may be slightly ambiguous.
+- No flow/direction arrows are shown, so the direction of any signal or data flow is not indicated.
+- The relationship between A1 and A2 (whether they are directly connected to each other or only via the bus) is not clearly shown.

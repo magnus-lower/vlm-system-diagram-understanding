@@ -1,0 +1,111 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_5_1.png
+Processed image: input/figure_5_1.png
+Context: True
+OCR: True
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: True
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show visible connections between components. Depending on the diagram, these can be electrical, physical, or fluid connections.
+- Dashed lines can represent control or signal connections.
+- Labels such as K1, K2, etc. can refer to relays.
+- Labels such as S1, S2, etc. can refer to switches or switch contacts.
+- FC can mean flow controller.
+- FM can mean flow meter.
+- LC can mean level controller.
+- LS can mean level sensor.
+- Valve symbols are usually placed directly on fluid lines.
+- RV can mean relief valve.
+- IV can mean isolation valve.
+- CV can mean check valve.
+- Pumps can be connected directly to fluid lines.
+- Tanks, vessels, and reboilers can be shown using container-like shapes.
+- Arrows can show direction when they are clearly visible.
+- A bus can be shown as one or more shared lines connected to several components.
+- Components that are connected to the same bus are not necessarily directly connected to each other.
+- A line that splits can show one connection branching into several paths.
+
+Do not assume the direction of flow unless it is clearly shown.
+Do not guess the control logic if the connections are difficult to trace.
+
+
+When interpreting the system diagram:
+
+- Only include components that are clearly visible in the diagram.
+- Only describe connections that can be seen in the diagram.
+- Do not assume that two components are connected just because it would make sense.
+- Do not guess the direction of flow unless it is clearly shown.
+- Do not guess what a component does if the diagram does not explain it.
+- Do not add components that are not shown.
+- If something is unclear, put it under Uncertainties instead of guessing.
+- Prefer a simple and careful answer over a detailed answer that may be wrong.
+- If a control circuit or control system is hard to follow, do not guess the exact connections.
+- Only describe a specific connection if both ends can be clearly traced in the diagram.
+- If several components connect to the same bus or common line, do not assume that they are directly connected to each other.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+OCR text from the diagram:
+Distillate
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- A tank / vessel (top‑left container with a liquid level shown).
+- **LS** – level sensor (circle).
+- **LC** – level controller (box).
+- A control valve with actuator, marked **(b)** (upper valve on the pump outlet line).
+- A pump, marked **(a)** (circle with internal arrow and a base).
+- **FM** – flow meter (left, on the reflux line).
+- A control valve with actuator, marked **(b)** (lower valve on the main line).
+- **FC** – flow controller (box).
+- **FM** – flow meter (right, on the distillate line).
+- Terminal labels: **L Reflux** (left‑pointing arrow) and **D Distillate** (right‑pointing arrow).
+
+**2. Connections**
+
+- The tank bottom is connected by a solid line to **LS**, and by another solid line (down, then right) to the inlet of pump **(a)**.
+- **LS** is connected to **LC** by a dashed (signal) line.
+- **LC** is connected by a dashed line to the actuator of the upper valve **(b)**.
+- The outlet of pump **(a)** is connected by a solid line to the upper valve **(b)**; the outlet of that valve runs right and then down to join the main horizontal line at a junction.
+- On the main horizontal line, from left to right: the **L Reflux** arrow → left **FM** → lower valve **(b)** → junction (where the upper‑valve line joins) → right **FM** → **D Distillate** arrow.
+- The left **FM** is connected by a dashed line to **FC**.
+- **FC** is connected by a dashed line to the actuator of the lower valve **(b)**.
+
+**3. Uncertainties**
+
+- The small symbol at the tank bottom (where the line to LS and the line to the pump meet) is not clearly identifiable; it is treated only as a connection point.
+- The exact internal function of the tank and of the pump is not stated in the diagram; only the pump's internal arrow indicates flow direction through the pump.
+- Flow direction on the main line is inferred only from the terminal arrows (L Reflux to the left, D Distillate to the right); no other directional arrows are shown on the piping.
+- The OCR word "Distillate" at the top corresponds to the "D Distillate" label at the right; no separate top component is visible.

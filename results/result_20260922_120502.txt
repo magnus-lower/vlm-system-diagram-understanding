@@ -1,0 +1,49 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_2_2.png
+Processed image: input/figure_2_2.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels, arrows or internal parts as separate components).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+For each connection, only use this format:
+
+Component A || Component B || line_style || connection_type || connection_role
+
+Use "none" as the connection_role  when no connection role is needed.
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- Condenser
+- Reboiler
+- Column (distillation column / tower)
+
+Connections:
+- Condenser || Column || solid || pipe || none
+- Reboiler || Column || solid || pipe || none

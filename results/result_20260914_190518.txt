@@ -1,0 +1,72 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_6_1.png
+Processed image: input/figure_6_1.png
+Context: False
+OCR: True
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+OCR text from the diagram:
+Reboiler
+
+B
+
+Bottom product
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Reboiler** – a vertical vessel (tank) shown with a liquid level (wavy line and gray fill).
+- **LS** – a box (level sensor/transmitter) on the left.
+- **LC** – a box (level controller) at the bottom left.
+- **Pump (a)** – a circular pump symbol with an internal arrow and a base, labeled "(a)".
+- **Valve (b)** – a bowtie valve symbol with a diaphragm/actuator below it, labeled "(b)".
+- **FM** – a box (flow meter).
+- **B / Bottom product** – an output arrow labeled "B" with the text "Bottom product".
+
+**2. Connections**
+
+- **LS** is connected by a solid line to a small nozzle/flange at the bottom of the **Reboiler**.
+- **LS** is connected by a dashed line to **LC**.
+- **LC** is connected by a dashed line to the actuator of the **valve (b)**.
+- The bottom of the **Reboiler** is connected by a solid line that runs down and then right into the **pump (a)**.
+- The **pump (a)** outlet is connected by a solid line to the **valve (b)**.
+- The **valve (b)** outlet is connected by a solid line to **FM**.
+- **FM** is connected by a solid line to the output arrow **B (Bottom product)**.
+
+**3. Uncertainties**
+
+- The meaning of the labels "(a)" and "(b)" is not stated in the diagram; "(a)" is placed next to the pump and "(b)" next to the valve actuator, but their exact role is not labeled.
+- The dashed lines (LS→LC and LC→valve) are interpreted as control/signal lines, but the diagram does not explicitly label them as such.
+- The solid line from LS to the Reboiler is interpreted as a measurement tap, but this is not explicitly labeled.
+- The internal arrow direction in the pump and the flow direction through the valve are shown by line/arrow orientation only; no flow-direction arrows are drawn on the process line between the pump, valve, and FM.

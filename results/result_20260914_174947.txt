@@ -1,0 +1,79 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_4_1.png
+Processed image: input/figure_4_1.png
+Context: True
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+When interpreting the system diagram:
+
+- Only include components that are clearly visible in the diagram.
+- Only describe connections that can be seen in the diagram.
+- Do not assume that two components are connected just because it would make sense.
+- Do not guess the direction of flow unless it is clearly shown.
+- Do not guess what a component does if the diagram does not explain it.
+- Do not add components that are not shown.
+- If something is unclear, put it under Uncertainties instead of guessing.
+- Prefer a simple and careful answer over a detailed answer that may be wrong.
+- If a control circuit or control system is hard to follow, do not guess the exact connections.
+- Only describe a specific connection if both ends can be clearly traced in the diagram.
+- If several components connect to the same bus or common line, do not assume that they are directly connected to each other.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- An open-top tank/vessel on the far left, containing liquid (gray fill with a wavy surface line). It has no label or ID in the diagram.
+- **(a)** – a pump (circle with an internal arrow, on a triangular base).
+- **(b)** – a control valve (bowtie symbol) with a diaphragm actuator (dome/trapezoid) mounted on top.
+- **FC** – a controller box labeled "FC".
+- **(c) / FM** – a flow meter box labeled "FM".
+- **(d)** – a heat exchanger (horizontal rectangle with end flanges), with two red arrows (one entering the top, one leaving the bottom).
+- **(e)** – a vertical line (header) with four horizontal branches; each branch contains a valve (bowtie) and an arrow pointing to the right.
+
+**2. Connections**
+
+- The bottom of the tank is connected by a line to the inlet of pump **(a)**.
+- The outlet of pump **(a)** is connected by a line (with an arrowhead) to the inlet of valve **(b)**.
+- The outlet of valve **(b)** is connected by a line to the inlet of the flow meter **FM (c)**.
+- The outlet of **FM (c)** is connected by a line to the left end of the heat exchanger **(d)**.
+- The right end of the heat exchanger **(d)** is connected by a line to the vertical header **(e)**.
+- The header **(e)** feeds four branches, each passing through a valve and ending in a rightward arrow.
+- Dashed (signal) lines: a dashed line runs from **FM (c)** up into **FC** (input), and a dashed line runs from **FC** down to the actuator on valve **(b)** (output).
+
+**3. Uncertainties**
+
+- The tank has no name or ID in the diagram.
+- The destinations of the four rightward arrows on the branches of **(e)** are not shown.
+- The two red arrows on **(d)** indicate heat transfer, but the diagram does not label whether this is heating or cooling, nor what the heat source/sink is.
+- The exact internal arrangement of the heat exchanger **(d)** (e.g., tube vs. shell side) is not specified.
+- Flow direction on the main line is implied left‑to‑right by the pump arrow and the arrowhead at valve **(b)**, but no explicit arrow is drawn on every segment.

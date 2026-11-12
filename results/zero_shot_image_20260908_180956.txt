@@ -1,0 +1,61 @@
+Experiment: zero-shot
+Model: mistralai/Mistral-Medium-3.5-128B
+Temperature: 0
+Input: input/figure_11_1.png
+Prompt: prompts/zero_shot_image.txt
+Time: 2026-09-08 18:09:56
+
+--- MODEL OUTPUT ---
+
+1. Components
+- Inert gas pressurization tank (TK1)
+- Relief valve RV1
+- Inert gas isolation valve IV1
+- Inert gas pressure regulator RG1
+- Inert gas check valve CV1
+- Propellant tank with bladder (PT1)
+- Relief valve RV2
+- Relief valve RV3
+- Thruster isolation valve IV2
+- Relief valve RV4
+- Thrust chamber inlet valve IV3
+- Catalyst
+- Switch S1
+- Switch S2
+- Switch S3
+- Relay K1
+- Relay K2
+- Relay K3
+- Relay K4
+- Relay K5
+- Timer relay K6
+
+2. Connections
+- TK1 is connected to relief valve RV1.
+- TK1 is connected to inert gas isolation valve IV1.
+- IV1 is connected to inert gas pressure regulator RG1.
+- RG1 is connected to inert gas check valve CV1.
+- CV1 is connected to propellant tank PT1.
+- PT1 is connected to relief valve RV2.
+- PT1 is connected to relief valve RV3.
+- PT1 is connected to thruster isolation valve IV2.
+- IV2 is connected to relief valve RV4.
+- IV2 is connected to thrust chamber inlet valve IV3.
+- IV3 is connected to the catalyst.
+- S1 is connected to relay K2 and relay K1.
+- K2 is connected to K1.
+- K1 is connected to IV1.
+- S2 is connected to relay K5.
+- K5 is connected to relay K4.
+- K4 is connected to K3.
+- K3 is connected to S3.
+- S3 is connected to IV2.
+- S3 is connected to timer relay K6.
+- K6 is connected to IV3.
+
+3. Uncertainties
+- The exact function or purpose of each component is not provided in the diagram.
+- The direction of flow (e.g., for inert gas, propellant) is not explicitly indicated.
+- The nature of the connections (e.g., electrical, mechanical, fluid) between some components is not entirely clear.
+- The role of the timer relay K6 in the system is not specified.
+- The specific relationships or dependencies between the relays and switches are not fully explained.

@@ -1,0 +1,80 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_2_2.png
+Processed image: input/figure_2_2.png
+Context: True
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+When interpreting the system diagram:
+
+- Only include components that are clearly visible in the diagram.
+- Only describe connections that can be seen in the diagram.
+- Do not assume that two components are connected just because it would make sense.
+- Do not guess the direction of flow unless it is clearly shown.
+- Do not guess what a component does if the diagram does not explain it.
+- Do not add components that are not shown.
+- If something is unclear, put it under Uncertainties instead of guessing.
+- Prefer a simple and careful answer over a detailed answer that may be wrong.
+- If a control circuit or control system is hard to follow, do not guess the exact connections.
+- Only describe a specific connection if both ends can be clearly traced in the diagram.
+- If several components connect to the same bus or common line, do not assume that they are directly connected to each other.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Condenser** – heat‑exchanger symbol at the top, with a "Cooling water" inlet and outlet on its left side.
+- **Small vessel / drum** – the small gray‑filled container directly below the condenser.
+- **Column** – the tall vertical tower containing several horizontal gray bands (trays/packing) with red upward arrows (vapor) and blue downward arrows (liquid) inside.
+- **Reboiler** – the vessel at the bottom left with a zig‑zag (heat‑transfer) element, with "Steam" inlet and outlet on its left.
+- **Labeled process streams:** Cooling water, Top product, Reflux, Feed, Steam, Bottom product.
+
+**2. Connections**
+
+- **Cooling water** line enters the left side of the **Condenser** and a second cooling‑water line leaves the left side of the Condenser.
+- A line from the right side of the **Condenser** runs right and then down into the **top of the Column**.
+- The **Condenser** bottom connects down to the small **drum** below it.
+- From the **drum**, a line goes left to the **Top product** outlet (arrow pointing out).
+- From the **drum**, a line goes right, labeled **Reflux**, and enters the **Column** near the top (blue downward arrow).
+- The **Feed** line enters the **Column** at its middle (arrow into the column wall).
+- A line from the **bottom of the Column** connects to the **Reboiler**.
+- A line from the **Reboiler** returns to the **bottom of the Column**.
+- **Steam** enters the left side of the **Reboiler** and a second steam line leaves the left side of the Reboiler.
+- The **Bottom product** line leaves the bottom of the **Reboiler** and points right (out).
+
+**3. Uncertainties**
+
+- The exact direction of flow in the two lines between the **Column bottom** and the **Reboiler** (which is the liquid‑in line and which is the vapor/return line) is not explicitly arrowed.
+- Whether the **Top product** is drawn from the drum or directly from the condenser line is not fully clear; the diagram shows the top‑product arrow on the line leaving the drum region.
+- The precise internal routing of the **Reflux** line into the column (which tray/point) is not clearly marked.
+- The function of the small **drum** is not labeled in the diagram; its role is inferred only from its position between the condenser and the top‑product/reflux lines.
+- The red and blue arrows indicate relative vapor/liquid movement inside the column but are not labeled as flow directions of named streams.

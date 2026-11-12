@@ -1,0 +1,63 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_4_1.png
+Processed image: input/figure_4_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+## 1. Components
+
+- **Tank / vessel** (left): an open‑top container with a liquid level (gray fill, wavy surface). No label or ID is shown.
+- **(a)**: a pump (circle with an internal arrow, mounted on a triangular base).
+- **(b)**: a control valve (bowtie symbol) with a diaphragm/actuator (trapezoid) on top.
+- **FC**: a controller block labeled "FC".
+- **(c)**: a flow meter block labeled "FM".
+- **(d)**: a horizontal element (pipe/heat‑exchanger symbol) with two red arrows — one entering from the top, one leaving from the bottom.
+- **(e)**: a vertical manifold line with four horizontal branches; each branch contains a valve (bowtie) and an arrow pointing to the right (open outlet).
+
+## 2. Connections
+
+- The bottom of the **tank** is connected by a line to the inlet of pump **(a)**.
+- The outlet of pump **(a)** is connected to the inlet of valve **(b)**.
+- The outlet of valve **(b)** is connected to the inlet of flow meter **(c) (FM)**.
+- The outlet of **(c)** is connected to the left end of element **(d)**.
+- The right end of **(d)** is connected to the vertical manifold **(e)**.
+- The manifold **(e)** splits into four branches, each passing through a valve and ending in a right‑pointing arrow.
+- **Dashed (signal) lines:** a dashed line runs from **(c) (FM)** up into the right side of **FC** (input). A dashed line runs from the left side of **FC** down to the actuator on top of valve **(b)** (output).
+
+## 3. Uncertainties
+
+- The **tank** has no name or ID in the diagram.
+- The two **red arrows** on **(d)** indicate an external medium (e.g., cooling/heating), but its source and return are not drawn, so the exact function of (d) is not labeled.
+- The four branch outlets of **(e)** end in open arrows; their destinations are not shown.
+- The diagram does not label the fluid type or the purpose of the overall loop.

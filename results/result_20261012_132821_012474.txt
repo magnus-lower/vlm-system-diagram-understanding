@@ -1,0 +1,88 @@
+Model: zai-org/GLM-5.3-Flash
+Method: two-stage - run 1
+Image: input/figure_4.png
+Processed image: input/figure_4.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+DSPy: False
+Two-stage: True
+
+--- PROMPT ---
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+If a component has a visible name or ID, use only that name or ID.
+Do not add the component type in parentheses.
+Do not list labels or arrows as separate components. If a component has no visible name or label, call it
+"Unlabeled component 1", "Unlabeled component 2", etc. If you can recognize what the unlabeled component appears to be,
+add the type in parentheses).
+
+
+Return only:
+
+Components:
+- ...
+
+
+Look at the system diagram in the image. The following system components
+were identified in the first stage:
+
+Components:
+- Control room
+- Pump start/stop switch
+- Indicator (LI)
+- Transmission line
+- Sensor
+- Transmitter (LT)
+- Transfer pump
+- Unlabeled component 1 (tank)
+- Unlabeled component 2 (valve)
+- Unlabeled component 3 (operator/person)
+
+
+Identify the connections between these components. Do not introduce new components or rename the existing ones.
+Only include a connection if it can be traced in the image.
+
+If the diagram explicitly shows a direction from one component to another, use:
+
+Component A -> Component B
+
+If the components are connected but no direction is explicitly shown, use:
+
+Component A || Component B
+
+Do not guess the direction of a connection.
+Only use component names that appear in the Components list.
+
+
+Return only:
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+Components:
+- Control room
+- Pump start/stop switch
+- Indicator (LI)
+- Transmission line
+- Sensor
+- Transmitter (LT)
+- Transfer pump
+- Unlabeled component 1 (tank)
+- Unlabeled component 2 (valve)
+- Unlabeled component 3 (operator/person)
+
+Connections:
+- Pump start/stop switch -> Transfer pump
+- Transfer pump -> Unlabeled component 2 (valve)
+- Unlabeled component 2 (valve) -> Unlabeled component 1 (tank)
+- Sensor || Unlabeled component 1 (tank)
+- Sensor || Transmitter (LT)
+- Transmitter (LT) || Transmission line
+- Transmission line || Indicator (LI)

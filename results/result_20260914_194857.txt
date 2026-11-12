@@ -1,0 +1,111 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_11_1.png
+Processed image: input/figure_11_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: True
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show visible connections between components. Depending on the diagram, these can be electrical, physical, or fluid connections.
+- Dashed lines can represent control or signal connections.
+- Labels such as K1, K2, etc. can refer to relays.
+- Labels such as S1, S2, etc. can refer to switches or switch contacts.
+- FC can mean flow controller.
+- FM can mean flow meter.
+- LC can mean level controller.
+- LS can mean level sensor.
+- Valve symbols are usually placed directly on fluid lines.
+- RV can mean relief valve.
+- IV can mean isolation valve.
+- CV can mean check valve.
+- Pumps can be connected directly to fluid lines.
+- Tanks, vessels, and reboilers can be shown using container-like shapes.
+- Arrows can show direction when they are clearly visible.
+- A bus can be shown as one or more shared lines connected to several components.
+- Components that are connected to the same bus are not necessarily directly connected to each other.
+- A line that splits can show one connection branching into several paths.
+
+Do not assume the direction of flow unless it is clearly shown.
+Do not guess the control logic if the connections are difficult to trace.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+## 1. Components
+
+**Process / fluid side (right):**
+- **TK1** – Inert gas pressurization tank (circle, top right)
+- **RV1** – Relief valve (top right)
+- **IV1** – Inert gas isolation valve
+- **RG1** – Inert gas pressure regulator
+- **CV1** – Inert gas check valve
+- **PT1** – Propellant tank with bladder (container shape)
+- **RV2** – Relief valve (top of PT1)
+- **RV3** – Relief valve (bottom of PT1)
+- **IV2** – Thruster isolation valve
+- **RV4** – Relief valve (below IV2)
+- **IV3** – Thrust chamber inlet valve
+- **Catalyst** – hatched element in the thruster
+- Thruster (bell‑shaped outlet at the bottom)
+- Two small circles (valve actuators/solenoids) on the left of IV1 and IV2
+
+**Control / electrical side (left):**
+- Relays: **K1, K2, K3, K4, K5, K6** (K6 labelled "Timer relay")
+- Switches / switch contacts: **S1, S2, S3**
+- Various relay/switch contact symbols (open and closed contact pairs) and a battery/ground symbol
+
+## 2. Connections
+
+**Process line (clearly traceable, top to bottom on the right):**
+- TK1 connects down to a junction; from that junction a horizontal line goes right to **RV1**.
+- The same junction continues down through **IV1 → RG1 → CV1** into the top of **PT1**.
+- The top of **PT1** has a horizontal branch to **RV2**.
+- The bottom of **PT1** has a horizontal branch to **RV3**.
+- The bottom of **PT1** continues down through **IV2**; a horizontal branch below IV2 goes to **RV4**.
+- The line continues down through **IV3** into the **Catalyst** / thruster.
+- The actuator circle at **IV1** is connected by a solid line up to relay **K1**.
+- The actuator circle at **IV2** is connected to the **K6 / K5** control circuit.
+
+**Control side (partially traceable):**
+- **S1** (top contact) is in series with relay coil **K2**; this branch is in parallel with a lower contact set, and the combination feeds relay coil **K1**.
+- A dashed line from **K1** goes to a contact in the S1 area.
+- Relay coil **K3** is on a line that also connects to switch **S3** and to a contact.
+- Switch **S2** (four‑contact block) connects to relay coils **K4** and **K5**.
+- Relay coil **K6** connects to a contact and to the IV2 actuator circle.
+
+## 3. Uncertainties
+
+- The left‑hand control wiring is dense; the exact series/parallel arrangement of the K2/K1/S1 branch, and the long dashed line running down the far left edge, are difficult to trace unambiguously.
+- It is not clear which specific contacts are driven by K3, K4, K5, and K6 (the dashed lines from the coils to the contacts are hard to follow).
+- The two small circles next to IV1 and IV2 are not explicitly labelled; I have assumed they are valve actuators/solenoids, but the diagram does not state this.
+- Flow direction is not indicated by arrows on the main vertical process line, so the direction of gas/propellant flow is not asserted.
+- The function of the battery/ground symbols and the exact meaning of the multi‑contact blocks (S2, S3) is not labelled.

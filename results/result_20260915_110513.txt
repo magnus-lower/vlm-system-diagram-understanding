@@ -1,0 +1,97 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_5_1.png
+Processed image: input/figure_5_1.png
+Context: False
+OCR: True
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: True
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show visible connections between components. Depending on the diagram, these can be electrical, physical, or fluid connections.
+- Dashed lines can represent control or signal connections.
+- Labels such as K1, K2, etc. can refer to relays.
+- Labels such as S1, S2, etc. can refer to switches or switch contacts.
+- FC can mean flow controller.
+- FM can mean flow meter.
+- LC can mean level controller.
+- LS can mean level sensor.
+- Valve symbols are usually placed directly on fluid lines.
+- RV can mean relief valve.
+- IV can mean isolation valve.
+- CV can mean check valve.
+- Pumps can be connected directly to fluid lines.
+- Tanks, vessels, and reboilers can be shown using container-like shapes.
+- Arrows can show direction when they are clearly visible.
+- A bus can be shown as one or more shared lines connected to several components.
+- Components that are connected to the same bus are not necessarily directly connected to each other.
+- A line that splits can show one connection branching into several paths.
+
+Do not assume the direction of flow unless it is clearly shown.
+Do not guess the control logic if the connections are difficult to trace.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+OCR text from the diagram:
+Distillate
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- A tank / vessel (top‑left container with a liquid level line). No tag ID is shown.
+- **LS** – level sensor (circle), at the tank bottom.
+- **LC** – level controller (box).
+- A control valve (bow‑tie symbol) with a dome‑shaped actuator, marked **(b)** – the upper valve.
+- A pump, marked **(a)** (circle with internal arrow and a base).
+- **FM** – flow meter (box) on the lower line, left side.
+- **FC** – flow controller (box) at the bottom.
+- A second control valve (bow‑tie) with a dome‑shaped actuator, marked **(b)** – the lower valve.
+- A second **FM** – flow meter (box) on the right side.
+- Stream labels: **L Reflux** (left‑pointing arrow) and **D Distillate** (right‑pointing arrow); the word *Distillate* also appears as a title at the top.
+
+**2. Connections**
+
+- Tank bottom → **LS** (solid line).
+- Tank bottom → pump **(a)** inlet (solid line going down then right into the pump).
+- Pump **(a)** outlet → upper control valve **(b)** (solid line).
+- Upper control valve **(b)** → a vertical line that joins the lower horizontal line at a junction on the right.
+- Lower horizontal line, left to right: **L Reflux** (left arrow) → **FM** (left) → lower control valve **(b)** → the same right‑hand junction.
+- Junction → **FM** (right) → **D Distillate** (right arrow).
+- Dashed (control/signal) lines: **LS** → **LC**; **LC** → upper valve actuator **(b)**; left **FM** → **FC**; **FC** → lower valve actuator **(b)**.
+
+**3. Uncertainties**
+
+- The right‑hand junction where the upper‑valve line, the lower‑valve line, and the right‑FM line meet is a three‑way node; the exact flow direction through it (which branch is inlet vs. outlet) is not clearly indicated by arrows.
+- It is not unambiguous whether the pump **(a)** discharge feeds the upper valve and then the junction, or whether the upper valve line is a separate branch; the vertical connecting line makes the topology hard to read.
+- The top label *Distillate* appears to be a title rather than a tagged component; its relationship to the **D Distillate** stream is not drawn.
+- The small flange/fitting at the tank bottom (where the LS and the pump line attach) is not labeled, so its function is not certain.
+- No explicit flow arrows are shown on the upper valve line or on the tank‑to‑pump line, so their directions are inferred only from the pump symbol and the LS placement.

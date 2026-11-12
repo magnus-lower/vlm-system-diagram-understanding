@@ -1,0 +1,71 @@
+Model: zai-org/GLM-5.3-Flash
+Method: Literature Baseline - run 1
+Image: input/figure_A_3.png
+Processed image: input/figure_A_3.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+Two-stage: False
+
+--- PROMPT ---
+
+Express the attached System Diagram in JSON format as shown
+below. Include component labels and connections, including their directions, exactly as they
+appear in the diagram. If no direction is explicitly shown, set "directed" to false.
+
+{
+  "nodes": [
+    {"id": "A"},
+    {"id": "B"},
+    {"id": "C"}
+  ],
+  "edges": [
+    {"source": "A", "target": "B", "directed": true},
+    {"source": "B", "target": "C", "directed": false}
+  ]
+}
+
+--- RAW JSON ---
+
+```json
+{
+  "nodes": [
+    {"id": "WATER SOURCE"},
+    {"id": "PUMP 1"},
+    {"id": "PUMP 2"},
+    {"id": "VALVE V"},
+    {"id": "PAD DELUGE NOZZLES"}
+  ],
+  "edges": [
+    {"source": "WATER SOURCE", "target": "PUMP 1", "directed": true},
+    {"source": "WATER SOURCE", "target": "PUMP 2", "directed": true},
+    {"source": "PUMP 1", "target": "VALVE V", "directed": true},
+    {"source": "PUMP 2", "target": "VALVE V", "directed": true},
+    {"source": "VALVE V", "target": "PAD DELUGE NOZZLES", "directed": true}
+  ]
+}
+```
+
+**Explanation of the structure:**
+- **WATER SOURCE** feeds into the parallel pump arrangement (the middle box containing both pumps).
+- **PUMP 1** and **PUMP 2** are connected in parallel between the water source and the valve.
+- Both pumps converge into **VALVE V**.
+- **VALVE V** discharges into the **PAD DELUGE NOZZLES**.
+- All connections have explicit arrowheads in the diagram, so every edge is marked as `"directed": true`.
+
+--- MODEL OUTPUT ---
+
+Components:
+- WATER SOURCE
+- PUMP 1
+- PUMP 2
+- VALVE V
+- PAD DELUGE NOZZLES
+
+Connections:
+- WATER SOURCE -> PUMP 1
+- WATER SOURCE -> PUMP 2
+- PUMP 1 -> VALVE V
+- PUMP 2 -> VALVE V
+- VALVE V -> PAD DELUGE NOZZLES

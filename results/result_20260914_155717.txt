@@ -1,0 +1,55 @@
+Model: mistralai/Mistral-Medium-3.5-128B
+Method: zero-shot
+Image: input/figure_4_1.png
+Processed image: input/figure_4_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+1. Components
+- (a) Pump
+- (b) Valve
+- (c) Flow Meter (FM)
+- (d) Heat Exchanger
+- (e) Multiple radiators
+- FC (Flow Controller)
+
+2. Connections
+- (a) Pump is connected to (b) Valve.
+- (b) Valve is connected to (c) Flow Meter (FM).
+- (c) Flow Meter (FM) is connected to (d) Heat Exchanger.
+- (d) Heat Exchanger is connected to (e) Multiple radiators.
+- (c) Flow Meter (FM) is connected to FC (Flow Controller) with a dashed line.
+- (b) Valve is connected to FC (Flow Controller) with a dashed line.
+
+3. Uncertainties
+- The source of the fluid entering the pump (a) is unclear.
+- The exact nature of the dashed lines connecting (b) Valve and (c) Flow Meter (FM) to FC (Flow Controller) is unclear.
+- The destination of the fluid after passing through the radiators (e) is unclear.

@@ -1,0 +1,70 @@
+Experiment: context zero-shot
+Model: moonshotai/Kimi-K2.6
+Temperature: 0
+Input: input/figure_11_1.png
+Prompt: prompts/zero_shot_image.txt
+Context: context/context_rules.txt
+Time: 2026-09-08 18:50:37
+
+--- MODEL OUTPUT ---
+
+ **1. Components**
+
+*Fluid / Mechanical*
+- TK1 – Inert gas pressurization tank
+- RV1 – Relief valve
+- IV1 – Inert gas isolation valve
+- RG1 – Inert gas pressure regulator
+- CV1 – Inert gas check valve
+- RV2 – Relief valve
+- PT1 – Propellant tank with bladder
+- RV3 – Relief valve
+- IV2 – Thruster isolation valve
+- RV4 – Relief valve
+- IV3 – Thrust chamber inlet valve
+- Catalyst – labeled component at the top of the thrust chamber
+- Unlabeled conical thrust-chamber / nozzle assembly at the bottom of the fluid path
+
+*Electrical / Control*
+- S1 – switch
+- K2 – relay coil (a set of associated changeover contacts is drawn next to it)
+- K1 – circular symbol (coil or solenoid)
+- K3 – relay coil
+- S3 – three-terminal solid-state switching device (e.g., transistor/MOSFET)
+- S2 – capacitor (two parallel plates)
+- K4 – relay coil
+- Unlabeled diode bridge (four diodes in a bridge configuration) located just left of S2
+- K5 – relay coil
+- K6 – timer relay coil (a set of associated contacts is drawn next to it)
+- Battery symbols – four separate battery symbols are visible in the electrical portion
+- Unlabeled circular symbols – one positioned above IV1, one above IV2, and one above IV3, each at the end of an electrical control line
+
+**2. Connections**
+
+*Fluid path (visually traceable line segments)*
+- TK1 connects to a junction that splits to RV1 and to IV1.
+- IV1 connects to RG1.
+- RG1 connects to CV1.
+- CV1 connects to a junction that splits to RV2 and to the top inlet of PT1.
+- The bottom outlet of PT1 connects to a junction that splits to RV3 and to IV2.
+- IV2 connects to a junction that splits to RV4 and to IV3.
+- IV3 connects to the catalyst / thrust-chamber assembly.
+
+*Electrical / Control path*
+- The electrical components form a dense control circuit. Because many conductors overlap or run close together, exact point-to-point wiring cannot be traced with high confidence.
+- Visibly, a line runs from the K1 symbol to the unlabeled circular symbol above IV1.
+- A line runs from the S3 / K3 region to the unlabeled circular symbol above IV2.
+- A line runs from the K6 contact region to the unlabeled circular symbol above IV3.
+- K2 is mechanically linked (dashed line) to its associated changeover contacts.
+- K6 is mechanically linked (dashed line) to its associated contacts.
+- K4, S2, and the unlabeled diode bridge are grouped together with visible interconnecting lines.
+- The various batteries, switches, relay coils, and contact sets are interconnected through the control circuit, but the precise topology is uncertain.
+
+**3. Uncertainties**
+
+- The exact point-to-point wiring of the electrical control circuit (which specific terminals of S1, K2, K1, K3, S3, S2, K4, K5, K6, and the batteries are tied together) cannot be followed with confidence.
+- The function of the unlabeled circular symbols above IV1, IV2, and IV3 is not explicitly defined in the diagram (they may be solenoid actuators, instrument nodes, or junctions).
+- The relationship between K1 and the circle above IV1 is unclear: K1 may be a relay coil driving that circle, or it may be a remote coil for the valve, but the diagram does not explicitly show contacts for K1.
+- The input and output terminals of the unlabeled diode bridge are not unambiguously traceable to the rest of the circuit.
+- The exact nature of S3 is not specified beyond being a three-terminal switching symbol.
+- The meaning of the dashed-line enclosures around portions of the electrical schematic is not explicitly defined.

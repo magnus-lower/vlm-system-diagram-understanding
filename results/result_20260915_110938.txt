@@ -1,0 +1,86 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_6_1.png
+Processed image: input/figure_6_1.png
+Context: True
+OCR: True
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+When interpreting the system diagram:
+
+- Only include components that are clearly visible in the diagram.
+- Only describe connections that can be seen in the diagram.
+- Do not assume that two components are connected just because it would make sense.
+- Do not guess the direction of flow unless it is clearly shown.
+- Do not guess what a component does if the diagram does not explain it.
+- Do not add components that are not shown.
+- If something is unclear, put it under Uncertainties instead of guessing.
+- Prefer a simple and careful answer over a detailed answer that may be wrong.
+- If a control circuit or control system is hard to follow, do not guess the exact connections.
+- Only describe a specific connection if both ends can be clearly traced in the diagram.
+- If several components connect to the same bus or common line, do not assume that they are directly connected to each other.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+OCR text from the diagram:
+Reboiler
+
+B
+
+Bottom product
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Reboiler** – vertical vessel with a liquid level shown, rounded bottom.
+- **LS** – rectangular instrument box (left).
+- **LC** – rectangular instrument box (bottom left).
+- **(a)** – circular symbol with an internal arrow and a triangular base (pump symbol).
+- **(b)** – valve symbol (bowtie) with a small actuator symbol beneath it.
+- **FM** – rectangular instrument box (right).
+- **B / Bottom product** – labeled outlet arrow at the far right.
+
+**2. Connections**
+
+- A solid line runs from the **LS** box to the bottom nozzle of the **Reboiler**.
+- A solid line runs from that same bottom nozzle down and into the pump **(a)** (arrowhead points into the circle).
+- A solid line runs from the top of pump **(a)** to the valve **(b)**.
+- A solid line runs from the valve **(b)** to the **FM** box.
+- A solid line with an arrowhead runs from **FM** to **B (Bottom product)**.
+- A dashed line runs from **LS** down to **LC**.
+- A dashed line runs from **LC** to the right and up to the actuator of valve **(b)**.
+
+**3. Uncertainties**
+
+- The diagram does not state the function of **LS**, **LC**, or **FM**; only their tags are shown.
+- The line between the Reboiler bottom and the pump **(a)** has no flow arrow; flow direction there is inferred only from the arrow inside the pump symbol.
+- The exact signal relationship between **LC** and the valve actuator **(b)** (e.g., whether it is a control signal) is not explained in the diagram.

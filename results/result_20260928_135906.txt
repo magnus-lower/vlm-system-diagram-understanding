@@ -1,0 +1,86 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_7.png
+Processed image: input/figure_7.png
+Context: False
+OCR: True
+Notation: False
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+For each connection, only use this format:
+
+Component A || Component B
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+OCR text from the diagram:
+
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- Front Tank (FT) – contains temperature sensor FTT and level sensor FTL
+- Rear Tank (RT) – contains temperature sensor RTT and level sensor RTL
+- Central Reservation Tank (CRT) – contains temperature sensor CRTT and level sensor CRTL
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+- FTV (valve)
+- FTP (pump)
+- FTF (flow meter)
+- CLF (flow meter)
+- CLP (pump)
+- CLV (valve)
+- CRF (flow meter)
+- CRP (pump)
+- CRV (valve)
+- RIV (valve)
+- RTP (pump)
+- RTF (flow meter)
+- CRPV (valve)
+- CRPP (pump)
+
+Connections:
+- Front Tank (FT) || FTV
+- FTV || FTP
+- FTP || FTF
+- FTF || Port Engine
+- Front Tank (FT) || CLF
+- CLF || CLP
+- CLP || CLV
+- CLV || Central Reservation Tank (CRT)
+- Central Reservation Tank (CRT) || CRV
+- CRV || CRP
+- CRP || CRF
+- CRF || Rear Tank (RT)
+- Rear Tank (RT) || RIV
+- RIV || RTP
+- RTP || RTF
+- RTF || Starboard Engine
+- Central Reservation Tank (CRT) || CRPV
+- CRPV || CRPP
+- CRPP || Refuelling Point

@@ -1,0 +1,14 @@
+Components:
+- Unlabeled component 1 (Tank)
+- Valve A
+- Valve B
+- Controller
+- X
+- Y
+
+Connections:
+- Unlabeled component 1 (Tank) || Valve A
+- Valve B || Unlabeled component 1 (Tank)
+- Controller || Valve B
+- Controller || X
+- Controller || Y

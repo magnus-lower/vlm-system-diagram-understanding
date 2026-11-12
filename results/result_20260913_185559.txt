@@ -1,0 +1,64 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_6_1.png
+Processed image: input/figure_6_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Reboiler** – a vertical vessel/tank at the top, shown partially filled with liquid (gray shading with a wavy surface line).
+- **LS** – a rectangular box on the left.
+- **LC** – a rectangular box at the bottom left.
+- **(a)** – a circular symbol with an internal arrow (pump‑like symbol) at the bottom center.
+- **(b)** – a valve symbol (bowtie shape) to the right of (a).
+- **FM** – a rectangular box to the right of the valve.
+- **B / Bottom product** – an arrow at the far right indicating an outlet stream.
+
+**2. Connections**
+
+- A solid line runs from the right side of **LS** to the bottom flange/connection of the **Reboiler**.
+- A solid line runs from the same bottom flange of the **Reboiler** downward and then rightward into the inlet of **(a)**.
+- A solid line runs from the outlet of **(a)** rightward into the inlet of the valve **(b)**.
+- A solid line runs from the outlet of valve **(b)** rightward into the left side of **FM**.
+- A solid line runs from the right side of **FM** to the arrow labeled **B (Bottom product)**.
+- A dashed line runs from the bottom of **LS** down to the top of **LC**.
+- A dashed line runs from the right side of **LC** horizontally to the right, then upward to the bottom of the valve **(b)**.
+
+**3. Uncertainties**
+
+- The meaning of the dashed lines (e.g., whether they represent control signals, measurement links, or something else) is not labeled in the diagram.
+- The exact function of the symbols labeled **(a)** and **(b)** is not stated; only their graphical shapes (a circle with an arrow, and a valve) are shown.
+- It is not explicit whether the solid line from **LS** to the Reboiler bottom is a measurement tap or a process line.
+- The internal arrow in **(a)** indicates a direction, but the type of device is not specified.
+- The liquid level in the Reboiler is shown only qualitatively (a wavy line); no value or scale is given.

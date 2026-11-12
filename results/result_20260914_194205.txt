@@ -1,0 +1,73 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: one-shot
+Image: input/figure_11_1.png
+Processed image: input/figure_11_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: True
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Now look at the new system diagram and describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the new image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **TK1** – Inert gas pressurization tank
+- **IV1** – Inert gas isolation valve
+- **RG1** – Inert gas pressure regulator
+- **CV1** – Inert gas check valve
+- **PT1** – Propellant tank with bladder
+- **IV2** – Thruster isolation valve
+- **IV3** – Thrust chamber inlet valve
+- **Catalyst** – located in the thruster inlet
+- **Thruster** – bell‑shaped nozzle at the bottom
+- **RV1, RV2, RV3, RV4** – Relief valves
+- **K1, K2, K3, K4, K5, K6** – circular symbols (relays/coils); K6 is labeled "Timer relay"
+- **S1, S2, S3** – switch symbols
+- Several small open circles on the main line (junction/telemetry points) and battery/ground symbols in the left control circuit
+
+**2. Connections**
+
+Main pressurization/flow path (right side, top to bottom):
+- TK1 bottom connects to a junction. From this junction one line goes right to **RV1**, and another line goes down through **IV1**, then **RG1**, then **CV1**, into the top of **PT1**.
+- A side line from the PT1 upper body goes right to **RV2**.
+- PT1 bottom connects to a junction. From this junction one line goes right to **RV3**, and another line goes down through **IV2**, then to a junction feeding **RV4**, then down through **IV3** into the thruster (with the **Catalyst** at the inlet).
+
+Control/relay circuit (left side, partially traced):
+- **S1** is connected by solid lines to **K2** and **K1**, and by dashed lines to the K2/K1 group.
+- **K1** connects by a solid line to the small circle on the main line between TK1 and IV1.
+- **K2** connects to a battery symbol and to **K3**.
+- **K3** connects to a battery symbol, to **S3**, and to the small circle on the main line between PT1 and IV2.
+- **S2** is connected to a 4‑way valve‑like symbol and to **K4**/**K5**.
+- **K5** and **K6** connect to the small circle on the main line near **IV3**.
+
+**3. Uncertainties**
+
+- The function of the small open circles on the main line (junctions vs. sensors/telemetry) is not labeled.
+- The dashed lines (e.g., from S1, from K3 to S3, from K4) represent control/signal links, but their exact meaning is not stated.
+- The exact wiring of the left‑hand relay/switch network (K1–K6, S1–S3, batteries) is dense; some individual connections are hard to trace unambiguously.
+- Flow direction is not explicitly marked on the main line (only the relief‑valve arrows and the check valve CV1 indicate direction).
+- The 4‑way symbol near S2/K4 is not labeled, so its role is unclear.

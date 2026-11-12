@@ -1,0 +1,45 @@
+Experiment: context zero-shot
+Model: moonshotai/Kimi-K2.6
+Temperature: 0
+Input: input/figure_10_1.png
+Prompt: prompts/zero_shot_image.txt
+Context: context/context_rules.txt
+Time: 2026-09-08 18:48:43
+
+--- MODEL OUTPUT ---
+
+ **1. Components**
+
+- Battery (upper left, two-cell symbol)
+- SWITCH S1
+- RELAY K1
+- RELAY K2
+- TIMER RELAY
+- PRESSURE SWITCH S
+- Battery (lower left, three-cell symbol)
+- MOTOR
+- PUMP
+- PRESSURE TANK
+- OUTLET VALVE
+- FROM RESERVOIR (labeled inlet/pipe)
+
+**2. Connections**
+
+- The upper Battery is connected to SWITCH S1.
+- SWITCH S1 is connected to RELAY K1 and RELAY K2.
+- RELAY K1, RELAY K2, and TIMER RELAY are connected through a control-circuit network that includes contact symbols, diode-like symbols (triangles), and a large rectangular loop line returning to the upper Battery.
+- A dashed line connects the right-hand side of this control-circuit network to PRESSURE SWITCH S.
+- PRESSURE SWITCH S is connected by a solid line to PRESSURE TANK.
+- The lower Battery is connected in a closed circuit with MOTOR; a switch in this circuit is linked by a dotted line to RELAY K2.
+- MOTOR is connected to PUMP by a line.
+- PUMP is connected by a line to PRESSURE TANK.
+- PUMP is connected by a line to the inlet labeled FROM RESERVOIR.
+- PRESSURE TANK is connected by a line to OUTLET VALVE.
+- OUTLET VALVE is connected to an outlet line continuing to the right.
+
+**3. Uncertainties**
+
+- The exact point-to-point wiring inside the upper control circuit—specifically how the coils of RELAY K1, RELAY K2, and TIMER RELAY interact with the adjacent contacts, the diode-like symbols, and the rectangular return line—is dense and cannot be traced with high confidence.
+- The nature of the dashed line between the control circuit and PRESSURE SWITCH S is not specified (e.g., electrical, signal, or sensing).
+- The line joining MOTOR and PUMP is present, but the diagram does not explicitly indicate whether it represents a mechanical shaft, an electrical link, or another type of coupling.
+- The large rectangular loop line appears to serve as a common return path for the upper control circuit, but its precise electrical relationship to every component inside the loop is not fully discernible.

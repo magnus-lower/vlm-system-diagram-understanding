@@ -1,0 +1,81 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: one-shot
+Image: input/figure_7.png
+Processed image: input/figure_7.png
+Context: False
+OCR: False
+Notation: False
+One-shot: True
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Now look at the new system diagram. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+For each connection, only use this format:
+
+Component A || Component B
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- Front Tank (FT)
+- Rear Tank (RT)
+- Central Reservation Tank (CRT)
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+- FTV
+- FTP
+- FTF
+- CLF
+- CLP
+- CLV
+- CRF
+- CRP
+- CRV
+- RIV
+- RTP
+- RTF
+- CRPV
+- CRPP
+
+Connections:
+- Front Tank (FT) || FTV
+- FTV || FTP
+- FTP || FTF
+- FTF || Port Engine
+- Front Tank (FT) || CLF
+- CLF || CLP
+- CLP || CLV
+- CLV || Central Reservation Tank (CRT)
+- Rear Tank (RT) || CRF
+- CRF || CRP
+- CRP || CRV
+- CRV || Central Reservation Tank (CRT)
+- Rear Tank (RT) || RIV
+- RIV || RTP
+- RTP || RTF
+- RTF || Starboard Engine
+- Central Reservation Tank (CRT) || CRPV
+- CRPV || CRPP
+- CRPP || Refuelling Point

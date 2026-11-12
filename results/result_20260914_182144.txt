@@ -1,0 +1,68 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_5_1.png
+Processed image: results\vectorized\figure_5_1.png
+Context: False
+OCR: False
+Vectorized: True
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Vessel / column** (top‑left): a vertical tank with a wavy liquid‑level line inside; its top is cut off by the image edge.
+- **LS** (circle): a level sensor at the bottom of the vessel.
+- **LC** (rectangle): a level controller.
+- **Control valve (top)** with an actuator dome labeled **(b)** above it.
+- **Pump (a)**: a circle with an internal arrow on a trapezoidal base.
+- **L / Reflux** line: a line with a left‑pointing arrow labeled "L" and the text "Reflux".
+- **FM (lower)**: a flow‑meter rectangle on the lower line.
+- **Control valve (lower)** with an actuator dome labeled **(b)** below it.
+- **FC** (rectangle, bottom): a flow controller (partially cut off at the bottom edge).
+- **FM (right)**: a second flow‑meter rectangle on the lower line.
+- **D / Distillate** line: a line ending in a right‑pointing arrow labeled "D" and the text "Distillate".
+
+**2. Connections**
+
+- The bottom of the **vessel** connects by a solid line to the **LS** circle.
+- The **LS** circle connects by a dashed line to the **LC** rectangle.
+- The **LC** rectangle connects by a dashed line down to the actuator **(b)** of the **top control valve**.
+- The left side of the **top control valve** connects to the **pump (a)**; the pump's other side connects to the **L / Reflux** line (leftward arrow).
+- The right side of the **top control valve** runs right, then down, and joins the lower horizontal line at a junction.
+- On the lower line, the **FM (lower)** connects to the **lower control valve**; the actuator **(b)** of that valve connects by a dashed line to the **FC** rectangle, and the **FC** also connects by a dashed line to the **FM (lower)**.
+- The outlet of the **lower control valve** runs right to the junction (where the top‑valve line joins), then continues right through the **FM (right)** and ends at the **D / Distillate** arrow.
+
+**3. Uncertainties**
+
+- The top of the vessel is cut off, so any overhead/condenser connection is not visible.
+- The left end of the **FM (lower)** appears to terminate at a small dot; the source of that line is not shown.
+- Flow directions are not explicitly marked on most lines (only the "L Reflux" and "D Distillate" arrows are labeled), so the intended process flow through the valves and pump is inferred from layout, not from arrows.
+- The **FC** box is partially cut off at the bottom edge, so any further connections from it are not visible.
+- The exact meaning of the labels "(a)" and "(b)" is not explained in the image.

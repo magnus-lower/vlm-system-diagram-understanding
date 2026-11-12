@@ -1,0 +1,143 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: two-stage
+Image: input/figure_9.png
+Processed image: input/figure_9.png
+Context: True
+OCR: False
+Notation: True
+One-shot: False
+DSPy: False
+Two-stage: True
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show physical connections between components in the process
+- Red lines show control or signal connections
+- A line can split into different branches
+- A point where a line splits or joins is not a component
+- Components can be connected in parallel
+- Parallel components can share the same inlet or outlet without being directly connected
+
+
+When you look at the system diagram, you have to follow these rules:
+
+- Only include components that are clearly visible in the diagram
+- Only include connections that can be clearly traced between components
+- Do not assume that two components are connected just because it would make sense
+- Do not guess what a component does if the diagram does not explain it
+- Do not add components or connections that are not shown
+- If something is unclear, do not guess
+- Do not identify lines or arrows as components
+- If several components share the same line, do not automatically assume that they are directly connected to each other
+- Do not automatically assume that components on parallel branches are directly connected
+
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components).
+
+
+Return only:
+
+Components:
+- ...
+
+
+Diagram notation:
+
+- Solid lines show physical connections between components in the process
+- Red lines show control or signal connections
+- A line can split into different branches
+- A point where a line splits or joins is not a component
+- Components can be connected in parallel
+- Parallel components can share the same inlet or outlet without being directly connected
+
+
+When you look at the system diagram, you have to follow these rules:
+
+- Only include components that are clearly visible in the diagram
+- Only include connections that can be clearly traced between components
+- Do not assume that two components are connected just because it would make sense
+- Do not guess what a component does if the diagram does not explain it
+- Do not add components or connections that are not shown
+- If something is unclear, do not guess
+- Do not identify lines or arrows as components
+- If several components share the same line, do not automatically assume that they are directly connected to each other
+- Do not automatically assume that components on parallel branches are directly connected
+
+
+Look at the system diagram in the image. The following system components
+were identified in the first stage:
+
+
+
+Components:
+- COMP (comparator/computer)
+- S1 (sensor)
+- S2 (sensor)
+- HEAT EXCHANGER (HX1)
+- HEAT EXCHANGER (HX2)
+- PRESSURE VESSEL
+- VALVE (V1)
+- P3 (pump)
+- TANK 2 (T2)
+- RELAY (R1)
+- FAN (F)
+- MOTOR (M)
+- TANK 1 (T1)
+- P1 (pump)
+- P2 (pump)
+
+
+Identify the connections between these components. Do not introduce new components or rename the existing ones.
+Only include a connection if it can be traced in the image. For each connection, only use this format:
+
+Component A || Component B
+
+
+Return only:
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- COMP (comparator/computer)
+- S1 (sensor)
+- S2 (sensor)
+- HEAT EXCHANGER (HX1)
+- HEAT EXCHANGER (HX2)
+- PRESSURE VESSEL
+- VALVE (V1)
+- P3 (pump)
+- TANK 2 (T2)
+- RELAY (R1)
+- FAN (F)
+- MOTOR (M)
+- TANK 1 (T1)
+- P1 (pump)
+- P2 (pump)
+
+
+
+Connections:
+- COMP || S1
+- COMP || S2
+- HEAT EXCHANGER (HX2) || VALVE (V1)
+- VALVE (V1) || P3
+- P3 || TANK 2 (T2)
+- PRESSURE VESSEL || TANK 2 (T2)
+- VALVE (V1) || RELAY (R1)
+- FAN (F) || MOTOR (M)
+- HEAT EXCHANGER (HX1) || P1
+- HEAT EXCHANGER (HX1) || P2
+- P1 || TANK 1 (T1)
+- P2 || TANK 1 (T1)
+- TANK 1 (T1) || PRESSURE VESSEL

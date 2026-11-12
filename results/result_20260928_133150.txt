@@ -1,0 +1,53 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: one-shot
+Image: input/figure_1.png
+Processed image: input/figure_1.png
+Context: False
+OCR: False
+Notation: False
+One-shot: True
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Now look at the new system diagram. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+For each connection, only use this format:
+
+Component A || Component B
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- Booster Fan (A)
+- Quench heat exchanger
+- Scrubber
+- (2) Scrubber Circulation Pumps (E,F)
+- (2) Quench Pumps (B,C)
+- Feedwater Pump (D)
+
+Connections:
+- Booster Fan (A) || Quench heat exchanger
+- Quench heat exchanger || Scrubber
+- (2) Quench Pumps (B,C) || Quench heat exchanger
+- Feedwater Pump (D) || Scrubber
+- Scrubber || (2) Scrubber Circulation Pumps (E,F)

@@ -1,0 +1,63 @@
+Experiment: context zero-shot
+Model: Qwen/Qwen3.8-27B-FP8
+Temperature: 0
+Input: input/figure_10_1.png
+Prompt: prompts/zero_shot_image.txt
+Context: context/context_rules.txt
+Time: 2026-09-08 18:39:44
+
+--- MODEL OUTPUT ---
+
+
+
+## 1. Components
+
+Components that are visibly present in the diagram (with the labels/IDs shown):
+
+- **Battery symbol** (top‑left, no label/ID)
+- **SWITCH S1** – a square box containing two switch/contact symbols (one top, one bottom)
+- **RELAY K1** – circle labeled "RELAY K1"
+- **RELAY K2** – circle labeled "RELAY K2"
+- **TIMER RELAY** – circle labeled "TIMER RELAY"
+- **Battery symbol** (lower‑left, no label/ID)
+- **Open switch symbol** (lower circuit, wavy blade, no label)
+- **Contact symbol** (lower circuit, two triangles, no label)
+- **MOTOR** – circle labeled "MOTOR" (drawn with a rectangle around it)
+- **PUMP** – circle labeled "PUMP"
+- **PRESSURE TANK** – vertical cylinder labeled "PRESSURE TANK"
+- **PRESSURE SWITCH S** – rectangle labeled "PRESSURE SWITCH S"
+- **OUTLET VALVE** – valve symbol labeled "OUTLET VALVE"
+- **Unlabeled diamond symbol** with a wavy line at the top‑right (no text label)
+- **"FROM RESERVOIR"** – a text label attached to a pipe line ending in a small loop (the reservoir itself is not drawn)
+
+## 2. Connections
+
+**Process / piping connections (solid lines, clearly visible):**
+- The line labeled **FROM RESERVOIR** connects to the left side of **PUMP**.
+- The right side of **PUMP** connects to the bottom of **PRESSURE TANK**.
+- The upper‑right side of **PRESSURE TANK** connects to the left side of **OUTLET VALVE**.
+- The right side of **PRESSURE SWITCH S** connects to the upper‑left side of **PRESSURE TANK**.
+- A solid line connects the right side of **MOTOR** to the top of **PUMP**.
+
+**Dashed lines (visible in the diagram):**
+- A dashed line runs from the right‑side node of the top control circuit to the left side of **PRESSURE SWITCH S**.
+- A dashed line runs from the top of **OUTLET VALVE** up to the unlabeled diamond symbol.
+- A dashed line runs from the bottom of **RELAY K2** down to the contact symbol in the lower motor circuit.
+- A dashed line runs from the top of **TIMER RELAY** up to the contact symbol associated with **RELAY K1**.
+
+**Top electrical / control circuit:**
+The top **battery**, **SWITCH S1**, **RELAY K1**, **RELAY K2**, and **TIMER RELAY** are interconnected through a control circuit (including the contact symbols and the long wire that loops from the battery over the top of the diagram to the right‑side node). The exact point‑to‑point wiring inside this circuit (in particular the internal connections of the **SWITCH S1** box and which lines feed the relay circles versus the contact symbols) cannot be traced with high confidence, so it is reported here only as a connected control circuit with the detailed wiring left uncertain.
+
+**Lower motor circuit:**
+The lower **battery**, the **open switch symbol**, the **contact symbol**, and **MOTOR** form a closed loop (battery → open switch → contact → motor → back to battery). The contact in this loop is linked by the dashed line noted above to **RELAY K2**.
+
+## 3. Uncertainties
+
+- The internal wiring of the **SWITCH S1** box (the two switch symbols and how their terminals tie to the box edges and to the rest of the circuit) is not fully traceable.
+- The diagram does not label which circles are relay coils and which triangle symbols are contacts; the dashed lines suggest an association, but the function of each symbol is not stated in the image.
+- The exact point‑to‑point connections of the top control circuit (battery, S1, K1, K2, TIMER RELAY) are uncertain and are therefore not listed individually.
+- The **unlabeled diamond symbol** with the wavy line at the top‑right has no name or ID; its identity is unknown.
+- The two **battery symbols** have no labels or IDs.
+- The solid line between **MOTOR** and **PUMP** does not indicate the type of connection (e.g., mechanical drive vs. electrical); only that a line joins them.
+- No flow direction is shown on any pipe or line (no arrows), so direction is not reported.
+- **"FROM RESERVOIR"** is only a label on a pipe stub; the reservoir component itself is not drawn.

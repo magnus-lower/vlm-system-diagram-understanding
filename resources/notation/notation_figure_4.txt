@@ -1,0 +1,7 @@
+Diagram notation:
+
+- Simplified symbols and shapes can represent parts of the system
+- Abbreviations can have specific meanings in the diagram
+- Lines between parts of the system can show physical connections
+- Lines between sensors, transmitters, indicators, and control equipment can show signal or control connections
+- Boxes or labels around parts of the diagram might show locations or areas, and not components

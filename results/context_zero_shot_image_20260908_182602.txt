@@ -1,0 +1,30 @@
+Experiment: context zero-shot
+Model: mistralai/Mistral-Medium-3.5-128B
+Temperature: 0
+Input: input/figure_2_3.png
+Prompt: prompts/zero_shot_image.txt
+Context: context/context_rules.txt
+Time: 2026-09-08 18:26:02
+
+--- MODEL OUTPUT ---
+
+1. Components
+- Fuel Supply
+- Block Valve A (BVA)
+- Block Valve B (BVB)
+- Control Valve A (CVA)
+- Control Valve B (CVB)
+- Motor
+
+2. Connections
+- Fuel Supply is connected to Block Valve A (BVA)
+- Fuel Supply is connected to Block Valve B (BVB)
+- Block Valve A (BVA) is connected to Control Valve A (CVA)
+- Block Valve B (BVB) is connected to Control Valve B (CVB)
+- Control Valve A (CVA) is connected to the Motor
+- Control Valve B (CVB) is connected to the Motor
+
+3. Uncertainties
+- The flow direction of fuel or control signals is not explicitly shown.
+- The exact function or type of the valves (e.g., whether they are normally open or closed) is not specified.
+- The diagram does not indicate whether the connections are electrical, mechanical, or fluid-based.

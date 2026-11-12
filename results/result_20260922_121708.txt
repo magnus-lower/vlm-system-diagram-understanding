@@ -1,0 +1,68 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_13_1.png
+Processed image: input/figure_13_1.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels, arrows or internal parts as separate components).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+For each connection, only use this format:
+
+Component A || Component B || line_style || connection_type || connection_role
+
+Use "none" as the connection_role  when no connection role is needed.
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- Redundant Bus
+- A1
+- A2
+- Cold Spare A
+- Memory Interface Unit 1
+- Memory Interface Unit 2
+- M1
+- M2
+- M3
+- M4
+- M5
+- Operator console, Operator, & Software
+
+Connections:
+- Redundant Bus || A1 || solid || connection || none
+- Redundant Bus || A2 || solid || connection || none
+- Redundant Bus || Cold Spare A || solid || connection || none
+- Redundant Bus || Memory Interface Unit 1 || solid || connection || none
+- Redundant Bus || Memory Interface Unit 2 || solid || connection || none
+- Redundant Bus || Operator console, Operator, & Software || solid || connection || none
+- Memory Interface Unit 1 || M1 || solid || connection || none
+- Memory Interface Unit 1 || M2 || solid || connection || none
+- Memory Interface Unit 1 || M3 || solid || connection || none
+- Memory Interface Unit 2 || M3 || solid || connection || none
+- Memory Interface Unit 2 || M4 || solid || connection || none
+- Memory Interface Unit 2 || M5 || solid || connection || none

@@ -1,0 +1,31 @@
+Experiment: context zero-shot
+Model: moonshotai/Kimi-K2.6
+Temperature: 0
+Input: input/figure_3_2.png
+Prompt: prompts/zero_shot_image.txt
+Context: context/context_rules.txt
+Time: 2026-09-08 18:46:10
+
+--- MODEL OUTPUT ---
+
+ 1. Components
+- BATTERY
+- PUSHBUTTON
+- SWITCH
+- SOLENOID
+- BELL
+- CLAPPER
+
+2. Connections
+- A wire connects the BATTERY to the left black dot of the SWITCH.
+- A wire connects the right black dot of the SWITCH to the left side of the SOLENOID.
+- A wire connects the right side of the SOLENOID back to the BATTERY.
+- A dotted line connects the PUSHBUTTON to the SWITCH.
+- A solid line connects the CLAPPER to the SOLENOID.
+
+3. Uncertainties
+- Whether PUSHBUTTON and SWITCH are two separate components or two labels for the same component, since both labels appear adjacent to the same contact assembly.
+- Whether the dotted line between PUSHBUTTON and SWITCH indicates a mechanical linkage, an electrical connection, or some other relationship.
+- Whether the line connecting CLAPPER to SOLENOID is mechanical or electrical in nature.
+- The BELL is drawn near the CLAPPER but has no visible line connecting it to any other component; its exact relationship to the rest of the system is not explicitly shown.
+- The two black dots of the SWITCH are separated by a visible gap; the intended behavior of that gap is not explicitly defined in the diagram.

@@ -1,0 +1,70 @@
+Model: zai-org/GLM-5.3-Flash
+Method: Literature Baseline - run 4
+Image: input/figure_1.png
+Processed image: input/figure_1.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+Two-stage: False
+
+--- PROMPT ---
+
+Express the attached System Diagram in JSON format as shown
+below. Include component labels and connections, including their directions, exactly as they
+appear in the diagram. If no direction is explicitly shown, set "directed" to false.
+
+{
+  "nodes": [
+    {"id": "A"},
+    {"id": "B"},
+    {"id": "C"}
+  ],
+  "edges": [
+    {"source": "A", "target": "B", "directed": true},
+    {"source": "B", "target": "C", "directed": false}
+  ]
+}
+
+--- RAW JSON ---
+
+```json
+{
+  "nodes": [
+    {"id": "Tail Gas (inlet stream)"},
+    {"id": "Booster Fan (A)"},
+    {"id": "Quench Tower"},
+    {"id": "(2) Quench Pumps (B,C)"},
+    {"id": "Feedwater Pump (D)"},
+    {"id": "Scrubber"},
+    {"id": "(2) Scrubber Circulation Pumps (E,F)"},
+    {"id": "To Absorber (outlet stream)"},
+    {"id": "Purge Stream (outlet stream)"}
+  ],
+  "edges": [
+    {"source": "Tail Gas (inlet stream)", "target": "Booster Fan (A)", "directed": true},
+    {"source": "Booster Fan (A)", "target": "Quench Tower", "directed": true, "label": "Tail Gas"},
+    {"source": "(2) Quench Pumps (B,C)", "target": "Quench Tower", "directed": true, "label": "Quench water"},
+    {"source": "Quench Tower", "target": "Scrubber", "directed": true},
+    {"source": "Feedwater Pump (D)", "target": "Scrubber", "directed": true, "label": "Feed water"},
+    {"source": "Scrubber", "target": "(2) Scrubber Circulation Pumps (E,F)", "directed": true},
+    {"source": "(2) Scrubber Circulation Pumps (E,F)", "target": "Scrubber", "directed": true},
+    {"source": "(2) Scrubber Circulation Pumps (E,F)", "target": "Purge Stream (outlet stream)", "directed": true, "label": "Purge Stream"},
+    {"source": "Scrubber", "target": "To Absorber (outlet stream)", "directed": true, "label": "To Absorber"}
+  ]
+}
+```
+
+**Notes on the diagram interpretation:**
+- **Booster Fan (A)** receives the incoming tail gas stream and sends it through the hatched quench tower component into the **Scrubber**.
+- **(2) Quench Pumps (B,C)** feed "Quench water" upward into the quench tower.
+- **Feedwater Pump (D)** feeds "Feed water" into the line entering the **Scrubber**.
+- **(2) Scrubber Circulation Pumps (E,F)** draw from the Scrubber and recirculate back into it, with a branch leaving as the **Purge Stream**.
+- The Scrubber vents upward **To Absorber**.
+- All connections show explicit arrowheads, so every edge is marked `"directed": true`.
+
+--- MODEL OUTPUT ---
+
+Components:
+
+Connections:

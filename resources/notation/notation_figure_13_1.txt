@@ -1,0 +1,7 @@
+Diagram notation:
+
+- Boxes can represent components in the system
+- Multiple components can share the same connection
+- Components that are connected to the same shared connection are not necessarily connected to each other
+- Solid lines show connections between components or between a component and a shared connection
+- A line that splits from a shared connection is not a separate component

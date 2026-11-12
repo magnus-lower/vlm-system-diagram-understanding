@@ -1,0 +1,86 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: Literature Baseline - run 3
+Image: input/figure_1.png
+Processed image: input/figure_1.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+Two-stage: False
+
+--- PROMPT ---
+
+Express the attached System Diagram in JSON format as shown
+below. Include component labels and connections, including their directions, exactly as they
+appear in the diagram. If no direction is explicitly shown, set "directed" to false.
+
+{
+  "nodes": [
+    {"id": "A"},
+    {"id": "B"},
+    {"id": "C"}
+  ],
+  "edges": [
+    {"source": "A", "target": "B", "directed": true},
+    {"source": "B", "target": "C", "directed": false}
+  ]
+}
+
+--- RAW JSON ---
+
+
+
+```json
+{
+  "nodes": [
+    {"id": "Booster Fan (A)"},
+    {"id": "Tail Gas"},
+    {"id": "Quench water"},
+    {"id": "(2) Quench Pumps (B,C)"},
+    {"id": "Feed water"},
+    {"id": "Feedwater Pump (D)"},
+    {"id": "Scrubber"},
+    {"id": "(2) Scrubber Circulation Pumps (E,F)"},
+    {"id": "To Absorber"},
+    {"id": "Purge Stream"}
+  ],
+  "edges": [
+    {"source": "Booster Fan (A)", "target": "Tail Gas", "directed": true},
+    {"source": "Tail Gas", "target": "Scrubber", "directed": true},
+    {"source": "Quench water", "target": "(2) Quench Pumps (B,C)", "directed": true},
+    {"source": "(2) Quench Pumps (B,C)", "target": "Scrubber", "directed": true},
+    {"source": "Feed water", "target": "Feedwater Pump (D)", "directed": true},
+    {"source": "Feedwater Pump (D)", "target": "Scrubber", "directed": true},
+    {"source": "Scrubber", "target": "To Absorber", "directed": true},
+    {"source": "Scrubber", "target": "(2) Scrubber Circulation Pumps (E,F)", "directed": true},
+    {"source": "(2) Scrubber Circulation Pumps (E,F)", "target": "Scrubber", "directed": true},
+    {"source": "(2) Scrubber Circulation Pumps (E,F)", "target": "Purge Stream", "directed": false}
+  ]
+}
+```
+
+--- MODEL OUTPUT ---
+
+Components:
+- Booster Fan (A)
+- Tail Gas
+- Quench water
+- (2) Quench Pumps (B,C)
+- Feed water
+- Feedwater Pump (D)
+- Scrubber
+- (2) Scrubber Circulation Pumps (E,F)
+- To Absorber
+- Purge Stream
+
+Connections:
+- Booster Fan (A) -> Tail Gas
+- Tail Gas -> Scrubber
+- Quench water -> (2) Quench Pumps (B,C)
+- (2) Quench Pumps (B,C) -> Scrubber
+- Feed water -> Feedwater Pump (D)
+- Feedwater Pump (D) -> Scrubber
+- Scrubber -> To Absorber
+- Scrubber -> (2) Scrubber Circulation Pumps (E,F)
+- (2) Scrubber Circulation Pumps (E,F) -> Scrubber
+- (2) Scrubber Circulation Pumps (E,F) || Purge Stream

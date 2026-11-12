@@ -1,0 +1,160 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_11_1.png
+Processed image: input/figure_11_1.png
+Context: True
+OCR: True
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: True
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show visible connections between components. Depending on the diagram, these can be electrical, physical, or fluid connections.
+- Dashed lines can represent control or signal connections.
+- Labels such as K1, K2, etc. can refer to relays.
+- Labels such as S1, S2, etc. can refer to switches or switch contacts.
+- FC can mean flow controller.
+- FM can mean flow meter.
+- LC can mean level controller.
+- LS can mean level sensor.
+- Valve symbols are usually placed directly on fluid lines.
+- RV can mean relief valve.
+- IV can mean isolation valve.
+- CV can mean check valve.
+- Pumps can be connected directly to fluid lines.
+- Tanks, vessels, and reboilers can be shown using container-like shapes.
+- Arrows can show direction when they are clearly visible.
+- A bus can be shown as one or more shared lines connected to several components.
+- Components that are connected to the same bus are not necessarily directly connected to each other.
+- A line that splits can show one connection branching into several paths.
+
+Do not assume the direction of flow unless it is clearly shown.
+Do not guess the control logic if the connections are difficult to trace.
+
+
+When interpreting the system diagram:
+
+- Only include components that are clearly visible in the diagram.
+- Only describe connections that can be seen in the diagram.
+- Do not assume that two components are connected just because it would make sense.
+- Do not guess the direction of flow unless it is clearly shown.
+- Do not guess what a component does if the diagram does not explain it.
+- Do not add components that are not shown.
+- If something is unclear, put it under Uncertainties instead of guessing.
+- Prefer a simple and careful answer over a detailed answer that may be wrong.
+- If a control circuit or control system is hard to follow, do not guess the exact connections.
+- Only describe a specific connection if both ends can be clearly traced in the diagram.
+- If several components connect to the same bus or common line, do not assume that they are directly connected to each other.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+OCR text from the diagram:
+1 _l_ 1 Inert gas pressurization
+TK
+A A KI tank
+K2 C) Relief valve
+; RVI
+'
+VV t oo.
+—— ! Inert gas isolation
+! H valve IV1
+=> toon '
+Inert gas pressure
+K3 regulator RG1
+©) Inert gas check
+valve CV1
+' Relief
+! valve RV2
+A Propellant tank
+with bladder
+53 pri Relief
+bon nnnnenne valve RV3
+Thruster isolation
+C valve
+Iv2
+b V_V
+| > H S2 Timer relay! Relief valve
+K6 a7 RV4
+i
+LY
+' K5 a Thrust chamber inlet
+! valve
+aa K4 Iv3
+It Catalyst
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+Process / fluid side (right of diagram):
+- **TK1** – Inert gas pressurization tank
+- **RV1** – Relief valve (top right, with discharge arrow)
+- **IV1** – Inert gas isolation valve
+- **RG1** – Inert gas pressure regulator
+- **CV1** – Inert gas check valve
+- **PT1** – Propellant tank with bladder
+- **RV2** – Relief valve (top side of PT1)
+- **RV3** – Relief valve (bottom side of PT1)
+- **IV2** – Thruster isolation valve
+- **RV4** – Relief valve (downstream of IV2)
+- **IV3** – Thrust chamber inlet valve
+- **Catalyst** – hatched element inside the thruster inlet
+- Thruster (bell‑shaped outlet at the bottom)
+
+Control / electrical side (left of diagram):
+- **S1** – switch (two contact sets, top)
+- **S2** – switch (left middle)
+- **S3** – switch (middle)
+- **K1, K2, K3, K4, K5** – relays (circles)
+- **K6** – Timer relay (circle, labelled "Timer relay")
+- Battery / power‑source symbols (parallel‑line symbols) in the control wiring
+- Small circles adjacent to IV1, IV2 and IV3 (valve actuator/solenoid symbols)
+
+**2. Connections**
+
+Process (fluid) line, traced top to bottom on the right:
+- TK1 bottom → IV1 → RG1 → CV1 → top of PT1.
+- A branch from the line at the top of PT1 → RV2.
+- Bottom of PT1 → RV3 (branch) and continues down → IV2.
+- Downstream of IV2 a branch → RV4, and the line continues → IV3 → into the thruster at the Catalyst.
+- TK1 also has a side branch → RV1.
+
+Control connections that can be clearly traced:
+- The right side of relay **K1** connects by a line to the actuator circle next to **IV1**.
+- The actuator circle next to **IV2** connects to a contact set associated with the **K6** timer‑relay area.
+- The actuator circle next to **IV3** connects to the control wiring on its left (toward the K5/K6 contact sets).
+- S1, S2, S3 contact sets and the K‑relay coils are wired together with the battery symbols in the left‑hand control circuit.
+
+**3. Uncertainties**
+
+- The exact wiring of the left‑hand control circuit (how S1, S2, S3, K1–K6 and the battery symbols interconnect, and which relay coil drives which valve actuator) is difficult to trace unambiguously; I have not assigned specific coil‑to‑valve pairings beyond the clearly visible K1→IV1 line.
+- The function of the small circles beside IV1, IV2, IV3 (valve actuators vs. other elements) is inferred from position, not labelled.
+- Flow direction is not explicitly arrowed on the main process line; the top‑to‑bottom sequence above is the only visible path, not a confirmed flow direction.
+- The dashed lines (e.g., from S1 to the left edge, and from K3 to a contact set) represent control/signal links whose exact endpoints are not all clearly resolvable.

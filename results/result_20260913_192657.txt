@@ -1,0 +1,71 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_5_1.png
+Processed image: input/figure_5_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Tank / vessel** (top left): an open‑top container holding liquid (gray fill with a wavy liquid‑level line). No tag/ID is shown.
+- **LS** (circle): a level sensor/transmitter located on the line at the bottom of the tank.
+- **LC** (rectangle): a level controller.
+- **Valve actuator (b)** (dome/triangle symbol) mounted on the **upper control valve** (bowtie symbol) in the line leaving the pump.
+- **Pump (a)** (circle with internal arrow and a support base).
+- **FM** (rectangle): a flow meter on the reflux line (left side).
+- **FC** (rectangle): a flow controller at the bottom.
+- **Valve actuator (b)** (dome/triangle symbol) mounted on the **lower control valve** (bowtie symbol) on the reflux line.
+- **FM** (rectangle): a flow meter on the distillate line (right side).
+- **Process labels:** "L Reflux" (left‑pointing arrow) and "D Distillate" (right‑pointing arrow).
+
+**2. Connections**
+
+*Process (solid) lines:*
+- The tank bottom outlet connects to the **LS** and continues down and right into the **pump (a)**.
+- The pump discharge goes right into the **upper control valve** (the one with the LC‑driven actuator (b)).
+- The outlet of that upper valve goes right, then down, to a **junction point**.
+- From the junction, one branch goes left through the **lower control valve** (FC‑driven actuator (b)), then through the left **FM**, and out to **L Reflux**.
+- From the same junction, the other branch goes right through the right **FM** and out to **D Distillate**.
+
+*Instrument/signal (dashed) lines:*
+- **LS → LC** (level signal to the level controller).
+- **LC → upper valve actuator (b)** (control signal).
+- **Left FM → FC** (flow signal to the flow controller).
+- **FC → lower valve actuator (b)** (control signal).
+
+**3. Uncertainties**
+
+- The tank has no tag or ID; it is identified only by its shape.
+- The labels "(a)" and "(b)" are not standard tag numbers; their exact meaning (e.g., whether the two "(b)" actuators are the same device/type or just a repeated annotation) is not stated in the diagram.
+- The exact flow direction through the upper valve and the split at the junction is inferred from line geometry and the arrow labels; the diagram does not show flow arrows on the internal lines, so the intended split ratio or control scheme is not explicit.
+- Whether the LS is a direct tap on the tank‑to‑pump line or a separate instrument connection is not fully clear from the drawing.

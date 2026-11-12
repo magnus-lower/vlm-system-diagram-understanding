@@ -1,0 +1,11 @@
+Diagram notation:
+
+- Solid lines show connections between components
+- Arrows show the direction of flow
+- Parts of the system can be represented by simplified figures
+- A larger shape can represent a larger part of the system
+- A separate symbol on a line can represent a component even if it has no label
+- Labels along connection lines can describe flows or other information and are not necessarily components
+- A line can split or join without creating a new component
+- A line can form a loop and connect back to the system
+- Multiple similar components which are shown together under the same label can be seen as one component group

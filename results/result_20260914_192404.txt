@@ -1,0 +1,82 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: DSPy
+Image: input/figure_13_1.png
+Processed image: input/figure_13_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: True
+Notation: False
+
+--- PROMPT ---
+
+You are a certified plant-engineering documentation specialist. The structured description you produce will be handed to a safety-inspection and emergency-response team who, in the next 30 minutes, must execute a live maintenance shutdown on this exact system. A single misidentified valve, a missed parallel branch, or an unflagged ambiguity in your description could cause an operator to isolate the wrong line, leading to a catastrophic fuel release or uncontrolled motor startup. Precision and honesty are therefore non-negotiable: you must report only what is unambiguously visible in the diagram and explicitly flag everything you cannot confirm.
+
+Examine the provided engineering schematic image carefully and produce a textual description using **exactly** the following three numbered sections. Do not add any preamble, title, or closing remark—begin directly with "1. Components".
+
+**1. Components**
+Provide an itemized bulleted list of every labeled object visible in the diagram. For each component, state:
+- Its full name and, if present, its short tag/abbreviation (e.g., "BLOCK VALVE A (BVA)").
+- The type of graphical symbol used to represent it (e.g., rectangular block, bowtie/manual valve, valve with a semicircular actuator, circle, triangle, etc.).
+- Its positional location within the layout (e.g., "far left," "far right," "upper branch," "lower branch," "center," "top," "bottom").
+- The exact text labels associated with it and where they appear relative to the symbol (e.g., "labeled 'FUEL SUPPLY' inside the block," "labeled 'BLOCK VALVE A' above and 'BVA' below").
+
+**2. Connections**
+Describe every line, pipe, or conduit that links the components. For each connection or group of connections, specify:
+- Where the line originates and where it terminates.
+- Any junctions or split points where a single line divides into multiple branches (note the number and orientation of branches, e.g., "splits into two parallel horizontal branches, upper and lower").
+- The sequential (series) order of components along each branch (e.g., "the line passes through BVA, then continues through CVA").
+- Any recombination points where branches merge back into a single line.
+- A brief topological summary of the overall flow path (e.g., "the fuel supply feeds the motor via two parallel paths, each containing a block valve in series with a control valve").
+
+**3. Uncertainties**
+List every detail that is absent, ambiguous, or not explicitly indicated in the diagram. Use bullet points. Typical items to check for and report if missing include:
+- Flow-direction arrows on any line.
+- Specific actuator type, size, or control mode for valves that show a generic actuator symbol.
+- Pipe sizing, line numbers, pressure ratings, temperature, or other process parameters.
+- Any label that is partially obscured, too small to read confidently, or that you are unsure of.
+- Any component or connection you could not identify with certainty.
+
+**Critical rules:**
+- Describe ONLY what is visible in the provided image. Do not infer, assume, or fill in information from external knowledge, standard practice, or the diagram's likely real-world application.
+- If a label is illegible or a symbol is ambiguous, state your uncertainty explicitly in the Uncertainties section rather than guessing.
+- Use the exact text labels as they appear in the diagram (preserve capitalization, spacing, and punctuation).
+- Maintain the three-section structure in the order shown above. Do not merge, reorder, or omit any section.
+
+Now analyze the diagram below and produce the structured description.
+
+--- MODEL OUTPUT ---
+
+
+
+1. Components
+- **A1** – square (rectangular) block on the far left; label "A1" centered inside the block.
+- **A2** – square (rectangular) block on the lower left, positioned slightly below and to the right of A1 such that its upper-left corner overlaps A1's lower-right corner; label "A2" appears near the top-left inside the block.
+- **Cold Spare A** – square (rectangular) block left-of-center; label "Cold Spare A" on two centered lines inside the block.
+- **Memory Interface Unit 1** – square (rectangular) block in the center; label "Memory Interface Unit 1" on three centered lines inside the block.
+- **Memory Interface Unit 2** – square (rectangular) block right-of-center; label "Memory Interface Unit 2" on three centered lines inside the block.
+- **Operator console, Operator, & Software** – rounded-corner rectangle on the far right; label "Operator console, Operator, & Software" on three centered lines inside the block.
+- **M1** – small square block at the bottom, left of center; label "M1" centered inside.
+- **M2** – small square block at the bottom, center; label "M2" centered inside.
+- **M3** – small square block at the bottom, center-right; label "M3" centered inside.
+- **M4** – small square block at the bottom, right of center; label "M4" centered inside.
+- **M5** – small square block at the bottom, far right; label "M5" centered inside.
+- **Redundant Bus** – two parallel horizontal lines running across the top of the diagram; label "Redundant Bus" to the right of the lines, between them.
+
+2. Connections
+- The **Redundant Bus** is drawn as two parallel horizontal lines spanning the full width of the diagram.
+- Each of the blocks A1, A2, Cold Spare A, Memory Interface Unit 1, Memory Interface Unit 2, and the Operator console block is connected upward to the bus by a pair of vertical lines (one line to each of the two horizontal bus lines). From left to right these vertical tap pairs are: A1, A2, Cold Spare A, Memory Interface Unit 1, Memory Interface Unit 2, and Operator console.
+- **Memory Interface Unit 1** connects downward to three small blocks: a diagonal line from its lower-left corner to the top of **M1**, a vertical line from its bottom edge to the top of **M2**, and a diagonal line from its lower-right corner to the top of **M3**.
+- **Memory Interface Unit 2** connects downward to two small blocks: a diagonal line from its lower-left corner to the top of **M4**, and a diagonal line from its lower-right corner to the top of **M5**.
+- **Topological summary:** A single redundant bus (two parallel horizontal lines) feeds, in parallel, the blocks A1, A2, Cold Spare A, Memory Interface Unit 1, Memory Interface Unit 2, and the Operator console block. Memory Interface Unit 1 further fans out to M1, M2, M3; Memory Interface Unit 2 fans out to M4, M5. No lines are shown connecting A1, A2, Cold Spare A, or the Operator console block to the M-blocks or to each other.
+
+3. Uncertainties
+- No flow-direction arrows are present on any line; the direction of signal/flow is not indicated.
+- The bus is drawn as two parallel horizontal lines, but the exact point at which each component's vertical line taps the upper versus lower bus line is not explicitly marked; the pairing of the two vertical lines per component to the two bus lines is inferred from their vertical alignment.
+- No line numbers, pipe/conduit sizing, pressure, temperature, or other process parameters are shown.
+- No actuator types, control modes, or valve symbols are present; the diagram contains only blocks and lines.
+- The A1 and A2 blocks overlap; the precise boundary of each block and whether they share a connection point is ambiguous.
+- The vertical lines for A1 and A2 are closely spaced and partially overlap in the drawing; their individual attachment points to the bus are not clearly distinguishable.
+- No legend, title block, scale, or revision information is visible.
+- The function or meaning of the labels (e.g., "Cold Spare A", "M1"–"M5") is not defined within the diagram.

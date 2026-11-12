@@ -1,0 +1,84 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_2_2.png
+Processed image: input/figure_2_2.png
+Context: False
+OCR: True
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+OCR text from the diagram:
+Condenser
+
+Cooling water
+
+Top product
+
+oo000000
+eooo000000
+
+Reboiler
+
+Bottom product
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Condenser** – heat‑exchanger box at the top with horizontal tube lines.
+- **Cooling water** – labeled line with an inlet arrow (entering the condenser) and an outlet arrow (leaving the condenser).
+- **Reflux drum / receiver** – small vertical vessel directly below the condenser (not explicitly labeled in the diagram).
+- **Top product** – labeled outlet line from the reflux drum.
+- **Reflux** – labeled line returning liquid from the drum to the top of the column.
+- **Distillation column** – tall vertical vessel containing several horizontal gray bands (trays/packing, drawn with small circles), with red upward arrows (vapor) and blue downward arrows (liquid) inside.
+- **Feed** – labeled inlet line entering the middle of the column.
+- **Reboiler** – vessel at the bottom left containing a zig‑zag coil.
+- **Steam** – labeled inlet line to the reboiler.
+- **Bottom product** – labeled outlet line from the reboiler.
+
+**2. Connections**
+
+- **Cooling water** line enters the left side of the **Condenser** and a second cooling‑water line exits the left side of the Condenser.
+- The top of the **column** is connected by a pipe to the right side of the **Condenser** (vapor path from column top to condenser).
+- The **Condenser** connects downward to the small **reflux drum**.
+- The **reflux drum** has two outlets: one line goes left to **Top product**, and one line goes right to **Reflux**, which enters the top tray of the **column**.
+- **Feed** enters the **column** at its mid‑height (at one of the middle trays).
+- The bottom of the **column** connects by a pipe to the **Reboiler**.
+- **Steam** enters the **Reboiler**; an unlabeled line exits the left side of the Reboiler.
+- The **Reboiler** connects by a pipe back to the bottom of the **column**, and the **Bottom product** line branches off from the reboiler's lower piping.
+
+**3. Uncertainties**
+
+- The small vessel below the condenser is not labeled; I have called it a "reflux drum/receiver" based on its position, but the diagram gives it no name.
+- The left‑pointing arrow leaving the **Reboiler** (likely steam/condensate out) has no label.
+- The exact number of trays and the precise feed stage are not labeled; the feed is only shown entering at a middle tray.
+- The internal red (up) and blue (down) arrows indicate vapor/liquid flow directions but are not individually labeled.
+- It is not entirely clear from the drawing whether the pipe from the condenser's right side carries vapor *to* the condenser or condensate *to* the column; the arrow direction on that segment is not explicit.

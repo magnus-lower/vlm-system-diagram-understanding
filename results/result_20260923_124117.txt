@@ -1,0 +1,66 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_5_1.png
+Processed image: input/figure_5_1.png
+Context: False
+OCR: True
+Notation: False
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+For each connection, only use this format:
+
+Component A || Component B
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+OCR text from the diagram:
+Distillate
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- Tank (vessel)
+- LS (level sensor)
+- LC (level controller)
+- Valve (b) (top)
+- Pump (a)
+- FM (reflux flow meter)
+- FC (flow controller)
+- Valve (b) (bottom)
+- FM (distillate flow meter)
+
+Connections:
+- Tank || LS
+- Tank || Pump (a)
+- LS || LC
+- LC || Valve (b) (top)
+- Pump (a) || Valve (b) (top)
+- Valve (b) (top) || Valve (b) (bottom)
+- Valve (b) (top) || FM (distillate)
+- Valve (b) (bottom) || FM (reflux)
+- FM (reflux) || FC
+- FC || Valve (b) (bottom)

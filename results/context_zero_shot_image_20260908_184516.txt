@@ -1,0 +1,28 @@
+Experiment: context zero-shot
+Model: moonshotai/Kimi-K2.6
+Temperature: 0
+Input: input/figure_2_3.png
+Prompt: prompts/zero_shot_image.txt
+Context: context/context_rules.txt
+Time: 2026-09-08 18:45:16
+
+--- MODEL OUTPUT ---
+
+ 1. Components
+- FUEL SUPPLY
+- BLOCK VALVE A (labeled BVA)
+- CONTROL VALVE A (labeled CVA, with a dome actuator symbol above the valve body)
+- BLOCK VALVE B (labeled BVB)
+- CONTROL VALVE B (labeled CVB, with a dome actuator symbol above the valve body)
+- MOTOR
+
+2. Connections
+- A single line from FUEL SUPPLY leads to a junction that splits into an upper path and a lower path.
+- Upper path: a line connects the junction to BVA; a line connects BVA to CVA; a line connects CVA to a vertical line segment on the right side of the diagram.
+- Lower path: a line connects the junction to BVB; a line connects BVB to CVB; a line connects CVB to the same vertical line segment on the right side.
+- A line connects that right-side vertical line segment to MOTOR.
+
+3. Uncertainties
+- No arrows or other indicators of flow direction are shown.
+- The right-side vertical line segment functions as a common connection point for CVA, CVB, and MOTOR, but the diagram does not specify whether this represents a simple intersection, a header, or a manifold.
+- The dome symbols above CVA and CVB indicate actuators, but no control lines, signals, or auxiliary connections to those actuators are visible.

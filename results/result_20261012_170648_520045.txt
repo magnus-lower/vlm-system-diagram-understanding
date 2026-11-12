@@ -1,0 +1,90 @@
+Model: moonshotai/Kimi-K2.6
+Method: zero-shot - run 2
+Image: input/figure_1.png
+Processed image: input/figure_1.png
+Context: True
+OCR: False
+Notation: True
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show connections between components
+- Arrows show the direction of flow
+- Parts of the system can be represented by simplified figures
+- A larger shape can represent a larger part of the system
+- A separate symbol on a line can represent a component even if it has no label
+- Labels along connection lines can describe flows or other information and are not necessarily components
+- A line can split or join without creating a new component
+- A line can form a loop and connect back to the system
+- Multiple similar components which are shown together under the same label can be seen as one component group
+
+
+When you look at the system diagram, you have to follow these rules:
+
+- Only include components that are clearly visible in the diagram
+- Only include connections that can be clearly traced between components
+- Do not assume that two components are connected just because it would make sense
+- Do not guess what a component does if the diagram does not explain it
+- Do not add components or connections that are not shown
+- If something is unclear, do not guess
+- Do not identify lines or arrows as components
+- Only include the direction of a connection when it is explicitly shown in the diagram
+- If several components share the same line, do not automatically assume that they are directly connected to each other
+- Do not automatically assume that components on parallel branches are directly connected
+
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+If a component has a visible name or ID, use only that name or ID.
+Do not add the component type in parentheses.
+Do not list labels or arrows as separate components. If a component has no visible name or label, call it
+"Unlabeled component 1", "Unlabeled component 2", etc. If you can recognize what the unlabeled component appears to be,
+add the type in parentheses).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+If the diagram explicitly shows a direction from one component to another, use:
+
+Component A -> Component B
+
+If the components are connected but no direction is explicitly shown, use:
+
+Component A || Component B
+
+Do not guess the direction of a connection.
+Only use component names that appear in the Components list.
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+ Components:
+- Booster Fan (A)
+- Unlabeled component 1 (heat exchanger)
+- (2) Quench Pumps (B,C)
+- Feedwater Pump (D)
+- Scrubber
+- (2) Scrubber Circulation Pumps (E,F)
+
+Connections:
+- Booster Fan (A) -> Unlabeled component 1 (heat exchanger)
+- Unlabeled component 1 (heat exchanger) -> Scrubber
+- (2) Quench Pumps (B,C) -> Scrubber
+- Feedwater Pump (D) -> Scrubber
+- Scrubber || (2) Scrubber Circulation Pumps (E,F)
+- (2) Scrubber Circulation Pumps (E,F) -> Scrubber

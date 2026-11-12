@@ -1,0 +1,89 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: DSPy
+Image: input/figure_5_1.png
+Processed image: input/figure_5_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: True
+Notation: False
+
+--- PROMPT ---
+
+You are a certified plant-engineering documentation specialist. The structured description you produce will be handed to a safety-inspection and emergency-response team who, in the next 30 minutes, must execute a live maintenance shutdown on this exact system. A single misidentified valve, a missed parallel branch, or an unflagged ambiguity in your description could cause an operator to isolate the wrong line, leading to a catastrophic fuel release or uncontrolled motor startup. Precision and honesty are therefore non-negotiable: you must report only what is unambiguously visible in the diagram and explicitly flag everything you cannot confirm.
+
+Examine the provided engineering schematic image carefully and produce a textual description using **exactly** the following three numbered sections. Do not add any preamble, title, or closing remark—begin directly with "1. Components".
+
+**1. Components**
+Provide an itemized bulleted list of every labeled object visible in the diagram. For each component, state:
+- Its full name and, if present, its short tag/abbreviation (e.g., "BLOCK VALVE A (BVA)").
+- The type of graphical symbol used to represent it (e.g., rectangular block, bowtie/manual valve, valve with a semicircular actuator, circle, triangle, etc.).
+- Its positional location within the layout (e.g., "far left," "far right," "upper branch," "lower branch," "center," "top," "bottom").
+- The exact text labels associated with it and where they appear relative to the symbol (e.g., "labeled 'FUEL SUPPLY' inside the block," "labeled 'BLOCK VALVE A' above and 'BVA' below").
+
+**2. Connections**
+Describe every line, pipe, or conduit that links the components. For each connection or group of connections, specify:
+- Where the line originates and where it terminates.
+- Any junctions or split points where a single line divides into multiple branches (note the number and orientation of branches, e.g., "splits into two parallel horizontal branches, upper and lower").
+- The sequential (series) order of components along each branch (e.g., "the line passes through BVA, then continues through CVA").
+- Any recombination points where branches merge back into a single line.
+- A brief topological summary of the overall flow path (e.g., "the fuel supply feeds the motor via two parallel paths, each containing a block valve in series with a control valve").
+
+**3. Uncertainties**
+List every detail that is absent, ambiguous, or not explicitly indicated in the diagram. Use bullet points. Typical items to check for and report if missing include:
+- Flow-direction arrows on any line.
+- Specific actuator type, size, or control mode for valves that show a generic actuator symbol.
+- Pipe sizing, line numbers, pressure ratings, temperature, or other process parameters.
+- Any label that is partially obscured, too small to read confidently, or that you are unsure of.
+- Any component or connection you could not identify with certainty.
+
+**Critical rules:**
+- Describe ONLY what is visible in the provided image. Do not infer, assume, or fill in information from external knowledge, standard practice, or the diagram's likely real-world application.
+- If a label is illegible or a symbol is ambiguous, state your uncertainty explicitly in the Uncertainties section rather than guessing.
+- Use the exact text labels as they appear in the diagram (preserve capitalization, spacing, and punctuation).
+- Maintain the three-section structure in the order shown above. Do not merge, reorder, or omit any section.
+
+Now analyze the diagram below and produce the structured description.
+
+--- MODEL OUTPUT ---
+
+
+
+1. Components
+- **Vessel / tank** (no text label): A vertical open-top container with a rounded bottom, drawn with a wavy horizontal line indicating a liquid level and a light-gray fill in the lower portion. Located at the far left of the diagram.
+- **Small rectangular fitting** (no label): A small horizontal rectangle at the very bottom outlet of the tank, where the process line and the level-sensor line leave the vessel.
+- **Level Sensor (LS)**: A circle labeled "LS" inside, located to the right of the tank bottom.
+- **Level Controller (LC)**: A rectangle labeled "LC" inside, located in the upper-center of the diagram, to the right of LS.
+- **Upper control valve with actuator**: A bowtie (two-triangle) valve symbol on the upper horizontal line, with a small dome/triangle actuator symbol directly above it; the actuator is annotated "(b)" to its right.
+- **Pump (a)**: A circle containing a right-pointing arrow, with a small trapezoidal base beneath it; annotated "(a)" to its left. Located in the center of the diagram.
+- **Flow Meter, left (FM)**: A rectangle labeled "FM" on the lower horizontal line, left of center.
+- **Lower control valve with actuator**: A bowtie valve symbol on the lower horizontal line, with a downward-pointing dome/triangle actuator below it; annotated "(b)" to its right.
+- **Flow Controller (FC)**: A rectangle labeled "FC" at the bottom-center of the diagram.
+- **Flow Meter, right (FM)**: A rectangle labeled "FM" on the lower horizontal line, far right.
+- **Outlet label "L Reflux"**: Text "L" above "Reflux" with a left-pointing arrow at the left end of the lower line.
+- **Outlet label "D Distillate"**: Text "D" above "Distillate" with a right-pointing arrow at the right end of the lower line.
+
+2. Connections
+- A short line runs from the small rectangular fitting at the tank bottom rightward into the **LS** circle.
+- A **dashed** line runs from the right side of **LS** to the left side of **LC** (signal/control line).
+- A **dashed** line runs from the bottom of **LC** down to the actuator of the **upper control valve**.
+- A process line leaves the tank-bottom fitting, runs downward then rightward into the left side of the **pump (a)**.
+- The pump discharge runs rightward and connects to the inlet (left side) of the **upper control valve**.
+- The outlet (right side) of the upper control valve runs rightward, then turns downward to meet the lower horizontal line at a **junction point** (right-of-center).
+- The lower horizontal line, to the **left** of that junction, passes in series through the **lower control valve** and then the left **FM**, and terminates at the **"L Reflux"** outlet (left-pointing arrow).
+- The lower horizontal line, to the **right** of that junction, passes through the right **FM** and terminates at the **"D Distillate"** outlet (right-pointing arrow).
+- A **dashed** line runs from the bottom of the left **FM** down to the left side of **FC**.
+- A **dashed** line runs from the right side of **FC** up to the actuator of the **lower control valve**.
+- **Topological summary:** The tank feeds the pump; the pump discharge passes through the upper control valve (actuated by LC) and then reaches a junction on the lower line. From that junction the flow splits into two paths: a left path through the lower control valve (actuated by FC) and a left FM to the "L Reflux" outlet, and a right path through a right FM to the "D Distillate" outlet. The LS–LC loop and the FM–FC loop are dashed (instrument/signal) connections, not process lines.
+
+3. Uncertainties
+- No flow-direction arrows are shown on any process line except the internal arrow inside the pump symbol and the two outlet arrows at "L Reflux" and "D Distillate"; the direction of flow through the upper valve, the junction, and the lower line is not explicitly arrowed.
+- The tank/vessel has no text label or tag.
+- The small rectangular element at the tank bottom is not labeled; its function (level tap, drain, or small valve) cannot be confirmed.
+- The actuator symbols above the upper valve and below the lower valve are generic dome/triangle shapes; their specific type (pneumatic, electric, diaphragm, etc.), size, and control mode (fail-open/fail-closed) are not indicated.
+- The annotations "(a)" and "(b)" are present but their meaning/legend is not given in the diagram.
+- No line numbers, pipe sizes, pressure ratings, temperatures, or other process parameters are shown.
+- The exact geometry of the junction where the upper-valve line meets the lower line (whether it is a tee, a cross, or a simple merge) is not drawn with a distinct junction symbol and is interpreted from line continuity.
+- It is not explicitly shown whether the pump discharge connects to the upper-valve inlet at the pump's centerline or top tangent; the connection is read from line continuity.
+- The dashed lines are interpreted as instrument/signal connections based on convention; the diagram does not label them as such.

@@ -1,0 +1,85 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_13_1.png
+Processed image: input/figure_13_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: True
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show visible connections between components. Depending on the diagram, these can be electrical, physical, or fluid connections.
+- Dashed lines can represent control or signal connections.
+- Labels such as K1, K2, etc. can refer to relays.
+- Labels such as S1, S2, etc. can refer to switches or switch contacts.
+- FC can mean flow controller.
+- FM can mean flow meter.
+- LC can mean level controller.
+- LS can mean level sensor.
+- Valve symbols are usually placed directly on fluid lines.
+- RV can mean relief valve.
+- IV can mean isolation valve.
+- CV can mean check valve.
+- Pumps can be connected directly to fluid lines.
+- Tanks, vessels, and reboilers can be shown using container-like shapes.
+- Arrows can show direction when they are clearly visible.
+- A bus can be shown as one or more shared lines connected to several components.
+- Components that are connected to the same bus are not necessarily directly connected to each other.
+- A line that splits can show one connection branching into several paths.
+
+Do not assume the direction of flow unless it is clearly shown.
+Do not guess the control logic if the connections are difficult to trace.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Redundant Bus** – a bus shown as two parallel horizontal lines running across the top of the diagram.
+- **A1** – a rectangular component on the left.
+- **A2** – a rectangular component below/right of A1.
+- **Cold Spare A** – a rectangular component.
+- **Memory Interface Unit 1** – a rectangular component in the center.
+- **Memory Interface Unit 2** – a rectangular component to the right of Unit 1.
+- **Operator console, Operator, & Software** – a rounded‑rectangle component on the right.
+- **M1, M2, M3, M4, M5** – five small rectangular components along the bottom.
+
+**2. Connections**
+
+- The **Redundant Bus** is connected to **A1**, **A2**, **Cold Spare A**, **Memory Interface Unit 1**, **Memory Interface Unit 2**, and the **Operator console, Operator, & Software**. Each of these components has vertical line(s) running up to the bus lines.
+- **Memory Interface Unit 1** is connected downward to **M1**, **M2**, and **M3**.
+- **Memory Interface Unit 2** is connected downward to **M3**, **M4**, and **M5**.
+- **M3** is therefore connected to both **Memory Interface Unit 1** and **Memory Interface Unit 2**.
+
+**3. Uncertainties**
+
+- The bus is drawn as two parallel lines (redundant). Each component appears to have two vertical lines going up to the bus, but it is not clearly traceable which vertical line attaches to which of the two bus lines; I have not assigned a specific line‑to‑line pairing.
+- The exact nature of the connections (electrical, signal, etc.) is not labeled, so I have described them only as visible line connections.
+- No flow or signal direction is indicated on any line, so no direction has been assumed.

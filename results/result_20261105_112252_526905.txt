@@ -1,0 +1,89 @@
+Model: zai-org/GLM-5.3-Flash
+Method: Literature Baseline - run 2
+Image: input/figure_4.png
+Processed image: input/figure_4.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+Two-stage: False
+
+--- PROMPT ---
+
+Express the attached System Diagram in JSON format as shown
+below. Include component labels and connections, including their directions, exactly as they
+appear in the diagram. If no direction is explicitly shown, set "directed" to false.
+
+{
+  "nodes": [
+    {"id": "A"},
+    {"id": "B"},
+    {"id": "C"}
+  ],
+  "edges": [
+    {"source": "A", "target": "B", "directed": true},
+    {"source": "B", "target": "C", "directed": false}
+  ]
+}
+
+--- RAW JSON ---
+
+```json
+{
+  "nodes": [
+    {"id": "Power supply"},
+    {"id": "Control room"},
+    {"id": "Pump start/stop switch"},
+    {"id": "Operator"},
+    {"id": "Indicator (LI)"},
+    {"id": "Transfer pump"},
+    {"id": "Valve"},
+    {"id": "Tank"},
+    {"id": "Sensor"},
+    {"id": "Transmitter (LT)"},
+    {"id": "Transmission line"}
+  ],
+  "edges": [
+    {"source": "Power supply", "target": "Pump start/stop switch", "directed": true},
+    {"source": "Pump start/stop switch", "target": "Transfer pump", "directed": true},
+    {"source": "Transfer pump", "target": "Valve", "directed": true},
+    {"source": "Valve", "target": "Tank", "directed": true},
+    {"source": "Sensor", "target": "Transmitter (LT)", "directed": true},
+    {"source": "Transmitter (LT)", "target": "Transmission line", "directed": true},
+    {"source": "Transmission line", "target": "Indicator (LI)", "directed": true}
+  ]
+}
+```
+
+**Notes on the diagram structure:**
+- The **Control room** is a container/region enclosing the **Pump start/stop switch**, **Operator**, and **Indicator (LI)**.
+- The **Power supply** feeds into the **Pump start/stop switch** (dashed line with arrow).
+- The **Pump start/stop switch** connects down to the **Transfer pump** (dotted line).
+- The **Transfer pump** output passes through a **Valve** into the **Tank** (arrowed line).
+- The **Sensor** inside the tank connects to the **Transmitter (LT)**.
+- The **Transmitter (LT)** communicates with the **Indicator (LI)** via the **Transmission line** (dashed line with a break symbol).
+- The **Operator** stands in the control room observing the indicator, but no explicit connecting line is drawn, so no edge is included.
+
+--- MODEL OUTPUT ---
+
+Components:
+- Power supply
+- Control room
+- Pump start/stop switch
+- Operator
+- Indicator (LI)
+- Transfer pump
+- Valve
+- Tank
+- Sensor
+- Transmitter (LT)
+- Transmission line
+
+Connections:
+- Power supply -> Pump start/stop switch
+- Pump start/stop switch -> Transfer pump
+- Transfer pump -> Valve
+- Valve -> Tank
+- Sensor -> Transmitter (LT)
+- Transmitter (LT) -> Transmission line
+- Transmission line -> Indicator (LI)

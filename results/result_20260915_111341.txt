@@ -1,0 +1,96 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_6_1.png
+Processed image: input/figure_6_1.png
+Context: False
+OCR: True
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: True
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show visible connections between components. Depending on the diagram, these can be electrical, physical, or fluid connections.
+- Dashed lines can represent control or signal connections.
+- Labels such as K1, K2, etc. can refer to relays.
+- Labels such as S1, S2, etc. can refer to switches or switch contacts.
+- FC can mean flow controller.
+- FM can mean flow meter.
+- LC can mean level controller.
+- LS can mean level sensor.
+- Valve symbols are usually placed directly on fluid lines.
+- RV can mean relief valve.
+- IV can mean isolation valve.
+- CV can mean check valve.
+- Pumps can be connected directly to fluid lines.
+- Tanks, vessels, and reboilers can be shown using container-like shapes.
+- Arrows can show direction when they are clearly visible.
+- A bus can be shown as one or more shared lines connected to several components.
+- Components that are connected to the same bus are not necessarily directly connected to each other.
+- A line that splits can show one connection branching into several paths.
+
+Do not assume the direction of flow unless it is clearly shown.
+Do not guess the control logic if the connections are difficult to trace.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+OCR text from the diagram:
+Reboiler
+
+B
+
+Bottom product
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Reboiler** – a vertical vessel/container shown with a liquid level inside.
+- **LS** – level sensor (box on the left).
+- **LC** – level controller (box at bottom left).
+- **Pump (a)** – circular pump symbol with an internal arrow, mounted on a base.
+- **Valve (b)** – a valve symbol (bowtie) on the line, with a small actuator/diaphragm symbol beneath it.
+- **FM** – flow meter (box on the right).
+- **B – Bottom product** – labeled outlet at the far right with a flow arrow.
+
+**2. Connections**
+
+- A solid line runs from the **LS** box to a connection point at the bottom of the **Reboiler**.
+- A solid line runs from that same bottom point of the **Reboiler** down and then right into the inlet of the **pump (a)**.
+- The **pump (a)** outlet connects via a solid line to the **valve (b)**.
+- The **valve (b)** connects via a solid line to the **FM**.
+- The **FM** connects via a solid line (with a right‑pointing arrow) to the **B – Bottom product** outlet.
+- A dashed line connects **LS** down to **LC**.
+- A dashed line runs from **LC** to the right and then up to the actuator of the **valve (b)**.
+
+**3. Uncertainties**
+
+- The valve (b) is drawn with an actuator symbol, suggesting a control valve, but its exact type/label is not given in the diagram.
+- The dashed line from **LC** to the valve actuator is interpreted as a control/signal connection; the precise control logic is not shown.
+- Flow direction is indicated only by the arrow inside the pump and the arrow at the **B** outlet; other line directions are not explicitly marked.

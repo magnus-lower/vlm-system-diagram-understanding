@@ -1,0 +1,642 @@
+Model: zai-org/GLM-5.3-Flash
+Method: Ariadne-inspired - voting
+Image: input/figure_7.png
+Processed image: input/figure_7.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+Two-stage: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+If a component has a visible name or ID, use only that name or ID.
+Do not add the component type in parentheses.
+Do not list labels or arrows as separate components. If a component has no visible name or label, call it
+"Unlabeled component 1", "Unlabeled component 2", etc. If you can recognize what the unlabeled component appears to be,
+add the type in parentheses).
+
+
+Return only:
+
+Components:
+- ...
+
+
+Identify the connections from these components:
+- Front Tank (FT)
+- FTT
+- FTL
+
+The components can also be connected to other components in the complete list.
+For connections with a direction, only include connections that start from these components.
+For connections without a direction, at least one of these components must be included.
+
+Look at the system diagram in the image. The following system components
+were identified in the first stage:
+
+Components:
+- Front Tank (FT)
+- FTT
+- FTL
+- Rear Tank (RT)
+- RTT
+- RTL
+- Central Reservation Tank (CRT)
+- CRTT
+- CRTL
+- FTV
+- FTP
+- FTF
+- CLF
+- CLP
+- CLV
+- CRF
+- CRP
+- CRV
+- RTV
+- RTP
+- RTF
+- CRPV
+- CRPP
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+
+
+Identify the connections between these components. Do not introduce new components or rename the existing ones.
+Only include a connection if it can be traced in the image.
+
+If the diagram explicitly shows a direction from one component to another, use:
+
+Component A -> Component B
+
+If the components are connected but no direction is explicitly shown, use:
+
+Component A || Component B
+
+Do not guess the direction of a connection.
+Only use component names that appear in the Components list.
+
+
+Return only:
+
+Connections:
+- ...
+
+
+Identify the connections from these components:
+- Rear Tank (RT)
+- RTT
+- RTL
+
+The components can also be connected to other components in the complete list.
+For connections with a direction, only include connections that start from these components.
+For connections without a direction, at least one of these components must be included.
+
+Look at the system diagram in the image. The following system components
+were identified in the first stage:
+
+Components:
+- Front Tank (FT)
+- FTT
+- FTL
+- Rear Tank (RT)
+- RTT
+- RTL
+- Central Reservation Tank (CRT)
+- CRTT
+- CRTL
+- FTV
+- FTP
+- FTF
+- CLF
+- CLP
+- CLV
+- CRF
+- CRP
+- CRV
+- RTV
+- RTP
+- RTF
+- CRPV
+- CRPP
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+
+
+Identify the connections between these components. Do not introduce new components or rename the existing ones.
+Only include a connection if it can be traced in the image.
+
+If the diagram explicitly shows a direction from one component to another, use:
+
+Component A -> Component B
+
+If the components are connected but no direction is explicitly shown, use:
+
+Component A || Component B
+
+Do not guess the direction of a connection.
+Only use component names that appear in the Components list.
+
+
+Return only:
+
+Connections:
+- ...
+
+
+Identify the connections from these components:
+- Central Reservation Tank (CRT)
+- CRTT
+- CRTL
+
+The components can also be connected to other components in the complete list.
+For connections with a direction, only include connections that start from these components.
+For connections without a direction, at least one of these components must be included.
+
+Look at the system diagram in the image. The following system components
+were identified in the first stage:
+
+Components:
+- Front Tank (FT)
+- FTT
+- FTL
+- Rear Tank (RT)
+- RTT
+- RTL
+- Central Reservation Tank (CRT)
+- CRTT
+- CRTL
+- FTV
+- FTP
+- FTF
+- CLF
+- CLP
+- CLV
+- CRF
+- CRP
+- CRV
+- RTV
+- RTP
+- RTF
+- CRPV
+- CRPP
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+
+
+Identify the connections between these components. Do not introduce new components or rename the existing ones.
+Only include a connection if it can be traced in the image.
+
+If the diagram explicitly shows a direction from one component to another, use:
+
+Component A -> Component B
+
+If the components are connected but no direction is explicitly shown, use:
+
+Component A || Component B
+
+Do not guess the direction of a connection.
+Only use component names that appear in the Components list.
+
+
+Return only:
+
+Connections:
+- ...
+
+
+Identify the connections from these components:
+- FTV
+- FTP
+- FTF
+
+The components can also be connected to other components in the complete list.
+For connections with a direction, only include connections that start from these components.
+For connections without a direction, at least one of these components must be included.
+
+Look at the system diagram in the image. The following system components
+were identified in the first stage:
+
+Components:
+- Front Tank (FT)
+- FTT
+- FTL
+- Rear Tank (RT)
+- RTT
+- RTL
+- Central Reservation Tank (CRT)
+- CRTT
+- CRTL
+- FTV
+- FTP
+- FTF
+- CLF
+- CLP
+- CLV
+- CRF
+- CRP
+- CRV
+- RTV
+- RTP
+- RTF
+- CRPV
+- CRPP
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+
+
+Identify the connections between these components. Do not introduce new components or rename the existing ones.
+Only include a connection if it can be traced in the image.
+
+If the diagram explicitly shows a direction from one component to another, use:
+
+Component A -> Component B
+
+If the components are connected but no direction is explicitly shown, use:
+
+Component A || Component B
+
+Do not guess the direction of a connection.
+Only use component names that appear in the Components list.
+
+
+Return only:
+
+Connections:
+- ...
+
+
+Identify the connections from these components:
+- CLF
+- CLP
+- CLV
+
+The components can also be connected to other components in the complete list.
+For connections with a direction, only include connections that start from these components.
+For connections without a direction, at least one of these components must be included.
+
+Look at the system diagram in the image. The following system components
+were identified in the first stage:
+
+Components:
+- Front Tank (FT)
+- FTT
+- FTL
+- Rear Tank (RT)
+- RTT
+- RTL
+- Central Reservation Tank (CRT)
+- CRTT
+- CRTL
+- FTV
+- FTP
+- FTF
+- CLF
+- CLP
+- CLV
+- CRF
+- CRP
+- CRV
+- RTV
+- RTP
+- RTF
+- CRPV
+- CRPP
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+
+
+Identify the connections between these components. Do not introduce new components or rename the existing ones.
+Only include a connection if it can be traced in the image.
+
+If the diagram explicitly shows a direction from one component to another, use:
+
+Component A -> Component B
+
+If the components are connected but no direction is explicitly shown, use:
+
+Component A || Component B
+
+Do not guess the direction of a connection.
+Only use component names that appear in the Components list.
+
+
+Return only:
+
+Connections:
+- ...
+
+
+Identify the connections from these components:
+- CRF
+- CRP
+- CRV
+
+The components can also be connected to other components in the complete list.
+For connections with a direction, only include connections that start from these components.
+For connections without a direction, at least one of these components must be included.
+
+Look at the system diagram in the image. The following system components
+were identified in the first stage:
+
+Components:
+- Front Tank (FT)
+- FTT
+- FTL
+- Rear Tank (RT)
+- RTT
+- RTL
+- Central Reservation Tank (CRT)
+- CRTT
+- CRTL
+- FTV
+- FTP
+- FTF
+- CLF
+- CLP
+- CLV
+- CRF
+- CRP
+- CRV
+- RTV
+- RTP
+- RTF
+- CRPV
+- CRPP
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+
+
+Identify the connections between these components. Do not introduce new components or rename the existing ones.
+Only include a connection if it can be traced in the image.
+
+If the diagram explicitly shows a direction from one component to another, use:
+
+Component A -> Component B
+
+If the components are connected but no direction is explicitly shown, use:
+
+Component A || Component B
+
+Do not guess the direction of a connection.
+Only use component names that appear in the Components list.
+
+
+Return only:
+
+Connections:
+- ...
+
+
+Identify the connections from these components:
+- RTV
+- RTP
+- RTF
+
+The components can also be connected to other components in the complete list.
+For connections with a direction, only include connections that start from these components.
+For connections without a direction, at least one of these components must be included.
+
+Look at the system diagram in the image. The following system components
+were identified in the first stage:
+
+Components:
+- Front Tank (FT)
+- FTT
+- FTL
+- Rear Tank (RT)
+- RTT
+- RTL
+- Central Reservation Tank (CRT)
+- CRTT
+- CRTL
+- FTV
+- FTP
+- FTF
+- CLF
+- CLP
+- CLV
+- CRF
+- CRP
+- CRV
+- RTV
+- RTP
+- RTF
+- CRPV
+- CRPP
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+
+
+Identify the connections between these components. Do not introduce new components or rename the existing ones.
+Only include a connection if it can be traced in the image.
+
+If the diagram explicitly shows a direction from one component to another, use:
+
+Component A -> Component B
+
+If the components are connected but no direction is explicitly shown, use:
+
+Component A || Component B
+
+Do not guess the direction of a connection.
+Only use component names that appear in the Components list.
+
+
+Return only:
+
+Connections:
+- ...
+
+
+Identify the connections from these components:
+- CRPV
+- CRPP
+- Port Engine
+
+The components can also be connected to other components in the complete list.
+For connections with a direction, only include connections that start from these components.
+For connections without a direction, at least one of these components must be included.
+
+Look at the system diagram in the image. The following system components
+were identified in the first stage:
+
+Components:
+- Front Tank (FT)
+- FTT
+- FTL
+- Rear Tank (RT)
+- RTT
+- RTL
+- Central Reservation Tank (CRT)
+- CRTT
+- CRTL
+- FTV
+- FTP
+- FTF
+- CLF
+- CLP
+- CLV
+- CRF
+- CRP
+- CRV
+- RTV
+- RTP
+- RTF
+- CRPV
+- CRPP
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+
+
+Identify the connections between these components. Do not introduce new components or rename the existing ones.
+Only include a connection if it can be traced in the image.
+
+If the diagram explicitly shows a direction from one component to another, use:
+
+Component A -> Component B
+
+If the components are connected but no direction is explicitly shown, use:
+
+Component A || Component B
+
+Do not guess the direction of a connection.
+Only use component names that appear in the Components list.
+
+
+Return only:
+
+Connections:
+- ...
+
+
+Identify the connections from these components:
+- Starboard Engine
+- Refuelling Point
+
+The components can also be connected to other components in the complete list.
+For connections with a direction, only include connections that start from these components.
+For connections without a direction, at least one of these components must be included.
+
+Look at the system diagram in the image. The following system components
+were identified in the first stage:
+
+Components:
+- Front Tank (FT)
+- FTT
+- FTL
+- Rear Tank (RT)
+- RTT
+- RTL
+- Central Reservation Tank (CRT)
+- CRTT
+- CRTL
+- FTV
+- FTP
+- FTF
+- CLF
+- CLP
+- CLV
+- CRF
+- CRP
+- CRV
+- RTV
+- RTP
+- RTF
+- CRPV
+- CRPP
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+
+
+Identify the connections between these components. Do not introduce new components or rename the existing ones.
+Only include a connection if it can be traced in the image.
+
+If the diagram explicitly shows a direction from one component to another, use:
+
+Component A -> Component B
+
+If the components are connected but no direction is explicitly shown, use:
+
+Component A || Component B
+
+Do not guess the direction of a connection.
+Only use component names that appear in the Components list.
+
+
+Return only:
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+Components:
+- Front Tank (FT)
+- FTT
+- FTL
+- Rear Tank (RT)
+- RTT
+- RTL
+- Central Reservation Tank (CRT)
+- CRTT
+- CRTL
+- FTV
+- FTP
+- FTF
+- CLF
+- CLP
+- CLV
+- CRF
+- CRP
+- CRV
+- RTV
+- RTP
+- RTF
+- CRPV
+- CRPP
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+
+Connections:
+- Front Tank (FT) || FTT
+- Front Tank (FT) || FTL
+- Front Tank (FT) || FTV
+- Front Tank (FT) || CLF
+- Rear Tank (RT) || RTT
+- Rear Tank (RT) || RTL
+- Rear Tank (RT) || RTV
+- Rear Tank (RT) || CRF
+- Central Reservation Tank (CRT) || CRTT
+- Central Reservation Tank (CRT) || CRTL
+- Central Reservation Tank (CRT) || CLV
+- Central Reservation Tank (CRT) || CRV
+- Central Reservation Tank (CRT) || CRPV
+- FTV || FTP
+- FTP || FTF
+- FTF || Port Engine
+- CLF || CLP
+- CLP || CLV
+- CRF || CRP
+- CRP || CRV
+- CLP || CRP
+- RTV || RTP
+- RTP || RTF
+- RTF || Starboard Engine
+- CRPV || CRPP
+- CRPP || Refuelling Point

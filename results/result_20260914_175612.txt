@@ -1,0 +1,73 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_4_1.png
+Processed image: input/figure_4_1.png
+Context: False
+OCR: True
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+OCR text from the diagram:
+
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Tank / vessel** (far left): an open‑top container with a wavy liquid‑level line and gray fill. It has no letter label in the diagram.
+- **(a)**: a pump symbol (circle with an internal arrow and a small base/trapezoid).
+- **(b)**: a control valve (bowtie/two‑triangle symbol) with a small dome/trapezoid actuator mounted on top of it.
+- **FC**: a rectangular box labeled "FC" (flow controller), positioned above the line.
+- **(c)**: a rectangular box labeled "FM" (flow meter).
+- **(d)**: a horizontal cylinder/pipe with flanged ends (vertical bars at each end).
+- **(e)**: a vertical line (manifold/header) on the right, with four horizontal branches, each containing a valve (bowtie symbol) and an outward arrow.
+- **Red arrows** on (d): one pointing down into the top of (d) (left side) and one pointing down out of the bottom of (d) (right side).
+
+**2. Connections**
+
+- The bottom of the **tank** connects by a line to the inlet of **(a)**.
+- The outlet of **(a)** connects by a line (with an arrow) to the left side of valve **(b)**.
+- The right side of valve **(b)** connects by a line to the left side of **(c) / FM**.
+- The right side of **(c) / FM** connects by a line to the left end of **(d)**.
+- The right end of **(d)** connects by a line to the vertical manifold **(e)**.
+- From the vertical manifold **(e)**, four branches extend to the right; each branch has a valve and an arrow pointing out (four separate outlets).
+- **Dashed (signal) line** from the right side of **(c) / FM** goes up and into the right side of **FC** (arrow into FC).
+- **Dashed (signal) line** from the left side of **FC** goes down into the actuator dome on top of valve **(b)** (arrow into the dome).
+- **Red arrows** on (d): a top arrow points into (d) and a bottom arrow points out of (d), indicating an additional inlet and outlet on (d).
+
+**3. Uncertainties**
+
+- The left tank has no label or ID in the diagram.
+- The actuator dome above valve (b) is not labeled.
+- The red arrows on (d) indicate an inlet (top) and outlet (bottom), but the components or lines these streams come from / go to are not shown in the image.
+- The exact function/identity of (d) is not stated; only its shape and the red in/out arrows are visible.
+- The four outlet valves on (e) terminate in arrows that leave the diagram; the downstream components are not shown.
+- The dashed lines are interpreted as signal/control connections (FC ↔ FM and FC ↔ valve actuator) based on their dashed style and arrowheads, but the diagram does not explicitly label them as such.

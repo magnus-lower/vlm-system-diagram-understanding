@@ -1,0 +1,54 @@
+Experiment: one-shot
+Model: mistralai/Mistral-Medium-3.5-128B
+Temperature: 0
+Example image: input/figure_10_1.png
+Example answer: ground_truth/figure_10_1_visible_ground_truth.txt
+Target image: input/figure_11_1.png
+Prompt: prompts/one_shot_image.txt
+Time: 2026-08-27 14:21:57
+
+--- MODEL OUTPUT ---
+
+Components:
+- Inert gas pressurization tank (TK1)
+- Relief valve (RV1)
+- Inert gas isolation valve (IV1)
+- Inert gas pressure regulator (RG1)
+- Inert gas check valve (CV1)
+- Propellant tank with bladder (PT1)
+- Relief valve (RV2)
+- Relief valve (RV3)
+- Thruster isolation valve (IV2)
+- Relief valve (RV4)
+- Thrust chamber inlet valve (IV3)
+- Catalyst
+- K1
+- K2
+- K3
+- K4
+- K5
+- K6 (Timer relay)
+- S1
+- S2
+- S3
+
+Connections:
+- TK1 is connected to RV1, IV1, and RG1.
+- RG1 is connected to CV1.
+- CV1 is connected to PT1 and RV2.
+- PT1 is connected to IV2 and RV3.
+- IV2 is connected to IV3 and RV4.
+- IV3 is connected to the catalyst.
+- K1 is connected to S1 and K2.
+- K2 is connected to K3.
+- K3 is connected to S3.
+- S3 is connected to K6.
+- K6 is connected to IV2.
+- K4 is connected to S2 and K5.
+- S2 is connected to K5.
+
+Uncertainties:
+- The exact function of K1, K2, K3, K4, K5, and K6 is not explained in the image.
+- The exact meaning of the electrical connections is difficult to determine from the diagram alone.
+- The direction of flow for the inert gas and propellant is not explicitly indicated.
+- The operating sequence of the system cannot be determined from the image alone.

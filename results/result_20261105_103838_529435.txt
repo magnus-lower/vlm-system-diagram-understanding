@@ -1,0 +1,84 @@
+Model: moonshotai/Kimi-K2.6
+Method: Literature Baseline - run 4
+Image: input/figure_1.png
+Processed image: input/figure_1.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+Two-stage: False
+
+--- PROMPT ---
+
+Express the attached System Diagram in JSON format as shown
+below. Include component labels and connections, including their directions, exactly as they
+appear in the diagram. If no direction is explicitly shown, set "directed" to false.
+
+{
+  "nodes": [
+    {"id": "A"},
+    {"id": "B"},
+    {"id": "C"}
+  ],
+  "edges": [
+    {"source": "A", "target": "B", "directed": true},
+    {"source": "B", "target": "C", "directed": false}
+  ]
+}
+
+--- RAW JSON ---
+
+ ```json
+{
+  "nodes": [
+    {"id": "A", "label": "Booster Fan (A)"},
+    {"id": "HX", "label": ""},
+    {"id": "BC", "label": "(2) Quench Pumps (B,C)"},
+    {"id": "D", "label": "Feedwater Pump (D)"},
+    {"id": "Scrubber", "label": "Scrubber"},
+    {"id": "EF", "label": "(2) Scrubber Circulation Pumps (E,F)"},
+    {"id": "QuenchWater", "label": "Quench water"},
+    {"id": "FeedWater", "label": "Feed water"},
+    {"id": "ToAbsorber", "label": "To Absorber"},
+    {"id": "PurgeStream", "label": "Purge Stream"}
+  ],
+  "edges": [
+    {"source": "A", "target": "HX", "directed": false, "label": "Tail Gas"},
+    {"source": "HX", "target": "Scrubber", "directed": false},
+    {"source": "QuenchWater", "target": "BC", "directed": false},
+    {"source": "BC", "target": "HX", "directed": false},
+    {"source": "FeedWater", "target": "D", "directed": false},
+    {"source": "D", "target": "Scrubber", "directed": false},
+    {"source": "Scrubber", "target": "ToAbsorber", "directed": true},
+    {"source": "Scrubber", "target": "EF", "directed": false},
+    {"source": "EF", "target": "Scrubber", "directed": false},
+    {"source": "EF", "target": "PurgeStream", "directed": false}
+  ]
+}
+```
+
+--- MODEL OUTPUT ---
+
+Components:
+- A
+- HX
+- BC
+- D
+- Scrubber
+- EF
+- QuenchWater
+- FeedWater
+- ToAbsorber
+- PurgeStream
+
+Connections:
+- A || HX
+- HX || Scrubber
+- QuenchWater || BC
+- BC || HX
+- FeedWater || D
+- D || Scrubber
+- Scrubber -> ToAbsorber
+- Scrubber || EF
+- EF || Scrubber
+- EF || PurgeStream

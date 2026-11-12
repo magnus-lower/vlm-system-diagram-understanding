@@ -1,0 +1,91 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_11_1.png
+Processed image: input/figure_11_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+## 1. Components
+
+**Tanks / vessels**
+- **TK1** – Inert gas pressurization tank (circle, top right)
+- **PT1** – Propellant tank with bladder (rounded‑top vessel, middle right)
+
+**Valves (fluid path)**
+- **IV1** – Inert gas isolation valve
+- **RG1** – Inert gas pressure regulator
+- **CV1** – Inert gas check valve
+- **IV2** – Thruster isolation valve
+- **IV3** – Thrust chamber inlet valve
+- **RV1** – Relief valve (top right, outlet arrow)
+- **RV2** – Relief valve (right of PT1)
+- **RV3** – Relief valve (right, below PT1)
+- **RV4** – Relief valve (right, lower)
+
+**Thruster**
+- Thrust chamber / bell (bottom) with a hatched region labelled **Catalyst**
+
+**Electrical / control elements**
+- **S1** – switch/relay contact (top)
+- **S2** – switch/relay contact (left)
+- **S3** – switch/relay contact (centre)
+- **K1, K2, K3, K4, K5** – relay coils (circles)
+- **K6** – Timer relay (circle)
+- Several battery symbols (parallel‑line symbols) and additional unlabeled circles on the control lines (e.g. on the line to IV1, near IV2, and near IV3)
+
+## 2. Connections
+
+**Fluid (thick solid) lines**
+- TK1 → IV1 → RG1 → CV1 → top of PT1 (vertical series path)
+- Line between TK1 and IV1 → RV1
+- Line between CV1 and PT1 → RV2
+- Bottom of PT1 → IV2 → IV3 → thruster (catalyst bed → bell)
+- Line between PT1 and IV2 → RV3
+- Line between IV2 and IV3 → RV4
+
+**Control / electrical (thin solid and dashed) lines – clearly traceable**
+- S1 is wired in series with K2 (top loop)
+- K2 connects to a battery symbol and onward to K3
+- K3 connects to S3 and to the actuation circle on the IV2 line
+- K4 connects to S2 and to K5
+- K5 connects to K6 (Timer relay) and to the actuation circle on the IV3 line
+- K1 connects to the actuation circle on the IV1 line
+- Dashed (signal) lines link S1, S2, S3 and the K‑coils (e.g. a long dashed line runs from the S1 area down the left edge to the S2 switch, and dashed lines tie S3 to K3 and S2 to K4)
+
+## 3. Uncertainties
+
+- The exact role of the **unlabeled circles** on the control lines (between K1 and IV1, near IV2, near IV3) is not stated; they may be relay coils or actuator junctions but are not labelled.
+- The **dashed control lines** are hard to follow across the whole diagram; I could not unambiguously trace every dashed connection (e.g. which coil each dashed line from S1/S2/S3 ultimately drives), so I have not asserted those.
+- Whether the small circles on the fluid‑adjacent control lines represent **valve actuators** or separate instruments is not labelled.
+- The internal wiring of the S1/S2/S3 contact blocks (which contact is normally open/closed) is not indicated.
+- The connection from the far‑left dashed line to the S2 switch is faint and not fully certain.

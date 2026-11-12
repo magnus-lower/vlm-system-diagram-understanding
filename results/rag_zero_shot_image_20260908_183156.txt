@@ -1,0 +1,103 @@
+Experiment: RAG zero-shot
+Model: mistralai/Mistral-Medium-3.5-128B
+Temperature: 0
+Input: input/figure_11_1.png
+Prompt: prompts/zero_shot_image.txt
+Knowledge base: knowledge/rag_knowledge.txt
+Top K: 2
+Time: 2026-09-08 18:31:56
+
+--- OCR OUTPUT ---
+
+1 _l_ 1 Inert gas pressurization
+TK
+A A KI tank
+K2 C) Relief valve
+; RVI
+'
+VV t oo.
+—— ! Inert gas isolation
+! H valve IV1
+=> toon '
+Inert gas pressure
+K3 regulator RG1
+©) Inert gas check
+valve CV1
+' Relief
+! valve RV2
+A Propellant tank
+with bladder
+53 pri Relief
+bon nnnnenne valve RV3
+Thruster isolation
+C valve
+Iv2
+b V_V
+| > H S2 Timer relay! Relief valve
+K6 a7 RV4
+i
+LY
+' K5 a Thrust chamber inlet
+! valve
+aa K4 Iv3
+It Catalyst
+
+--- RETRIEVED CONTEXT ---
+
+Relays:
+A relay is an electrically controlled switching component.
+Relay labels such as K1, K2, and K3 identify individual relays.
+Do not assume what a relay controls unless the diagram explicitly shows it.
+
+Switches:
+Switches may be labeled S, S1, S2, etc.
+A switch can participate in a control circuit.
+Its exact function should not be inferred solely from its label.
+
+--- MODEL OUTPUT ---
+
+1. Components
+- Inert gas pressurization tank (TK1)
+- Relief valve RV1
+- Inert gas isolation valve IV1
+- Inert gas pressure regulator RG1
+- Inert gas check valve CV1
+- Propellant tank with bladder (PT1)
+- Relief valve RV2
+- Thruster isolation valve IV2
+- Relief valve RV3
+- Thrust chamber inlet valve IV3
+- Catalyst
+- Relief valve RV4
+- Relays: K1, K2, K3, K4, K5, K6
+- Switches: S1, S2, S3
+- Timer relay (K6)
+
+2. Connections
+- TK1 is connected downstream to relief valve RV1.
+- TK1 feeds into inert gas isolation valve IV1.
+- IV1 is followed by inert gas pressure regulator RG1.
+- RG1 is followed by inert gas check valve CV1.
+- CV1 feeds into propellant tank PT1.
+- PT1 has relief valve RV2 connected.
+- PT1 downstream line goes through thruster isolation valve IV2.
+- IV2 line has relief valve RV3 connected.
+- IV2 line continues to thrust chamber inlet valve IV3.
+- IV3 feeds into the catalyst.
+- Catalyst line has relief valve RV4 connected.
+
+- Control circuit:
+  - S1 is connected to K2 and K1.
+  - K2 is connected to K1.
+  - K1 is connected to K3.
+  - S2 is connected to K4 and K5.
+  - K4 is connected to K5.
+  - K5 is connected to K3.
+  - S3 is connected to K6.
+  - K6 is connected to IV2 and IV3.
+
+3. Uncertainties
+- The exact function of each relay and switch in controlling the valves and components is not explicitly shown.
+- The power source for the relays and switches is not depicted.
+- The specific control logic or sequence of operation for the relays and valves is not provided in the diagram.
+- The physical layout or spatial arrangement of the components is not clear from the schematic.

@@ -1,0 +1,63 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Image: input/figure_11_1.png
+Processed image: results\vectorized\figure_11_1.png
+Context: False
+OCR: False
+RAG: False
+Vectorized: True
+One-shot: False
+DSPy: False
+Notation: False
+
+--- MODEL OUTPUT ---
+
+
+
+## 1. Components
+
+**Tanks / vessels**
+- **TK1** – Inert gas pressurization tank (circle, top right)
+- **PT1** – Propellant tank with bladder (vertical vessel, right middle)
+
+**Valves (process / thick lines)**
+- **RV1** – Relief valve (top right, with discharge arrow)
+- **IV1** – Inert gas isolation valve
+- **RG1** – Inert gas pressure regulator
+- **CV1** – Inert gas check valve
+- **RV2** – Relief valve (right, discharge arrow)
+- **RV3** – Relief valve (right, discharge arrow)
+- **IV2** – Thruster isolation valve
+- **RV4** – Relief valve (right, discharge arrow)
+- **IV3** – Thrust chamber inlet valve
+- **Catalyst** – labeled element at the bottom of the thruster/nozzle
+
+**Switches / relays / sensors (circles and switch symbols)**
+- **S1** – switch (top)
+- **S2** – switch (left)
+- **S3** – switch (centre)
+- **K1, K2, K3, K4, K5** – circular elements (switches/relays/sensors)
+- **K6** – Timer relay
+- A four‑way valve symbol (square with four triangles) on the left, associated with S2 and K4
+- Battery symbols (parallel‑line symbols) and a ground symbol (three horizontal lines) on the left
+
+## 2. Connections
+
+**Main process (thick) line on the right:**
+- TK1 connects downward to a junction; from this junction one branch goes right to **RV1**, and the main line continues down through **IV1 → RG1 → CV1** into the top of **PT1**.
+- The top of PT1 also branches right to **RV2**.
+- The bottom of PT1 branches right to **RV3** and continues down through **IV2**.
+- Below IV2 the line branches right to **RV4** and continues down through **IV3** into the **Catalyst** / thruster nozzle at the bottom.
+
+**Control / wiring (thin and dashed) lines (as drawn):**
+- S1 is wired to the four‑way valve and to K2; K1 is on the line between that valve and the node feeding IV1. Dashed lines link the top‑left corner to K2 and K1.
+- The ground symbol connects to K3; K3 connects to a line running right toward the IV2/IV3 region and to S3.
+- S2 and K4 are associated with the four‑way valve on the left; K5 and K6 (timer relay) are wired in the lower‑centre area near IV3.
+- Dashed lines run from several K elements (e.g., K3, K5, K6) to valve/switch symbols, indicating control/actuation links.
+
+## 3. Uncertainties
+
+- The exact function of the circular elements **K1–K6** is not stated (only K6 is labelled "Timer relay"); whether they are sensors, switches, or relays is not clear from the image.
+- The small circles drawn immediately left of IV1, IV2 and IV3 (on the process line) are not labelled; it is unclear whether they are valve actuators, additional valves, or part of the control wiring.
+- The precise routing of the thin/dashed control lines on the left (around S1, S2, S3, K1–K6 and the four‑way valve) is hard to follow; several lines cross or terminate ambiguously, so the exact control logic cannot be determined.
+- The role of the battery symbols and the ground symbol in the control circuit is not explained in the diagram.
+- The "Catalyst" label points to a region of the thruster; the exact boundary of that component relative to IV3 and the nozzle is not clearly defined.

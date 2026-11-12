@@ -1,0 +1,43 @@
+Experiment: OCR zero-shot
+Model: mistralai/Mistral-Medium-3.5-128B
+Temperature: 0
+Input: input/figure_2_3.png
+Prompt: prompts/zero_shot_image.txt
+Time: 2026-09-08 18:12:19
+
+--- OCR OUTPUT ---
+
+BLOCK VALVE A CONTROL VALVE A
+
+BVA CVA
+
+FUEL SUPPLY MOTOR
+
+CVB
+BVB
+
+x
+
+BLOCK VALVE B CONTROL VALVE B
+
+--- MODEL OUTPUT ---
+
+1. Components
+- FUEL SUPPLY
+- BLOCK VALVE A (BVA)
+- BLOCK VALVE B (BVB)
+- CONTROL VALVE A (CVA)
+- CONTROL VALVE B (CVB)
+- MOTOR
+
+2. Connections
+- FUEL SUPPLY is connected to BLOCK VALVE A (BVA) and BLOCK VALVE B (BVB).
+- BLOCK VALVE A (BVA) is connected to CONTROL VALVE A (CVA).
+- BLOCK VALVE B (BVB) is connected to CONTROL VALVE B (CVB).
+- CONTROL VALVE A (CVA) and CONTROL VALVE B (CVB) are both connected to the MOTOR.
+
+3. Uncertainties
+- The exact nature or function of the components is not specified in the diagram.
+- The direction of flow (e.g., fuel or control signals) is not explicitly indicated.
+- The purpose or role of the MOTOR in the system is unclear from the diagram alone.
+- The meaning of the "x" symbol near CONTROL VALVE B (CVB) is not explained.

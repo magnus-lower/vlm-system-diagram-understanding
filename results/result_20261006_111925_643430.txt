@@ -1,0 +1,63 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot - run 2
+Image: input/figure_1.png
+Processed image: input/figure_1.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components. If a component has no visible name or label, call it
+"Unlabeled component 1", "Unlabeled component 2", etc. If you can recognize what the unlabeled component appears to be,
+add the type in parentheses).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+If the diagram explicitly shows a direction from one component to another, use:
+
+Component A -> Component B
+
+If the components are connected but no direction is explicitly shown, use:
+
+Component A || Component B
+
+Do not guess the direction of a connection.
+Only use component names that appear in the Components list.
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- Booster Fan (A)
+- Unlabeled component 1 (heat exchanger / cooler)
+- Scrubber
+- (2) Scrubber Circulation Pumps (E,F)
+- (2) Quench Pumps (B,C)
+- Feedwater Pump (D)
+
+Connections:
+- Booster Fan (A) -> Unlabeled component 1 (heat exchanger / cooler)
+- Unlabeled component 1 (heat exchanger / cooler) -> Scrubber
+- (2) Quench Pumps (B,C) -> Unlabeled component 1 (heat exchanger / cooler)
+- Feedwater Pump (D) -> Scrubber
+- Scrubber -> (2) Scrubber Circulation Pumps (E,F)
+- (2) Scrubber Circulation Pumps (E,F) -> Scrubber

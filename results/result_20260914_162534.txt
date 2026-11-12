@@ -1,0 +1,54 @@
+Model: mistralai/Mistral-Medium-3.5-128B
+Method: zero-shot
+Image: input/figure_6_1.png
+Processed image: input/figure_6_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+1. Components
+- Reboiler
+- Pump (a)
+- Valve (b)
+- Flow Meter (FM)
+- Level Sensor (LS)
+- Level Controller (LC)
+
+2. Connections
+- The Reboiler is connected to the Pump (a).
+- The Pump (a) is connected to the Valve (b).
+- The Valve (b) is connected to the Flow Meter (FM).
+- The Flow Meter (FM) is connected to the Bottom product (B).
+- The Level Sensor (LS) is connected to the Reboiler.
+- The Level Sensor (LS) is connected to the Level Controller (LC).
+- The Level Controller (LC) is connected to the Pump (a) with a dashed line.
+
+3. Uncertainties
+- The exact nature of the dashed line connection between the Level Controller (LC) and the Pump (a) is unclear.

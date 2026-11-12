@@ -1,0 +1,64 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_6_1.png
+Processed image: results\vectorized\figure_6_1.png
+Context: False
+OCR: False
+Vectorized: True
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Reboiler** – a vertical vessel (column) with a liquid level indicated by a wavy line near the top; it has a small outlet at the bottom.
+- **LS** – a rectangular instrument box on the left (level sensor/switch).
+- **LC** – a rectangular instrument box at the bottom left (level controller; label partially cut off).
+- **(a)** – a circular symbol with an internal arrow (a pump/flow element) on a stand.
+- **(b)** – a bowtie‑shaped valve symbol, with a small triangle (actuator) drawn just below it.
+- **FM** – a rectangular instrument box (flow meter).
+- **B – Bottom product** – a labeled output stream with an arrow.
+
+**2. Connections**
+
+- **LS → Reboiler:** a solid line runs from the right side of the LS box to the bottom outlet of the Reboiler.
+- **LS → LC:** a vertical dashed line connects the bottom of the LS box to the top of the LC box.
+- **LC → (b) actuator:** a dashed line runs from the right side of the LC box horizontally to the right, then up to the triangle (actuator) beneath the valve (b).
+- **Inlet → (a):** a solid line with an arrow enters the circular symbol (a) from the left.
+- **(a) → (b):** a solid line leaves the top of (a) and runs right into the left side of the valve (b).
+- **(b) → FM:** the right side of the valve (b) connects to the left side of the FM box.
+- **FM → B:** the right side of the FM box connects to the arrow labeled **B – Bottom product**.
+
+**3. Uncertainties**
+
+- The **LC** label and its box are cut off at the bottom edge, so the full tag/ID is not fully legible.
+- The exact function of the circular symbol **(a)** (pump vs. other flow device) is not labeled beyond "(a)".
+- The relationship between the triangle under the valve and the valve (b) (whether it is the valve's actuator) is implied by position but not explicitly labeled.
+- The left inlet line to (a) originates off‑image, so its source is not visible.
+- The top of the Reboiler column is cut off, so any upper connections are not shown.

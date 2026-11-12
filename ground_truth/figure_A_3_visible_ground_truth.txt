@@ -1,0 +1,13 @@
+Components:
+- Water source
+- Pump 1
+- Pump 2
+- Valve V
+- Pad deluge nozzles
+
+Connections:
+- Water source -> Pump 1
+- Water source -> Pump 2
+- Pump 1 -> Valve V
+- Pump 2 -> Valve V
+- Valve V -> Pad deluge nozzles

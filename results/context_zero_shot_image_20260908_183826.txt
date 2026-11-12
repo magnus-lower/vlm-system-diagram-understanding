@@ -1,0 +1,41 @@
+Experiment: context zero-shot
+Model: Qwen/Qwen3.8-27B-FP8
+Temperature: 0
+Input: input/figure_2_3.png
+Prompt: prompts/zero_shot_image.txt
+Context: context/context_rules.txt
+Time: 2026-09-08 18:38:26
+
+--- MODEL OUTPUT ---
+
+
+
+## 1. Components
+
+- **FUEL SUPPLY** – rectangular block on the left.
+- **BLOCK VALVE A** (ID: **BVA**) – valve symbol on the upper branch.
+- **CONTROL VALVE A** (ID: **CVA**) – valve symbol with a dome/actuator on top, on the upper branch.
+- **BLOCK VALVE B** (ID: **BVB**) – valve symbol on the lower branch.
+- **CONTROL VALVE B** (ID: **CVB**) – valve symbol with a dome/actuator on top, on the lower branch.
+- **MOTOR** – rectangular block on the right.
+
+## 2. Connections
+
+Tracing only the visible lines:
+
+- A line leaves the right side of **FUEL SUPPLY** and joins a vertical line on the left.
+- That left vertical line connects to the left side of **BVA** (upper branch) and to the left side of **BVB** (lower branch).
+- The right side of **BVA** is connected by a horizontal line to the left side of **CVA**.
+- The right side of **CVA** is connected by a horizontal line to a vertical line on the right.
+- The right side of **BVB** is connected by a horizontal line to the left side of **CVB**.
+- The right side of **CVB** is connected by a horizontal line to the same right vertical line.
+- A line leaves the right vertical line and connects to the left side of **MOTOR**.
+
+In summary, the diagram shows two parallel branches between a left junction and a right junction: the upper branch is **BVA → CVA**, and the lower branch is **BVB → CVB**. The left junction ties back to **FUEL SUPPLY**, and the right junction ties forward to **MOTOR**.
+
+## 3. Uncertainties
+
+- **No flow direction** is indicated anywhere (no arrows on any line).
+- The **dome/actuator symbols** above **CVA** and **CVB** have no visible external signal or control lines attached; only the internal stem connecting the dome to the valve body is shown. Therefore no control/signal connections for these valves can be reported.
+- The vertical lines on the left and right are interpreted as junction/connection points where the branches meet the supply and motor lines; the diagram does not label them, so this is a visual interpretation of the line geometry.
+- No other components, instruments, or lines are visible, so none are reported.

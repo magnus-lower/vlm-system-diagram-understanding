@@ -1,0 +1,43 @@
+Experiment: context zero-shot
+Model: mistralai/Mistral-Medium-3.5-128B
+Temperature: 0
+Input: input/figure_11_1.png
+Prompt: prompts/zero_shot_image.txt
+Context: context/context_rules.txt
+Time: 2026-09-08 18:24:41
+
+--- MODEL OUTPUT ---
+
+1. Components
+- Inert gas pressurization tank (TK1)
+- Relief valve RV1
+- Inert gas isolation valve IV1
+- Inert gas pressure regulator RG1
+- Inert gas check valve CV1
+- Propellant tank with bladder (PT1)
+- Relief valve RV2
+- Thruster isolation valve IV2
+- Relief valve RV3
+- Thrust chamber inlet valve IV3
+- Catalyst
+- Relief valve RV4
+- Control relays K1, K2, K3, K4, K5, K6
+- Control switches S1, S2, S3
+- Timer relay (label next to K6)
+
+2. Connections
+- TK1 is connected to IV1, which is connected to RG1, which is connected to CV1, which is connected to PT1.
+- RV1 is connected to the line between TK1 and IV1.
+- PT1 is connected to IV2, which is connected to IV3, which is connected to the Catalyst.
+- RV2 is connected to the line between CV1 and PT1.
+- RV3 is connected to the line between PT1 and IV2.
+- RV4 is connected to the line between IV3 and the Catalyst.
+- K1, K2, K3, K4, K5, and K6 are interconnected in a control circuit with S1, S2, and S3.
+- S1 is connected to K2.
+- S2 is connected to K4 and K5.
+- S3 is connected to K3 and K6.
+
+3. Uncertainties
+- The exact wiring and point-to-point connections within the control circuit (K1–K6, S1–S3) cannot be traced with high confidence; only the visible groupings and switch–relay associations are reported.
+- Flow direction is not explicitly shown, so directionality of fluid or electrical flow is not assumed.
+- The function of the timer relay (K6) beyond its label is not detailed in the diagram.

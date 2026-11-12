@@ -1,0 +1,82 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_9.png
+Processed image: input/figure_9.png
+Context: False
+OCR: False
+Notation: True
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show physical connections between components in the process
+- Red lines show control or signal connections
+- A line can split into different branches
+- A point where a line splits or joins is not a component
+- Components can be connected in parallel
+- Parallel components can share the same inlet or outlet without being directly connected
+
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+For each connection, only use this format:
+
+Component A || Component B
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- COMP
+- S1
+- S2
+- HX2 (HEAT EXCHANGER)
+- HX1 (HEAT EXCHANGER)
+- PRESSURE VESSEL
+- VALVE (V1)
+- P3
+- TANK 2 (T2)
+- RELAY (R1)
+- FAN (F)
+- MOTOR (M)
+- TANK 1 (T1)
+- P1
+- P2
+
+Connections:
+- HX2 || TANK 2 (T2)
+- HX2 || VALVE (V1)
+- VALVE (V1) || P3
+- P3 || TANK 2 (T2)
+- HX1 || TANK 1 (T1)
+- HX1 || P1
+- HX1 || P2
+- P1 || TANK 1 (T1)
+- P2 || TANK 1 (T1)
+- FAN (F) || MOTOR (M)
+- COMP || S1
+- COMP || S2
+- S1 || RELAY (R1)
+- S2 || VALVE (V1)
+- RELAY (R1) || MOTOR (M)

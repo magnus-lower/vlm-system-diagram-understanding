@@ -1,0 +1,88 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_2_2.png
+Processed image: input/figure_2_2.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: True
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show visible connections between components. Depending on the diagram, these can be electrical, physical, or fluid connections.
+- Dashed lines can represent control or signal connections.
+- Labels such as K1, K2, etc. can refer to relays.
+- Labels such as S1, S2, etc. can refer to switches or switch contacts.
+- FC can mean flow controller.
+- FM can mean flow meter.
+- LC can mean level controller.
+- LS can mean level sensor.
+- Valve symbols are usually placed directly on fluid lines.
+- RV can mean relief valve.
+- IV can mean isolation valve.
+- CV can mean check valve.
+- Pumps can be connected directly to fluid lines.
+- Tanks, vessels, and reboilers can be shown using container-like shapes.
+- Arrows can show direction when they are clearly visible.
+- A bus can be shown as one or more shared lines connected to several components.
+- Components that are connected to the same bus are not necessarily directly connected to each other.
+- A line that splits can show one connection branching into several paths.
+
+Do not assume the direction of flow unless it is clearly shown.
+Do not guess the control logic if the connections are difficult to trace.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Condenser** – heat‑exchanger symbol at the top, with a "Cooling water" inlet and outlet on its left side.
+- **Reflux drum / receiver** – small vessel directly below the condenser.
+- **Distillation column** – tall vertical vessel containing several horizontal tray/packing sections (gray dotted bands). Red arrows inside indicate upward vapor flow; blue arrows on alternating sides indicate downward liquid flow.
+- **Reboiler** – vessel at the bottom left containing a zig‑zag (coil) element, with a "Steam" inlet and a "Steam" outlet on its left side.
+- **Labeled streams:** Cooling water, Top product, Reflux, Feed, Steam, Bottom product.
+
+**2. Connections**
+
+- **Cooling water** line enters the left side of the **Condenser** and a second cooling‑water line leaves the left side (arrows show in/out).
+- The right side of the **Condenser** is connected by a line that runs right and then down into the **top of the column**.
+- The **Condenser** bottom is connected to the small **reflux drum** below it.
+- From the **reflux drum**, one line goes left to the **Top product** outlet (arrow left), and another line goes right to the **Reflux** line, which enters the column just below the top (blue downward arrow).
+- The **Feed** line enters the column at the middle tray level (horizontal arrow into the column wall).
+- The **bottom of the column** is connected by a line to the **Reboiler**.
+- **Steam** enters the **Reboiler** (left arrow in) and a steam line leaves the **Reboiler** (left arrow out).
+- A line from the **Reboiler** returns to the **bottom of the column**.
+- The **Bottom product** line leaves the bottom of the **Reboiler** and goes right (arrow right).
+
+**3. Uncertainties**
+
+- The exact direction of the line between the **Condenser** and the **top of the column** is not unambiguously shown (whether it carries vapor up to the condenser or condensate down to the column).
+- The precise function of the small vessel under the condenser (reflux drum vs. other receiver) is inferred from the "Top product" and "Reflux" labels, not explicitly labeled.
+- The number of trays/sections and the exact feed stage are not labeled; they are only visible as gray bands.
+- The internal red/blue arrows indicate general vapor/liquid direction but are schematic, not a traced line connection.

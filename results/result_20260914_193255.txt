@@ -1,0 +1,117 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_11_1.png
+Processed image: input/figure_11_1.png
+Context: False
+OCR: True
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+OCR text from the diagram:
+1 _l_ 1 Inert gas pressurization
+TK
+A A KI tank
+K2 C) Relief valve
+; RVI
+'
+VV t oo.
+—— ! Inert gas isolation
+! H valve IV1
+=> toon '
+Inert gas pressure
+K3 regulator RG1
+©) Inert gas check
+valve CV1
+' Relief
+! valve RV2
+A Propellant tank
+with bladder
+53 pri Relief
+bon nnnnenne valve RV3
+Thruster isolation
+C valve
+Iv2
+b V_V
+| > H S2 Timer relay! Relief valve
+K6 a7 RV4
+i
+LY
+' K5 a Thrust chamber inlet
+! valve
+aa K4 Iv3
+It Catalyst
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+Process / fluid components (right side of diagram):
+- **TK1** – Inert gas pressurization tank
+- **RV1** – Relief valve
+- **IV1** – Inert gas isolation valve
+- **RG1** – Inert gas pressure regulator
+- **CV1** – Inert gas check valve
+- **PT1** – Propellant tank with bladder
+- **RV2** – Relief valve
+- **RV3** – Relief valve
+- **IV2** – Thruster isolation valve
+- **RV4** – Relief valve
+- **IV3** – Thrust chamber inlet valve
+- **Catalyst** – hatched element inside the thruster
+- Thrust chamber / thruster (bell‑shaped element at the bottom)
+
+Instrument / control components (left and centre):
+- **K1**, **K2**, **K3**, **K4**, **K5** – circular components (sensors/relays/actuators)
+- **K6** – Timer relay
+- **S1**, **S2**, **S3** – switch symbols
+- Several small unlabeled circles on the main vertical line (junctions / instruments)
+
+**2. Connections**
+
+Main process line (right side, top to bottom):
+- TK1 → IV1 → RG1 → CV1 → top of PT1.
+- TK1 also branches off to the right to **RV1**.
+- Top of PT1 branches off to the right to **RV2**.
+- Bottom of PT1 branches off to the right to **RV3**.
+- Bottom of PT1 → IV2 → a junction point; from that junction one branch goes right to **RV4** and the line continues down to **IV3** → thruster (catalyst / thrust chamber).
+
+Instrument connections that can be traced:
+- **K1** is connected on its right to the line between TK1 and IV1 (via an unlabeled circle), and on its left to the S1/K2 switch assembly.
+- **K3** is connected on its left to the S1/K2 assembly and on its right, through a line containing switch **S3**, to the line between the bottom of PT1 and IV2.
+- **K6** (timer relay) is connected on its right to the line at the IV3 / thruster‑inlet area, and on its left through a switch to **K5**.
+- **K4** and **K5** are joined by a line at the bottom of the left‑hand circuit.
+
+**3. Uncertainties**
+
+- The left‑hand network (K2, K4, K5, S1, S2 and the rectangular box with switch contacts) is an electrical/control circuit; the exact role of each circle (K2–K6) and the precise routing of every wire, including the dashed lines, is not clear from the image.
+- The dashed lines (e.g., from S1 around the far left edge, from K3 down to S1, from K4 to S2, from K5 to a switch) are control/signal lines; their exact endpoints and meaning are not unambiguous.
+- The small unlabeled circles on the main vertical line (between TK1/IV1, between PT1/IV2, and near IV3) are not labelled, so their function (junction vs. instrument) is uncertain.
+- The exact connection of K5/K6 to the thruster inlet line (IV3) is partly obscured by overlapping symbols, so I have not asserted a definite path there.

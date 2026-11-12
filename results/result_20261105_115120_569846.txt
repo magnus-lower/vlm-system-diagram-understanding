@@ -1,0 +1,77 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: Literature Baseline - run 5
+Image: input/tank.png
+Processed image: input/tank.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+Two-stage: False
+
+--- PROMPT ---
+
+Express the attached System Diagram in JSON format as shown
+below. Include component labels and connections, including their directions, exactly as they
+appear in the diagram. If no direction is explicitly shown, set "directed" to false.
+
+{
+  "nodes": [
+    {"id": "A"},
+    {"id": "B"},
+    {"id": "C"}
+  ],
+  "edges": [
+    {"source": "A", "target": "B", "directed": true},
+    {"source": "B", "target": "C", "directed": false}
+  ]
+}
+
+--- RAW JSON ---
+
+
+
+```json
+{
+  "nodes": [
+    {"id": "Controller"},
+    {"id": "Valve B"},
+    {"id": "Valve A"},
+    {"id": "Tank"},
+    {"id": "X"},
+    {"id": "Y"}
+  ],
+  "edges": [
+    {"source": "Controller", "target": "Valve B", "directed": false},
+    {"source": "Controller", "target": "Y", "directed": false},
+    {"source": "Controller", "target": "X", "directed": false},
+    {"source": "Y", "target": "Tank", "directed": false},
+    {"source": "X", "target": "Tank", "directed": false},
+    {"source": "Valve B", "target": "Tank", "directed": false},
+    {"source": "Tank", "target": "Valve A", "directed": false}
+  ]
+}
+```
+
+**Notes on the mapping**
+- **Nodes** are the labeled components/symbols in the diagram: the `Controller` box, the two valve symbols `Valve A` and `Valve B`, the storage `Tank` (the vessel holding the blue fluid), and the two sensor terminals `X` and `Y` marked at the tank wall.
+- **Edges** follow the drawn lines: the controller's control line to `Valve B`, the two controller lines down to `X` and `Y`, the sensor terminals on the tank wall, the vertical (dashed) feed line from `Valve B` into the tank, and the horizontal outlet line from the tank to `Valve A`.
+- No arrowheads are drawn on any line, so every edge has `"directed": false`.
+
+--- MODEL OUTPUT ---
+
+Components:
+- Controller
+- Valve B
+- Valve A
+- Tank
+- X
+- Y
+
+Connections:
+- Controller || Valve B
+- Controller || Y
+- Controller || X
+- Y || Tank
+- X || Tank
+- Valve B || Tank
+- Tank || Valve A

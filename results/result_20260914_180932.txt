@@ -1,0 +1,89 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_4_1.png
+Processed image: input/figure_4_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: True
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show visible connections between components. Depending on the diagram, these can be electrical, physical, or fluid connections.
+- Dashed lines can represent control or signal connections.
+- Labels such as K1, K2, etc. can refer to relays.
+- Labels such as S1, S2, etc. can refer to switches or switch contacts.
+- FC can mean flow controller.
+- FM can mean flow meter.
+- LC can mean level controller.
+- LS can mean level sensor.
+- Valve symbols are usually placed directly on fluid lines.
+- RV can mean relief valve.
+- IV can mean isolation valve.
+- CV can mean check valve.
+- Pumps can be connected directly to fluid lines.
+- Tanks, vessels, and reboilers can be shown using container-like shapes.
+- Arrows can show direction when they are clearly visible.
+- A bus can be shown as one or more shared lines connected to several components.
+- Components that are connected to the same bus are not necessarily directly connected to each other.
+- A line that splits can show one connection branching into several paths.
+
+Do not assume the direction of flow unless it is clearly shown.
+Do not guess the control logic if the connections are difficult to trace.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- An open‑top tank/vessel on the far left, partially filled with liquid (wavy surface line, gray fill). No label/ID.
+- **(a)** A pump (circle with internal arrow on a base).
+- **(b)** A control valve (bowtie symbol) with a diaphragm/actuator on top.
+- **FC** A flow controller (box).
+- **(c) FM** A flow meter (box).
+- **(d)** A horizontal vessel/exchanger (rectangle with flanges at both ends), with two red arrows (one entering the top, one leaving the bottom).
+- **(e)** A vertical distribution bus with four horizontal branches; each branch contains a valve (bowtie) and an arrow pointing to the right (outlet).
+
+**2. Connections**
+
+- Tank bottom → solid line → pump **(a)** inlet.
+- Pump **(a)** outlet → solid line → control valve **(b)** inlet.
+- Control valve **(b)** outlet → solid line → flow meter **(c) FM** inlet.
+- Flow meter **(c) FM** outlet → solid line → left flange of vessel **(d)**.
+- Right flange of vessel **(d)** → solid line → vertical bus **(e)**.
+- Bus **(e)** branches into four lines, each passing through a valve and ending in a right‑pointing arrow.
+- Dashed (signal) line from **(c) FM** up to the right input of **FC**.
+- Dashed (signal) line from **FC** left and down to the actuator on valve **(b)**.
+
+**3. Uncertainties**
+
+- The two red arrows on **(d)** (top in, bottom out) are not labeled; their meaning (e.g., heat input/removal or a separate stream) is unclear.
+- The tank, pump, valve, vessel, and bus have no alphanumeric IDs beyond the (a)–(e) markers.
+- Flow direction in the tank‑to‑pump line is implied by the pump symbol rather than an explicit line arrow.
+- The exact function of vessel **(d)** (exchanger, reactor, etc.) cannot be determined from the symbol alone.

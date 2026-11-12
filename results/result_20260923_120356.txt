@@ -1,0 +1,75 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_5_1.png
+Processed image: input/figure_5_1.png
+Context: True
+OCR: False
+Notation: False
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+When you look at the system diagram, you have to follow these rules:
+
+- Only include components that are clearly visible in the diagram
+- Only include connections that can be clearly traced between components
+- Do not assume that two components are connected just because it would make sense
+- Do not guess what a component does if the diagram does not explain it
+- Do not add components or connections that are not shown
+- If something is unclear, do not guess
+- Do not identify lines or arrows as components
+- If several components share the same line, do not assume that they are directly connected to each other
+- Do not assume that components on parallel branches are directly connected
+
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+For each connection, only use this format:
+
+Component A || Component B
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- Tank (vessel, top left)
+- LS (level sensor)
+- LC (level controller)
+- Pump (a)
+- Control valve (top) with diaphragm actuator (b)
+- Control valve (bottom) with diaphragm actuator (b)
+- FM (reflux flow meter)
+- FC (flow controller)
+- FM (distillate flow meter)
+
+Connections:
+- Tank || LS
+- LS || LC
+- LC || Control valve (top)
+- Tank || Pump (a)
+- Pump (a) || Control valve (top)
+- Control valve (top) || Control valve (bottom)
+- Control valve (top) || FM (distillate)
+- Control valve (bottom) || FM (reflux)
+- Control valve (bottom) || FM (distillate)
+- FM (reflux) || FC
+- FC || Control valve (bottom)

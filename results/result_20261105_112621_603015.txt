@@ -1,0 +1,138 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: Literature Baseline - run 4
+Image: input/figure_7.png
+Processed image: input/figure_7.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+Two-stage: False
+
+--- PROMPT ---
+
+Express the attached System Diagram in JSON format as shown
+below. Include component labels and connections, including their directions, exactly as they
+appear in the diagram. If no direction is explicitly shown, set "directed" to false.
+
+{
+  "nodes": [
+    {"id": "A"},
+    {"id": "B"},
+    {"id": "C"}
+  ],
+  "edges": [
+    {"source": "A", "target": "B", "directed": true},
+    {"source": "B", "target": "C", "directed": false}
+  ]
+}
+
+--- RAW JSON ---
+
+
+
+```json
+{
+  "nodes": [
+    {"id": "Front Tank (FT)"},
+    {"id": "Rear Tank (RT)"},
+    {"id": "Central Reservation Tank (CRT)"},
+    {"id": "Port Engine"},
+    {"id": "Starboard Engine"},
+    {"id": "Refuelling Point"},
+    {"id": "FTV"},
+    {"id": "RTV"},
+    {"id": "CLV"},
+    {"id": "CRV"},
+    {"id": "CRPV"},
+    {"id": "FTP"},
+    {"id": "RTP"},
+    {"id": "CLP"},
+    {"id": "CRP"},
+    {"id": "CRPP"},
+    {"id": "FTF"},
+    {"id": "RTF"},
+    {"id": "CLF"},
+    {"id": "CRF"},
+    {"id": "FTT"},
+    {"id": "FTL"},
+    {"id": "RTT"},
+    {"id": "RTL"},
+    {"id": "CRTT"},
+    {"id": "CRTL"}
+  ],
+  "edges": [
+    {"source": "Port Engine", "target": "FTF", "directed": false},
+    {"source": "FTF", "target": "FTP", "directed": false},
+    {"source": "FTP", "target": "FTV", "directed": false},
+    {"source": "FTV", "target": "Front Tank (FT)", "directed": false},
+    {"source": "Front Tank (FT)", "target": "CLF", "directed": false},
+    {"source": "CLF", "target": "CLP", "directed": false},
+    {"source": "CLP", "target": "CLV", "directed": false},
+    {"source": "CLV", "target": "Central Reservation Tank (CRT)", "directed": false},
+    {"source": "Starboard Engine", "target": "RTF", "directed": false},
+    {"source": "RTF", "target": "RTP", "directed": false},
+    {"source": "RTP", "target": "RTV", "directed": false},
+    {"source": "RTV", "target": "Rear Tank (RT)", "directed": false},
+    {"source": "Rear Tank (RT)", "target": "CRF", "directed": false},
+    {"source": "CRF", "target": "CRP", "directed": false},
+    {"source": "CRP", "target": "CRV", "directed": false},
+    {"source": "CRV", "target": "Central Reservation Tank (CRT)", "directed": false},
+    {"source": "Central Reservation Tank (CRT)", "target": "CRPV", "directed": false},
+    {"source": "CRPV", "target": "CRPP", "directed": false},
+    {"source": "CRPP", "target": "Refuelling Point", "directed": false}
+  ]
+}
+```
+
+Note: The diagram uses plain connecting lines with no arrowheads, so every edge is marked `"directed": false`. The temperature (e.g., FTT, RTT, CRTT) and level (e.g., FTL, RTL, CRTL) sensors are shown inside the tank blocks and have no connecting lines, so they appear as nodes without edges.
+
+--- MODEL OUTPUT ---
+
+Components:
+- Front Tank (FT)
+- Rear Tank (RT)
+- Central Reservation Tank (CRT)
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+- FTV
+- RTV
+- CLV
+- CRV
+- CRPV
+- FTP
+- RTP
+- CLP
+- CRP
+- CRPP
+- FTF
+- RTF
+- CLF
+- CRF
+- FTT
+- FTL
+- RTT
+- RTL
+- CRTT
+- CRTL
+
+Connections:
+- Port Engine || FTF
+- FTF || FTP
+- FTP || FTV
+- FTV || Front Tank (FT)
+- Front Tank (FT) || CLF
+- CLF || CLP
+- CLP || CLV
+- CLV || Central Reservation Tank (CRT)
+- Starboard Engine || RTF
+- RTF || RTP
+- RTP || RTV
+- RTV || Rear Tank (RT)
+- Rear Tank (RT) || CRF
+- CRF || CRP
+- CRP || CRV
+- CRV || Central Reservation Tank (CRT)
+- Central Reservation Tank (CRT) || CRPV
+- CRPV || CRPP
+- CRPP || Refuelling Point

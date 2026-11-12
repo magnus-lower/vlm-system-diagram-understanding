@@ -1,0 +1,51 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Context: True
+OCR: True
+RAG: True
+Vectorized: False
+One-shot: False
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+Process / fluid side (right):
+- **TK1** – Inert gas pressurization tank
+- **IV1** – Inert gas isolation valve
+- **RG1** – Inert gas pressure regulator
+- **CV1** – Inert gas check valve
+- **PT1** – Propellant tank with bladder
+- **IV2** – Thruster isolation valve
+- **IV3** – Thrust chamber inlet valve
+- **Catalyst** – catalyst element in the thrust chamber
+- Thrust chamber / thruster (bell‑shaped outlet at the bottom)
+- **RV1, RV2, RV3, RV4** – relief valves (each drawn with an outward arrow)
+
+Control side (left):
+- **K1, K2, K3, K4, K5** – relays (circles)
+- **K6** – Timer relay
+- **S1, S2, S3** – switches / switch contacts
+- Several battery (power‑source) symbols in the control wiring
+
+**2. Connections**
+
+Process line (traced with confidence):
+- TK1 → IV1 → RG1 → CV1 → top of PT1 (vertical line on the right).
+- TK1 → RV1 (branch to the right).
+- Top of PT1 → RV2 (branch to the right).
+- Bottom of PT1 → IV2 → IV3 → Catalyst → thruster outlet (vertical line).
+- Bottom of PT1 → RV3 (branch to the right).
+- Line between IV2 and IV3 → RV4 (branch to the right).
+
+Control side:
+- The relays K1–K6, switches S1–S3, and battery symbols are interconnected through the control circuit on the left.
+- Dashed (control/actuation) lines link some relays/switches to valve actuators or contacts: S1 to K2; K1 to the actuator circle beside IV1; K3, K4, K5, K6 each to a switch‑contact symbol; S2 to a contact symbol.
+- The exact point‑to‑point wiring of the control circuit (how the relays, switches, and batteries are series/parallel connected) is dense and is **not** traced individually here.
+
+**3. Uncertainties**
+- The detailed control‑circuit wiring (which relay coil/contacts are in series or parallel with which switch and battery) cannot be traced with high confidence; only the dashed actuation links listed above are reported.
+- The exact endpoints of some dashed control lines (e.g., which valve actuator each of K3, K4, K5, K6 drives) are not unambiguously traceable.
+- Flow/pressure direction is inferred only from the line layout and the relief‑valve arrows; no explicit flow arrows are shown on the main process line.
+- The function of each relay (what it actually switches) is not stated in the diagram and is not inferred.

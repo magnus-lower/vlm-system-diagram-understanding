@@ -1,0 +1,41 @@
+Experiment: context zero-shot
+Model: Qwen/Qwen3.8-27B-FP8
+Temperature: 0
+Input: input/figure_4_17.png
+Prompt: prompts/zero_shot_image.txt
+Context: context/context_rules.txt
+Time: 2026-09-08 18:39:13
+
+--- MODEL OUTPUT ---
+
+
+
+## 1. Components
+
+- **BATTERY** – labeled on the left; drawn as a multi‑line battery symbol (stacked horizontal lines of alternating length) with a top and a bottom connection point.
+- **SWITCH** – labeled at the top; drawn as a two‑terminal switch symbol (two small circles as terminals with a blade element above them). The blade is drawn in the lifted/open position.
+- **MOTOR** – labeled on the right; drawn as a circle with two small rectangular terminal boxes (one on top, one on bottom).
+- **LOAD** – labeled at the bottom; drawn as a rectangle containing a zig‑zag (resistor‑style) element, with a left and a right connection point.
+
+No other components, labels, or IDs are visible.
+
+## 2. Connections
+
+Tracing only the visible lines, the four components form a single rectangular loop:
+
+- **BATTERY (top)** → **SWITCH (left terminal)**: a wire runs up from the battery's top and right to the left circle of the switch.
+- **SWITCH (right terminal)** → **MOTOR (top terminal)**: a wire runs right from the right circle of the switch and down to the top terminal box of the motor.
+- **MOTOR (bottom terminal)** → **LOAD (right terminal)**: a wire runs down from the motor's bottom terminal box and left to the right side of the LOAD rectangle.
+- **LOAD (left terminal)** → **BATTERY (bottom)**: a wire runs left from the left side of the LOAD rectangle and up to the battery's bottom.
+
+Note on the switch: the two switch terminals are each connected to a wire, but the switch blade is drawn in the open position, so the line path is **not** shown as continuous through the switch itself.
+
+No arrows or direction markers are present, so no flow direction is reported.
+
+## 3. Uncertainties
+
+- **Switch state / symbol style:** The switch is drawn with a "T"‑shaped blade above the two terminals, which reads as an *open* switch (blade not contacting the right terminal). The exact mechanical representation is slightly non‑standard, so I report it as "appears open" rather than asserting a closed or specific switch type.
+- **Battery polarity:** The battery symbol has no +/− labels, so the positive and negative terminals cannot be assigned from the image.
+- **Flow direction:** No current‑direction arrows are shown anywhere, so the direction of any flow is not inferable.
+- **MOTOR internal detail:** The motor is shown only as a circle with two terminal boxes; no internal winding or symbol detail is visible, so no internal structure is reported.
+- **LOAD element type:** The zig‑zag inside the rectangle is shown only as a generic element labeled "LOAD"; its specific electrical nature is not stated in the diagram.

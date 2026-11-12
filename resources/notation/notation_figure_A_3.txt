@@ -1,0 +1,9 @@
+Diagram notation:
+
+- Solid lines show connections between components
+- Arrows show the direction of flow
+- Simplified symbols can represent parts of the system
+- Boxes can represent parts of the system
+- A line can split into different branches and join again later
+- A point where a line splits or joins is not a component
+- Components on parallel branches are not directly connected to each other

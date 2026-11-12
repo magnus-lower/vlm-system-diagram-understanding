@@ -1,0 +1,67 @@
+Model: moonshotai/Kimi-K2.6
+Method: zero-shot
+Image: input/figure_2_2.png
+Processed image: input/figure_2_2.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+ **1. Components**
+
+- **Condenser**
+- **Cooling water** (inlet and outlet arrows)
+- An **unlabeled small vessel** located directly beneath the Condenser
+- **Top product** (outlet line with arrow)
+- **Reflux** (line with arrow)
+- A **large unlabeled vertical vessel** containing several internal horizontal perforated plates with liquid layers
+- **Feed** (inlet line with arrow)
+- **Reboiler**
+- **Steam** (inlet arrow and separate outlet arrow)
+- **Bottom product** (outlet line with arrow)
+
+**2. Connections**
+
+- A line runs from the **top of the large unlabeled vertical vessel** to the **Condenser**.
+- A line runs from the **Condenser** to the **unlabeled small vessel** below it.
+- The **unlabeled small vessel** is connected to the **Top product** line.
+- The **unlabeled small vessel** is connected via the **Reflux** line to the **top of the large unlabeled vertical vessel**, entering above the uppermost perforated plate.
+- The **Feed** line is connected to the **side of the large unlabeled vertical vessel**, entering between two of the internal perforated plates.
+- A line connects the **bottom of the large unlabeled vertical vessel** to the **Reboiler**.
+- A line connects the **Reboiler** back to the **large unlabeled vertical vessel**, entering below the bottom perforated plate.
+- The **Reboiler** is connected to the **Steam** inlet line and has a separate outlet line.
+- The **Condenser** is connected to the **Cooling water** inlet line and has a separate outlet line.
+- The **Bottom product** line is connected to the **bottom of the Reboiler**.
+
+**3. Uncertainties**
+
+- The **small vessel beneath the Condenser** is not labeled, so its specific name or function is not indicated in the diagram.
+- The **large central vertical vessel** is not labeled.
+- The **Bottom product** line appears to connect to the Reboiler, but the simplified piping at the bottom of the diagram makes it difficult to confirm with absolute certainty whether it originates from the Reboiler itself or from the bottom of the large vertical vessel.
+- The **outlet lines** paired with the **Cooling water** and **Steam** inlets are not individually labeled.

@@ -1,0 +1,131 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: two-stage
+Image: input/figure_7.png
+Processed image: input/figure_7.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+DSPy: False
+Two-stage: True
+
+--- PROMPT ---
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components).
+
+
+Return only:
+
+Components:
+- ...
+
+
+Look at the system diagram in the image. The following system components
+were identified in the first stage:
+
+
+
+Components:
+- Front Tank (FT)
+- Rear Tank (RT)
+- Central Reservation Tank (CRT)
+- FTT (temperature sensor, Front Tank)
+- FTL (level sensor, Front Tank)
+- RTT (temperature sensor, Rear Tank)
+- RTL (level sensor, Rear Tank)
+- CRTT (temperature sensor, Central Reservation Tank)
+- CRTL (level sensor, Central Reservation Tank)
+- FTV (valve)
+- CLV (valve)
+- CRV (valve)
+- RIV (valve)
+- CRPV (valve)
+- FTP (pump)
+- CLP (pump)
+- CRP (pump)
+- RTP (pump)
+- CRPP (pump)
+- FTF (flow meter)
+- CLF (flow meter)
+- CRF (flow meter)
+- RTF (flow meter)
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+
+
+Identify the connections between these components. Do not introduce new components or rename the existing ones.
+Only include a connection if it can be traced in the image. For each connection, only use this format:
+
+Component A || Component B
+
+
+Return only:
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- Front Tank (FT)
+- Rear Tank (RT)
+- Central Reservation Tank (CRT)
+- FTT (temperature sensor, Front Tank)
+- FTL (level sensor, Front Tank)
+- RTT (temperature sensor, Rear Tank)
+- RTL (level sensor, Rear Tank)
+- CRTT (temperature sensor, Central Reservation Tank)
+- CRTL (level sensor, Central Reservation Tank)
+- FTV (valve)
+- CLV (valve)
+- CRV (valve)
+- RIV (valve)
+- CRPV (valve)
+- FTP (pump)
+- CLP (pump)
+- CRP (pump)
+- RTP (pump)
+- CRPP (pump)
+- FTF (flow meter)
+- CLF (flow meter)
+- CRF (flow meter)
+- RTF (flow meter)
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+
+
+
+Connections:
+- Front Tank (FT) || FTT
+- Front Tank (FT) || FTL
+- Front Tank (FT) || FTV
+- Front Tank (FT) || CLF
+- FTV || FTP
+- FTP || FTF
+- FTF || Port Engine
+- CLF || CLP
+- CLP || CLV
+- CLV || Central Reservation Tank (CRT)
+- Rear Tank (RT) || RTT
+- Rear Tank (RT) || RTL
+- Rear Tank (RT) || RIV
+- Rear Tank (RT) || CRF
+- RIV || RTP
+- RTP || RTF
+- RTF || Starboard Engine
+- CRF || CRP
+- CRP || CRV
+- CRV || Central Reservation Tank (CRT)
+- Central Reservation Tank (CRT) || CRTT
+- Central Reservation Tank (CRT) || CRTL
+- Central Reservation Tank (CRT) || CRPV
+- CRPV || CRPP
+- CRPP || Refuelling Point

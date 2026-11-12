@@ -1,0 +1,74 @@
+Model: moonshotai/Kimi-K2.6
+Method: zero-shot - voting
+Image: input/figure_4.png
+Processed image: input/figure_4.png
+Context: False
+OCR: False
+Notation: True
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Simplified symbols and shapes can represent parts of the system
+- Abbreviations can have specific meanings in the diagram
+- Lines between parts of the system can show physical connections
+- Lines between sensors, transmitters, indicators, and control equipment can show signal or control connections
+- Boxes or labels around parts of the diagram might show locations or areas, and not components
+
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+If a component has a visible name or ID, use only that name or ID.
+Do not add the component type in parentheses.
+Do not list labels or arrows as separate components. If a component has no visible name or label, call it
+"Unlabeled component 1", "Unlabeled component 2", etc. If you can recognize what the unlabeled component appears to be,
+add the type in parentheses).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+If the diagram explicitly shows a direction from one component to another, use:
+
+Component A -> Component B
+
+If the components are connected but no direction is explicitly shown, use:
+
+Component A || Component B
+
+Do not guess the direction of a connection.
+Only use component names that appear in the Components list.
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+Components:
+- Power supply
+- Pump start/stop switch
+- Transfer pump
+- Unlabeled component 1 (valve)
+- Sensor
+- Unlabeled component 2 (tank)
+- LI
+- LT
+
+Connections:
+- Power supply -> Pump start/stop switch
+- Pump start/stop switch || Transfer pump
+- Transfer pump || Unlabeled component 1 (valve)
+- Unlabeled component 1 (valve) || Unlabeled component 2 (tank)
+- Sensor || LT
+- LT || LI

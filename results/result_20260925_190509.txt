@@ -1,0 +1,59 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/tank.png
+Processed image: input/tank.png
+Context: False
+OCR: True
+Notation: False
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+For each connection, only use this format:
+
+Component A || Component B
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+OCR text from the diagram:
+Valve B
+
+Controller
+
+Valve A
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- Controller
+- Valve A
+- Valve B
+- Tank
+
+Connections:
+- Controller || Valve B
+- Controller || Tank
+- Valve B || Tank
+- Valve A || Tank

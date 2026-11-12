@@ -1,0 +1,60 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: one-shot
+Image: input/figure_4_1.png
+Processed image: input/figure_4_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: True
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Now look at the new system diagram and describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the new image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**Components**
+- Tank (left): an open vessel containing a liquid (gray shaded, wavy surface).
+- (a): a pump (circle with internal arrow and triangular base).
+- (b): a control valve (bowtie symbol with a diaphragm/actuator on top).
+- (c): a box labeled **FM**.
+- (d): a horizontal cylinder/pipe with two red arrows (one entering the top, one leaving the bottom).
+- (e): a vertical manifold line on the right with four horizontal branches, each containing a valve (bowtie) and an outlet arrow.
+- **FC**: a box at the top (controller).
+
+**Connections**
+- The bottom of the tank connects to the pump (a).
+- The pump (a) connects to the control valve (b) (line with arrow).
+- The control valve (b) connects to the FM box (c).
+- The FM box (c) connects to the horizontal cylinder (d).
+- The cylinder (d) connects to the vertical manifold (e).
+- The manifold (e) splits into four branches; each branch has a valve followed by an outlet arrow.
+- A dashed line runs from FM (c) to FC.
+- A dashed line runs from FC to the actuator on top of valve (b).
+
+**Uncertainties**
+- The meaning of the two red arrows on (d) (injection vs. extraction) is not labeled.
+- The top of the tank is open; no lid or vent is shown.
+- The abbreviations FC and FM are not defined in the diagram.
+- The destinations of the four outlet arrows on (e) are not shown.
+- The dashed lines indicate signal/control links, but the exact signal type is not specified.

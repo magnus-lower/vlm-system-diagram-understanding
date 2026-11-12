@@ -1,0 +1,79 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: Literature Baseline - voting
+Image: input/figure_7.png
+Processed image: input/figure_7.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+Two-stage: False
+
+--- PROMPT ---
+
+Express the attached System Diagram in JSON format as shown
+below. Include component labels and connections, including their directions, exactly as they
+appear in the diagram. If no direction is explicitly shown, set "directed" to false.
+
+{
+  "nodes": [
+    {"id": "A"},
+    {"id": "B"},
+    {"id": "C"}
+  ],
+  "edges": [
+    {"source": "A", "target": "B", "directed": true},
+    {"source": "B", "target": "C", "directed": false}
+  ]
+}
+
+
+--- MODEL OUTPUT ---
+
+Components:
+- Front Tank (FT)
+- Rear Tank (RT)
+- Central Reservation Tank (CRT)
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+- FTV
+- RTV
+- CLV
+- CRV
+- CRPV
+- FTP
+- RTP
+- CLP
+- CRP
+- CRPP
+- FTF
+- RTF
+- CLF
+- CRF
+- FTT
+- FTL
+- RTT
+- RTL
+- CRTT
+- CRTL
+
+Connections:
+- Port Engine || FTF
+- FTF || FTP
+- FTP || FTV
+- FTV || Front Tank (FT)
+- Front Tank (FT) || CLF
+- CLF || CLP
+- CLP || CLV
+- CLV || Central Reservation Tank (CRT)
+- Starboard Engine || RTF
+- RTF || RTP
+- RTP || RTV
+- RTV || Rear Tank (RT)
+- Rear Tank (RT) || CRF
+- CRF || CRP
+- CRP || CRV
+- CRV || Central Reservation Tank (CRT)
+- Central Reservation Tank (CRT) || CRPV
+- CRPV || CRPP
+- CRPP || Refuelling Point

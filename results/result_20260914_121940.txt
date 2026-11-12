@@ -1,0 +1,64 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_6_1.png
+Processed image: input/figure_6_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Reboiler** – a vertical vessel/tank containing liquid (shown with a gray fill and a wavy liquid surface), labeled "Reboiler".
+- **LS** – a rectangular instrument box on the left, labeled "LS".
+- **LC** – a rectangular instrument box at the bottom left, labeled "LC".
+- **(a)** – a circular symbol with an internal arrow (pump‑like symbol), labeled "(a)".
+- **(b)** – a valve symbol (bowtie) with a small actuator/diaphragm triangle beneath it, labeled "(b)".
+- **FM** – a rectangular instrument box on the right, labeled "FM".
+- **B / Bottom product** – an outlet stream label on the far right, "B" with the text "Bottom product".
+
+**2. Connections**
+
+- A solid line runs from the bottom nozzle of the **Reboiler** leftward to the **LS** box.
+- A solid line runs from the same bottom nozzle of the **Reboiler** downward and then rightward, entering the circular symbol **(a)** (arrow points into the circle).
+- A solid line runs from the right side of **(a)** to the left side of the valve **(b)**.
+- A solid line runs from the right side of the valve **(b)** to the left side of the **FM** box.
+- A solid line with an arrowhead runs from the right side of **FM** to the outlet labeled **B (Bottom product)**.
+- A dashed line runs from the bottom of **LS** down to the top of **LC**.
+- A dashed line runs from the right side of **LC** rightward and then upward to the actuator (triangle) of the valve **(b)**.
+
+**3. Uncertainties**
+
+- The exact function/identity of the circular symbol **(a)** is not stated in the diagram; it is only labeled "(a)".
+- The exact function of the valve/actuator symbol **(b)** is not stated; it is only labeled "(b)".
+- The meaning of the dashed lines (e.g., whether they are control/signal lines) is not labeled in the diagram.
+- The label "B" and "Bottom product" appear to denote the same outlet stream, but the relationship between the letter "B" and the text is not explicitly defined in the image.
+- The internal arrow direction in symbol (a) and the orientation of the valve (b) are clear, but the process meaning (flow direction through the valve, actuator type) is not annotated.

@@ -1,0 +1,65 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_4_1.png
+Processed image: results\vectorized\figure_4_1.png
+Context: False
+OCR: False
+Vectorized: True
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Storage tank** (far left): an open‑top vessel with a wavy line indicating a liquid level. No tag/ID is shown.
+- **(a) Pump**: circular symbol with an internal arrow, mounted on a base.
+- **(b) Control valve**: bowtie valve symbol with a diaphragm (dome) actuator on top, which has a small signal arrow on its top.
+- **(c) Flow meter (FM)**: rectangle labelled "FM".
+- **(d) Rectangular device**: a horizontal body with two vertical end plates (e.g., a heat exchanger / filter type symbol).
+- **(e) Distribution manifold / header**: a vertical line with four horizontal branches, each containing a valve (bowtie) and an outlet arrow pointing right.
+- **FC (flow controller)**: instrument box labelled "FC" at the top, with a dashed line on its left and a line with a small arrow on its right.
+
+**2. Connections**
+
+- The bottom of the **tank** connects by a line (down, then right) to the **inlet of pump (a)**.
+- The **outlet of pump (a)** connects to the **inlet of valve (b)**.
+- The **outlet of valve (b)** connects to the **inlet of flow meter (c)**.
+- The **outlet of flow meter (c)** connects to the **left end of device (d)**.
+- The **right end of device (d)** connects to the **vertical manifold (e)**.
+- The **manifold (e)** feeds **four branches**, each passing through a valve and ending in a right‑pointing outlet arrow.
+- A **dashed line** runs from the **top of flow meter (c)** up to the **FC** box (measurement signal).
+- A **dashed line** enters the **left side of FC** (its source is off the image).
+
+**3. Uncertainties**
+
+- The **control output from FC to the valve (b) actuator** is not clearly drawn. The line on the right side of FC (with the small arrow) appears to drop down to **FM (c)** rather than to the valve actuator, so the FC→valve signal path cannot be confirmed.
+- The **small signal arrow on top of the valve (b) actuator** has no visible connecting line to any instrument.
+- The **left dashed line of FC** (likely a setpoint) terminates off the image; its source is unknown.
+- The **exact function of device (d)** is not labelled, so its type cannot be confirmed from the image alone.
+- The **tank has no tag or ID**, and the four outlet branches of (e) are not individually labelled.

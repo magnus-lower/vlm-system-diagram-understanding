@@ -1,0 +1,69 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: two-stage
+Image: input/figure_A_3.png
+Processed image: input/figure_A_3.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+DSPy: False
+Two-stage: True
+
+--- PROMPT ---
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components).
+
+
+Return only:
+
+Components:
+- ...
+
+
+Look at the system diagram in the image. The following system components
+were identified in the first stage:
+
+
+
+Components:
+- WATER SOURCE
+- PUMP 1
+- PUMP 2
+- VALVE V
+- PAD DELUGE NOZZLES
+
+
+Identify the connections between these components. Do not introduce new components or rename the existing ones.
+Only include a connection if it can be traced in the image. For each connection, only use this format:
+
+Component A || Component B
+
+
+Return only:
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- WATER SOURCE
+- PUMP 1
+- PUMP 2
+- VALVE V
+- PAD DELUGE NOZZLES
+
+
+
+Connections:
+- WATER SOURCE || PUMP 1
+- WATER SOURCE || PUMP 2
+- PUMP 1 || VALVE V
+- PUMP 2 || VALVE V
+- VALVE V || PAD DELUGE NOZZLES

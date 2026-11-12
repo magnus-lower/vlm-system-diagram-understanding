@@ -1,0 +1,15 @@
+Components:
+- Booster fan (A)
+- Unlabeled component 1 (Filter)
+- (2) Quench pumps (B, C)
+- Feedwater pump (D)
+- Scrubber
+- (2) Scrubber circulation pumps (E, F)
+
+Connections:
+- Booster fan (A) -> Unlabeled component 1 (Filter)
+- Unlabeled component 1 (Filter) -> Scrubber
+- (2) Quench pumps (B, C) || Unlabeled component 1 (Filter)
+- Feedwater pump (D) -> Scrubber
+- Scrubber -> (2) Scrubber circulation pumps (E, F)
+- (2) Scrubber circulation pumps (E, F) -> Scrubber

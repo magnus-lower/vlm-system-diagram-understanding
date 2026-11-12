@@ -1,0 +1,89 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_5_1.png
+Processed image: input/figure_5_1.png
+Context: True
+OCR: True
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+When interpreting the system diagram:
+
+- Only include components that are clearly visible in the diagram.
+- Only describe connections that can be seen in the diagram.
+- Do not assume that two components are connected just because it would make sense.
+- Do not guess the direction of flow unless it is clearly shown.
+- Do not guess what a component does if the diagram does not explain it.
+- Do not add components that are not shown.
+- If something is unclear, put it under Uncertainties instead of guessing.
+- Prefer a simple and careful answer over a detailed answer that may be wrong.
+- If a control circuit or control system is hard to follow, do not guess the exact connections.
+- Only describe a specific connection if both ends can be clearly traced in the diagram.
+- If several components connect to the same bus or common line, do not assume that they are directly connected to each other.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+OCR text from the diagram:
+Distillate
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- A vertical vessel/tank (top left) containing liquid (shown with a wavy level line).
+- A level‑sensor element (small rectangle) on the tank's bottom outlet line.
+- **LS** – circular instrument (level sensor/transmitter).
+- **LC** – rectangular controller box.
+- A control valve (bow‑tie symbol) on the upper line, with a dome‑shaped actuator labeled **(b)**.
+- **Pump (a)** – circle with an internal arrow and a triangular base.
+- A control valve (bow‑tie symbol) on the lower line, with a dome‑shaped actuator labeled **(b)**.
+- Two **FM** boxes (flow meters): one on the left (reflux) line, one on the right (distillate) line.
+- **FC** – rectangular controller box (bottom).
+- **L Reflux** – line with a left‑pointing arrow.
+- **D Distillate** – line with a right‑pointing arrow.
+
+**2. Connections**
+
+- The tank's bottom outlet line connects to the level‑sensor element and continues down/right into the inlet of pump **(a)**.
+- **LS** is connected by a dashed line to **LC**.
+- **LC** is connected by a dashed line to the actuator **(b)** of the upper control valve.
+- The upper control valve is in series on the upper horizontal line.
+- The **L Reflux** line connects to the left **FM** box.
+- The left **FM** box connects to the lower control valve **(b)**.
+- The lower control valve **(b)** connects to the line that leads to the right **FM** box.
+- The right **FM** box connects to the **D Distillate** line.
+- **FC** is connected by dashed lines to the left **FM** box and to the actuator **(b)** of the lower control valve.
+
+**3. Uncertainties**
+
+- The exact junctions around the pump outlet are not fully clear: it is not unambiguous whether the pump outlet line, the left side of the upper valve, and the lower line (reflux/distillate line) all meet at a single node, or how the vertical segments tie together.
+- The point where the right side of the upper valve drops down and joins the lower line (relative to the lower valve and the two FM boxes) is not clearly traceable.
+- No flow direction arrows are shown on the valve lines or the upper line, so the direction of flow through the valves and the upper line is not indicated.
+- The function of the tank and of the (a)/(b) labels is not explained in the diagram.

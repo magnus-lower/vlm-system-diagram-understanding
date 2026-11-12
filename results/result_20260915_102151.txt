@@ -1,0 +1,94 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_2_2.png
+Processed image: input/figure_2_2.png
+Context: True
+OCR: True
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+When interpreting the system diagram:
+
+- Only include components that are clearly visible in the diagram.
+- Only describe connections that can be seen in the diagram.
+- Do not assume that two components are connected just because it would make sense.
+- Do not guess the direction of flow unless it is clearly shown.
+- Do not guess what a component does if the diagram does not explain it.
+- Do not add components that are not shown.
+- If something is unclear, put it under Uncertainties instead of guessing.
+- Prefer a simple and careful answer over a detailed answer that may be wrong.
+- If a control circuit or control system is hard to follow, do not guess the exact connections.
+- Only describe a specific connection if both ends can be clearly traced in the diagram.
+- If several components connect to the same bus or common line, do not assume that they are directly connected to each other.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+OCR text from the diagram:
+Condenser
+
+Cooling water
+
+Top product
+
+oo000000
+eooo000000
+
+Reboiler
+
+Bottom product
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Condenser** – heat‑exchanger symbol at the top, with a "Cooling water" inlet and outlet on its left side.
+- **Reflux drum** – small vessel directly below the condenser (not explicitly labeled, but it is the drum the condenser discharges into).
+- **Column** – the tall vertical vessel in the center, containing several gray bands with circles (trays/packing stages) and internal red upward arrows and blue downward arrows.
+- **Reboiler** – vessel at the lower left with a zig‑zag (heat‑transfer) symbol, with a "Steam" inlet and outlet on its left side.
+- **Labeled process streams:** Cooling water, Top product, Reflux, Feed, Steam, Bottom product.
+
+**2. Connections**
+
+- **Cooling water** enters the left side of the **Condenser** and leaves the left side of the **Condenser** (two separate arrows on the condenser's left).
+- The right side of the **Condenser** is joined by a line that runs down to the **top of the Column**.
+- The bottom of the **Condenser** connects to the **Reflux drum**.
+- From the **Reflux drum**, one line goes left to the **Top product** outlet, and another line goes right to the **Reflux** inlet at the top of the **Column**.
+- **Feed** enters the **Column** at a mid‑height stage.
+- The **bottom of the Column** is connected to the **Reboiler** by a line, and a second line returns from the **Reboiler** back into the lower part of the **Column**.
+- **Steam** enters the left side of the **Reboiler** and leaves the left side of the **Reboiler**.
+- The **Bottom product** line leaves from the bottom of the **Reboiler** and goes to the right.
+
+**3. Uncertainties**
+
+- The gray bands with circles inside the column are not labeled; they are shown as stages but the diagram does not state whether they are trays or packing.
+- The red upward arrows and blue downward arrows inside the column are not labeled; their meaning (vapor vs. liquid flow) is not stated in the diagram.
+- The exact number of stages/trays is not given.
+- The two lines between the column bottom and the reboiler (downcomer vs. return) are not individually labeled, so their exact roles are not specified.
+- The reflux drum is not given a name in the diagram; it is identified only by its position below the condenser.

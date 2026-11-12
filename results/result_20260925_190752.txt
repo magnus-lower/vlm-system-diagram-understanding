@@ -1,0 +1,63 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/tank.png
+Processed image: input/tank.png
+Context: False
+OCR: False
+Notation: True
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Diagram notation:
+
+- A tank shape represents the tank
+- Valve symbols represent valves that control the direction flow
+- Each labeled sensor represents a separate sensor
+- A controller symbol represents the controller
+- Lines that holds fluid shows physical connections
+- Lines between sensors, the controller, and valves show signal or control connections
+
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+For each connection, only use this format:
+
+Component A || Component B
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- Tank
+- Valve A
+- Valve B
+- Controller
+- Sensor X
+- Sensor Y
+
+Connections:
+- Tank || Valve A
+- Tank || Valve B
+- Controller || Valve B
+- Controller || Sensor X
+- Controller || Sensor Y

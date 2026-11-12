@@ -1,0 +1,60 @@
+Experiment: OCR zero-shot
+Model: mistralai/Mistral-Medium-3.5-128B
+Temperature: 0
+Input: input/figure_10_1.png
+Prompt: prompts/zero_shot_image.txt
+Time: 2026-09-08 18:15:23
+
+--- OCR OUTPUT ---
+
+||| 4
+
+\<
+
+_. _| PRESSURE OUTLET
+_ ‘SWITCH S VALVE
+RELAY TIMER
+is K2 RELAY
+SWITCH
+
+|
+
+St
+1 PRESSURE
+——=—_ MOTOR TANK
+
+PUMP
+
+FROM RESERVOIR Q
+
+--- MODEL OUTPUT ---
+
+1. **Components**
+   - Battery
+   - Switch (S1)
+   - Relay (K1)
+   - Relay (K2)
+   - Timer Relay
+   - Motor
+   - Pump
+   - Pressure Switch (S)
+   - Pressure Tank
+   - Outlet Valve
+   - Fuse
+
+2. **Connections**
+   - The **Battery** is connected to the **Fuse**, which is then connected to the **Switch (S1)**.
+   - The **Switch (S1)** is connected to **Relay (K1)**.
+   - **Relay (K1)** is connected to **Relay (K2)**.
+   - **Relay (K2)** is connected to the **Timer Relay**.
+   - The **Timer Relay** is connected to the **Motor**.
+   - The **Motor** is connected to the **Pump**.
+   - The **Pump** draws water from the **Reservoir** and sends it to the **Pressure Tank**.
+   - The **Pressure Tank** is connected to the **Outlet Valve**.
+   - The **Pressure Switch (S)** is connected to the **Pressure Tank** and also to the **Relay (K1)**.
+
+3. **Uncertainties**
+   - The exact function and triggering mechanism of the **Timer Relay** is unclear from the diagram.
+   - The specific type of connections (e.g., electrical, mechanical) between some components, such as the **Pressure Switch (S)** and **Relay (K1)**, is not explicitly detailed.
+   - The diagram does not clearly show the power return path (ground) for the electrical circuit.
+   - The role of the **Outlet Valve** in the system's operation is not explicitly described.

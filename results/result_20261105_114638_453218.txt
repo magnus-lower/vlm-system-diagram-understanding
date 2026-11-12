@@ -1,0 +1,44 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: Literature Baseline - voting
+Image: input/figure_A_3.png
+Processed image: input/figure_A_3.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+Two-stage: False
+
+--- PROMPT ---
+
+Express the attached System Diagram in JSON format as shown
+below. Include component labels and connections, including their directions, exactly as they
+appear in the diagram. If no direction is explicitly shown, set "directed" to false.
+
+{
+  "nodes": [
+    {"id": "A"},
+    {"id": "B"},
+    {"id": "C"}
+  ],
+  "edges": [
+    {"source": "A", "target": "B", "directed": true},
+    {"source": "B", "target": "C", "directed": false}
+  ]
+}
+
+
+--- MODEL OUTPUT ---
+
+Components:
+- WATER SOURCE
+- PUMP 1
+- PUMP 2
+- VALVE V
+- PAD DELUGE NOZZLES
+
+Connections:
+- WATER SOURCE -> PUMP 1
+- WATER SOURCE -> PUMP 2
+- PUMP 1 -> VALVE V
+- PUMP 2 -> VALVE V
+- VALVE V -> PAD DELUGE NOZZLES

@@ -1,0 +1,6 @@
+Diagram notation:
+
+- Simplified shapes and symbols can represent different parts of the system
+- Each labeled symbol can represent a separate component
+- Lines between parts of the system can show physical connections
+- Lines between parts of the system can also show signal or control connections

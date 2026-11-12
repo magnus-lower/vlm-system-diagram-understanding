@@ -1,0 +1,102 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: DSPy
+Image: input/figure_11_1.png
+Processed image: input/figure_11_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: True
+Notation: False
+
+--- PROMPT ---
+
+You are a certified plant-engineering documentation specialist. The structured description you produce will be handed to a safety-inspection and emergency-response team who, in the next 30 minutes, must execute a live maintenance shutdown on this exact system. A single misidentified valve, a missed parallel branch, or an unflagged ambiguity in your description could cause an operator to isolate the wrong line, leading to a catastrophic fuel release or uncontrolled motor startup. Precision and honesty are therefore non-negotiable: you must report only what is unambiguously visible in the diagram and explicitly flag everything you cannot confirm.
+
+Examine the provided engineering schematic image carefully and produce a textual description using **exactly** the following three numbered sections. Do not add any preamble, title, or closing remark—begin directly with "1. Components".
+
+**1. Components**
+Provide an itemized bulleted list of every labeled object visible in the diagram. For each component, state:
+- Its full name and, if present, its short tag/abbreviation (e.g., "BLOCK VALVE A (BVA)").
+- The type of graphical symbol used to represent it (e.g., rectangular block, bowtie/manual valve, valve with a semicircular actuator, circle, triangle, etc.).
+- Its positional location within the layout (e.g., "far left," "far right," "upper branch," "lower branch," "center," "top," "bottom").
+- The exact text labels associated with it and where they appear relative to the symbol (e.g., "labeled 'FUEL SUPPLY' inside the block," "labeled 'BLOCK VALVE A' above and 'BVA' below").
+
+**2. Connections**
+Describe every line, pipe, or conduit that links the components. For each connection or group of connections, specify:
+- Where the line originates and where it terminates.
+- Any junctions or split points where a single line divides into multiple branches (note the number and orientation of branches, e.g., "splits into two parallel horizontal branches, upper and lower").
+- The sequential (series) order of components along each branch (e.g., "the line passes through BVA, then continues through CVA").
+- Any recombination points where branches merge back into a single line.
+- A brief topological summary of the overall flow path (e.g., "the fuel supply feeds the motor via two parallel paths, each containing a block valve in series with a control valve").
+
+**3. Uncertainties**
+List every detail that is absent, ambiguous, or not explicitly indicated in the diagram. Use bullet points. Typical items to check for and report if missing include:
+- Flow-direction arrows on any line.
+- Specific actuator type, size, or control mode for valves that show a generic actuator symbol.
+- Pipe sizing, line numbers, pressure ratings, temperature, or other process parameters.
+- Any label that is partially obscured, too small to read confidently, or that you are unsure of.
+- Any component or connection you could not identify with certainty.
+
+**Critical rules:**
+- Describe ONLY what is visible in the provided image. Do not infer, assume, or fill in information from external knowledge, standard practice, or the diagram's likely real-world application.
+- If a label is illegible or a symbol is ambiguous, state your uncertainty explicitly in the Uncertainties section rather than guessing.
+- Use the exact text labels as they appear in the diagram (preserve capitalization, spacing, and punctuation).
+- Maintain the three-section structure in the order shown above. Do not merge, reorder, or omit any section.
+
+Now analyze the diagram below and produce the structured description.
+
+--- MODEL OUTPUT ---
+
+
+
+1. Components
+- **TK1** – circle (tank symbol) at top right; labeled "TK1" inside the circle and "Inert gas pressurization tank" to the right.
+- **RV1** – relief valve symbol (bowtie with a filled arrowhead pointing right) at upper right; labeled "Relief valve RV1" to the right.
+- **IV1** – manual/isolation valve symbol (bowtie) on the vertical line below TK1; labeled "Inert gas isolation valve IV1" to the right.
+- **Unlabeled circle (left of IV1)** – small circle on a horizontal line to the left of IV1; no text label visible.
+- **RG1** – valve symbol (bowtie) with a rectangular actuator box on its right side; labeled "Inert gas pressure regulator RG1" to the right.
+- **CV1** – check valve symbol (single downward‑pointing triangle) on the vertical line; labeled "Inert gas check valve CV1" to the right.
+- **PT1** – rounded‑rectangle tank symbol containing an internal arch/bladder shape, center‑right; labeled "Propellant tank with bladder PT1" to the right.
+- **RV2** – relief valve symbol (bowtie with filled right arrow) on a horizontal line to the right of PT1; labeled "Relief valve RV2" to the right.
+- **RV3** – relief valve symbol (bowtie with filled right arrow) on a horizontal line to the right, below PT1; labeled "Relief valve RV3" to the right.
+- **IV2** – valve symbol (bowtie) on the vertical line below PT1; labeled "Thruster isolation valve IV2" to the right.
+- **Unlabeled circle (left of IV2)** – small circle on a horizontal line to the left of IV2; no text label visible.
+- **RV4** – relief valve symbol (bowtie with filled right arrow) on a horizontal line to the right, below IV2; labeled "Relief valve RV4" to the right.
+- **IV3** – valve symbol (bowtie) on the vertical line below IV2; labeled "Thrust chamber inlet valve IV3" to the right.
+- **Unlabeled circle (left of IV3)** – small circle on a horizontal line to the left of IV3; no text label visible.
+- **Catalyst** – hatched (cross‑hatched) rectangle below IV3; labeled "Catalyst" to the right with a leader arrow pointing to it.
+- **Thruster nozzle** – trapezoidal/conical shape at the very bottom, below the Catalyst block; no text label.
+- **K1** – circle, upper area, right of K2; labeled "K1" above.
+- **K2** – circle, upper left; labeled "K2" below.
+- **S1** – switch symbol (two small triangles with a horizontal bar) above K2; labeled "S1" above.
+- **Unlabeled switch (below K2)** – switch symbol (two downward triangles with horizontal bar) with a dashed line; no text label.
+- **K3** – circle, middle left; labeled "K3" above.
+- **Unlabeled switch (below K3)** – switch symbol (two upward triangles with horizontal bar) connected by a dashed line to K3; no text label.
+- **S3** – switch symbol (two left‑pointing triangles with a horizontal bar) on the right side of the left circuit; labeled "S3" to the right.
+- **S2** – switch symbol (horizontal bar with two terminals) to the right of a 4‑terminal rectangle; labeled "S2" to the right.
+- **4‑terminal rectangle (left)** – rectangle with four triangle terminals (two left, two right), mid‑left; no text label.
+- **K4** – circle, lower left; labeled "K4" to the right.
+- **K5** – circle, lower middle; labeled "K5" to the left.
+- **K6** – circle, lower middle; labeled "Timer relay K6" above (text "Timer relay" on one line, "K6" below).
+- **Ground symbols** – multiple three‑line ground symbols scattered in the left circuit (e.g., left of K2/K3 area, right of the 4‑terminal rectangle, bottom middle).
+
+2. Connections
+- **Main process (right) vertical line:** Originates at the bottom of **TK1**. Immediately below TK1 it splits: one branch goes right to **RV1**; the main line continues down through **IV1**, then **RG1**, then **CV1**, into the top of **PT1**.
+- **PT1 branches:** A horizontal line from the right side of **PT1** goes to **RV2**. The line leaving the bottom of **PT1** continues down; a horizontal branch to the right goes to **RV3**; the main line continues down through **IV2**, then a horizontal branch to the right goes to **RV4**, then continues down through **IV3**, into the **Catalyst** block, and terminates at the **thruster nozzle** shape at the bottom.
+- **Sensor/switch circles on the process line:** A horizontal line from the left of **IV1** connects to an unlabeled circle; that circle's line then runs left and down into the left‑side circuit. A horizontal line from the left of **IV2** connects to an unlabeled circle, which links left/down toward the **K6 / Timer relay** area. A horizontal line from the left of **IV3** connects to an unlabeled circle that links into the left‑side circuit near **K5/K6**.
+- **Left‑side (control/electrical) circuit:** **K2** connects right to **K1**. **K2** also connects down (via a line with a ground symbol) toward **K3**. **K3** connects down (dashed) to a switch, which feeds a loop: a left vertical branch (with two left‑pointing valve/switch symbols) and a right vertical branch (with a ground symbol and the **S3** switch). The left branch continues down to the 4‑terminal rectangle (with **S2** to its right) and then to **K4**. **K4** connects right along the bottom to **K5**. **K5** connects up/right toward **K6** (Timer relay) and the unlabeled circle left of **IV3**. Dashed lines interconnect **K1**, **K2**, **K3**, **K4**, **K5**, **K6** and the far‑left vertical dashed line, forming the control wiring.
+- **Topological summary:** The inert gas tank **TK1** feeds, in series, **IV1 → RG1 → CV1** into the propellant tank **PT1**; from **PT1** the line continues in series through **IV2 → IV3** into the **Catalyst** bed and then the thruster nozzle. Relief valves **RV1, RV2, RV3, RV4** are parallel branches off the main line at TK1, PT1 (top), PT1 (bottom), and IV2 (bottom) respectively. The left‑side network of circles (K1–K6), switches (S1–S3), and ground symbols forms a separate control/relay circuit that interfaces with the process line via the unlabeled circles beside IV1, IV2, and IV3.
+
+3. Uncertainties
+- No flow‑direction arrows are shown on the main process line (only the relief‑valve arrowheads indicate discharge direction).
+- The three small circles to the left of **IV1**, **IV2**, and **IV3** have no text labels; their function (sensor, switch, or indicator) cannot be confirmed.
+- The left‑side circuit (K1–K6, S1–S3, 4‑terminal rectangle, ground symbols) is drawn with electrical/relay conventions; the exact meaning of each symbol (relay coil vs. contact, switch type, ground reference) is not labeled and is not confirmed.
+- Dashed lines in the left circuit (e.g., from the far‑left edge, around K1, K2, K3, K4, K5, K6) are not annotated; whether they represent control signals, mechanical linkage, or wiring is not stated.
+- The switch symbols (S1, S2, S3 and the unlabeled ones) do not indicate normally‑open vs. normally‑closed state or actuation type.
+- No pipe sizing, line numbers, pressure ratings, temperatures, or other process parameters are shown anywhere.
+- No actuator type, size, or control mode is specified for **RG1** (only a generic rectangular actuator box) or for the valves **IV1, IV2, IV3** (generic bowtie symbols).
+- The internal arch inside **PT1** is interpreted as a "bladder" only because of the label "with bladder"; the symbol itself is not a standard labeled bladder.
+- The bottom trapezoidal shape (thruster nozzle) has no label; its identity as a nozzle is inferred from position only.
+- Some small text (e.g., the "Timer relay" line and the leader to "Catalyst") is small; reading is confident but the leader arrow for "Catalyst" points to the hatched block, not the nozzle.
+- The exact junction points where the left‑side circuit lines meet the process‑line sensor circles are not clearly drawn as discrete nodes; the connectivity there is ambiguous.

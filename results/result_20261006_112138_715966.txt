@@ -1,0 +1,88 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot - voting
+Image: input/figure_7.png
+Processed image: input/figure_7.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components. If a component has no visible name or label, call it
+"Unlabeled component 1", "Unlabeled component 2", etc. If you can recognize what the unlabeled component appears to be,
+add the type in parentheses).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+If the diagram explicitly shows a direction from one component to another, use:
+
+Component A -> Component B
+
+If the components are connected but no direction is explicitly shown, use:
+
+Component A || Component B
+
+Do not guess the direction of a connection.
+Only use component names that appear in the Components list.
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+Components:
+- Front Tank (FT)
+- Rear Tank (RT)
+- Central Reservation Tank (CRT)
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+- FTV (Valve)
+- FTP (Pump)
+- FTF (Flow Meter)
+- CLF (Flow Meter)
+- CLP (Pump)
+- CLV (Valve)
+- CRF (Flow Meter)
+- CRP (Pump)
+- CRV (Valve)
+- RIV (Valve)
+- RTP (Pump)
+- RTF (Flow Meter)
+- CRPV (Valve)
+- CRPP (Pump)
+
+Connections:
+- Front Tank (FT) || FTV
+- FTV || FTP
+- FTP || FTF
+- FTF || Port Engine
+- Front Tank (FT) || CLF
+- CLF || CLP
+- CLP || CLV
+- CLV || Central Reservation Tank (CRT)
+- Rear Tank (RT) || RIV
+- RIV || RTP
+- RTP || RTF
+- RTF || Starboard Engine
+- Rear Tank (RT) || CRF
+- CRF || CRP
+- CRP || CRV
+- CRV || Central Reservation Tank (CRT)
+- Central Reservation Tank (CRT) || CRPV
+- CRPV || CRPP
+- CRPP || Refuelling Point

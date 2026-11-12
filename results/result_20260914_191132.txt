@@ -1,0 +1,78 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: DSPy
+Image: input/figure_6_1.png
+Processed image: input/figure_6_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: True
+Notation: False
+
+--- PROMPT ---
+
+You are a certified plant-engineering documentation specialist. The structured description you produce will be handed to a safety-inspection and emergency-response team who, in the next 30 minutes, must execute a live maintenance shutdown on this exact system. A single misidentified valve, a missed parallel branch, or an unflagged ambiguity in your description could cause an operator to isolate the wrong line, leading to a catastrophic fuel release or uncontrolled motor startup. Precision and honesty are therefore non-negotiable: you must report only what is unambiguously visible in the diagram and explicitly flag everything you cannot confirm.
+
+Examine the provided engineering schematic image carefully and produce a textual description using **exactly** the following three numbered sections. Do not add any preamble, title, or closing remark—begin directly with "1. Components".
+
+**1. Components**
+Provide an itemized bulleted list of every labeled object visible in the diagram. For each component, state:
+- Its full name and, if present, its short tag/abbreviation (e.g., "BLOCK VALVE A (BVA)").
+- The type of graphical symbol used to represent it (e.g., rectangular block, bowtie/manual valve, valve with a semicircular actuator, circle, triangle, etc.).
+- Its positional location within the layout (e.g., "far left," "far right," "upper branch," "lower branch," "center," "top," "bottom").
+- The exact text labels associated with it and where they appear relative to the symbol (e.g., "labeled 'FUEL SUPPLY' inside the block," "labeled 'BLOCK VALVE A' above and 'BVA' below").
+
+**2. Connections**
+Describe every line, pipe, or conduit that links the components. For each connection or group of connections, specify:
+- Where the line originates and where it terminates.
+- Any junctions or split points where a single line divides into multiple branches (note the number and orientation of branches, e.g., "splits into two parallel horizontal branches, upper and lower").
+- The sequential (series) order of components along each branch (e.g., "the line passes through BVA, then continues through CVA").
+- Any recombination points where branches merge back into a single line.
+- A brief topological summary of the overall flow path (e.g., "the fuel supply feeds the motor via two parallel paths, each containing a block valve in series with a control valve").
+
+**3. Uncertainties**
+List every detail that is absent, ambiguous, or not explicitly indicated in the diagram. Use bullet points. Typical items to check for and report if missing include:
+- Flow-direction arrows on any line.
+- Specific actuator type, size, or control mode for valves that show a generic actuator symbol.
+- Pipe sizing, line numbers, pressure ratings, temperature, or other process parameters.
+- Any label that is partially obscured, too small to read confidently, or that you are unsure of.
+- Any component or connection you could not identify with certainty.
+
+**Critical rules:**
+- Describe ONLY what is visible in the provided image. Do not infer, assume, or fill in information from external knowledge, standard practice, or the diagram's likely real-world application.
+- If a label is illegible or a symbol is ambiguous, state your uncertainty explicitly in the Uncertainties section rather than guessing.
+- Use the exact text labels as they appear in the diagram (preserve capitalization, spacing, and punctuation).
+- Maintain the three-section structure in the order shown above. Do not merge, reorder, or omit any section.
+
+Now analyze the diagram below and produce the structured description.
+
+--- MODEL OUTPUT ---
+
+
+
+1. Components
+- **Reboiler** (vessel): An open-top vertical tank with a rounded bottom, shown partially filled with a gray liquid and a wavy surface line. The text label "Reboiler" appears to the right of the vessel, roughly at mid-height. A small flange/nozzle symbol (two short stacked horizontal bars with a vertical stem) is at the vessel's bottom center.
+- **LS** (instrument block): A small rectangle on the far left, labeled "LS" inside. Positioned at the same vertical level as the vessel's bottom nozzle.
+- **LC** (instrument block): A small rectangle at the bottom left, labeled "LC" inside.
+- **Pump (a)**: A circle containing a right-pointing arrow, resting on a small trapezoidal base, located in the lower-center of the diagram. Labeled "(a)" to its lower left.
+- **Valve with actuator (b)**: A bowtie (two triangles meeting at a center point) manual/control valve symbol on the horizontal line to the right of the pump, with a vertical stem descending to a small open semicircle (dish) actuator symbol. Labeled "(b)" to the right of the actuator.
+- **FM** (instrument block): A small rectangle on the right side, labeled "FM" inside, on the horizontal line between the valve and the outlet.
+- **B / Bottom product** (terminal label): The letter "B" at the far right end of the line, with the text "Bottom product" directly below it.
+
+2. Connections
+- A solid horizontal line runs from the right side of the **LS** block to the vertical line at the vessel's bottom nozzle (a T-junction at the nozzle).
+- From that nozzle, a solid vertical line descends, then turns right (horizontal) and enters the left side of the **pump (a)**; the arrow inside the pump points right, indicating flow direction through the pump.
+- A solid horizontal line exits the right side of the pump, passes through the **bowtie valve (b)**, continues right into the left side of the **FM** block, exits the right side of FM, and terminates with a right-pointing arrowhead at the label **B / Bottom product**.
+- A dashed vertical line connects the bottom of **LS** down to the top of **LC**.
+- A dashed line runs from the right side of **LC** horizontally to the right, then turns upward to connect to the bottom of the semicircle actuator of valve **(b)**.
+- Topological summary: The Reboiler's bottom outlet feeds, via a junction, both the LS instrument (solid line) and the pump (a); the pump discharges in series through valve (b) and the FM instrument to the "Bottom product" outlet B. The LS and LC instruments are linked by a dashed signal line, and LC is linked by a dashed signal line to the actuator of valve (b), forming a control loop.
+
+3. Uncertainties
+- No flow-direction arrows are shown on the lines from the vessel to the pump, from the pump to the valve, or from the valve to FM; only the arrow inside the pump and the arrowhead at the B outlet indicate direction.
+- The actuator on valve (b) is a generic open semicircle; its specific type (e.g., pneumatic diaphragm, electric), size, and control mode (fail-open/fail-closed) are not indicated.
+- The valve (b) is drawn as a generic bowtie with an actuator; whether it is a control valve, on/off valve, or its trim/size is not specified.
+- No pipe sizes, line numbers, pressure ratings, temperatures, or other process parameters are shown on any line.
+- The vessel is drawn open at the top (no lid or vapor line); whether this is intentional or a simplification is not stated.
+- The exact nature of the LS, LC, and FM instruments (e.g., level switch, level controller, flow meter) is not defined beyond their tags; only the tags are visible.
+- The reference labels "(a)" and "(b)" are present but their meaning (e.g., callouts to a legend) is not explained in the diagram.
+- The dashed lines are interpreted as signal/control connections, but the diagram does not explicitly label them as such.

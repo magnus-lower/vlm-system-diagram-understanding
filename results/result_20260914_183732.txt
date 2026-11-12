@@ -1,0 +1,96 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_5_1.png
+Processed image: input/figure_5_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: True
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show visible connections between components. Depending on the diagram, these can be electrical, physical, or fluid connections.
+- Dashed lines can represent control or signal connections.
+- Labels such as K1, K2, etc. can refer to relays.
+- Labels such as S1, S2, etc. can refer to switches or switch contacts.
+- FC can mean flow controller.
+- FM can mean flow meter.
+- LC can mean level controller.
+- LS can mean level sensor.
+- Valve symbols are usually placed directly on fluid lines.
+- RV can mean relief valve.
+- IV can mean isolation valve.
+- CV can mean check valve.
+- Pumps can be connected directly to fluid lines.
+- Tanks, vessels, and reboilers can be shown using container-like shapes.
+- Arrows can show direction when they are clearly visible.
+- A bus can be shown as one or more shared lines connected to several components.
+- Components that are connected to the same bus are not necessarily directly connected to each other.
+- A line that splits can show one connection branching into several paths.
+
+Do not assume the direction of flow unless it is clearly shown.
+Do not guess the control logic if the connections are difficult to trace.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Tank / vessel** – container shape at top‑left, partially filled with liquid.
+- **LS** – level sensor (circle), tapped at the bottom of the tank.
+- **LC** – level controller (box).
+- **Control valve (upper)** – bowtie valve symbol with an actuator (dome/triangle) marked **(b)**, on the upper horizontal line.
+- **Pump (a)** – circle with internal arrow on a base, marked **(a)**.
+- **FM (left)** – flow meter (box) on the lower line.
+- **Control valve (lower)** – bowtie valve symbol with actuator marked **(b)**, on the lower line.
+- **FM (right)** – flow meter (box) on the lower‑right line.
+- **FC** – flow controller (box) at the bottom.
+- **L / Reflux** – labeled outlet with a left‑pointing arrow.
+- **D / Distillate** – labeled outlet with a right‑pointing arrow.
+
+**2. Connections**
+
+*Fluid (solid) lines:*
+- Tank bottom outlet → down and right → into the **pump (a)**.
+- Pump (a) outlet → right → joins the line carrying the **upper control valve (b)**.
+- The upper control valve (b) line continues right, then down, to a junction on the lower line.
+- From that junction, the lower line goes left through the **lower control valve (b)** → through **FM (left)** → left arrow to **L / Reflux**.
+- From the same junction, the line goes right through **FM (right)** → right arrow to **D / Distillate**.
+
+*Signal / control (dashed) lines:*
+- **LS** → **LC**.
+- **LC** → actuator of the **upper control valve (b)**.
+- **FC** → actuator of the **lower control valve (b)**.
+- **FC** → **FM (left)**.
+
+**3. Uncertainties**
+
+- The exact point where the pump outlet line meets the upper‑valve line is not drawn with a clear node; it is read as the pump feeding the line that contains the upper valve, but the precise junction is ambiguous.
+- No flow arrows are shown on the upper branch or on the segment between the pump and the right‑side junction, so the direction of flow in that branch is inferred, not explicitly marked.
+- It is not visually certain whether the upper valve is in series before the split (as traced) or on a separate branch; the connection around the pump/upper‑valve area is the least clear part of the diagram.

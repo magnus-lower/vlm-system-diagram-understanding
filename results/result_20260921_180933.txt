@@ -1,0 +1,68 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_2_1.png
+Processed image: input/figure_2_1.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+For each connection, only use this format:
+
+Component A || Component B || line_style || connection_type || position
+
+Use "none" as the position when no position is needed.
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- Column (distillation column)
+- Condenser
+- Reflux drum
+- Reflux (valve)
+- Liquid distributor
+- Random packing
+- Liquid redistributor
+- Packing support plate
+- Reboiler
+- Feed
+- Steam
+- Steam condensate
+- Top product
+- Bottom product
+
+Connections:
+- Column || Condenser || solid || flow || none
+- Condenser || Reflux drum || solid || flow || none
+- Reflux drum || Reflux || solid || flow || none
+- Reflux || Column || solid || flow || none
+- Reflux drum || Top product || solid || flow || none
+- Feed || Column || solid || flow || none
+- Column || Reboiler || solid || flow || none
+- Reboiler || Column || solid || flow || none
+- Steam || Reboiler || solid || flow || none
+- Reboiler || Steam condensate || solid || flow || none
+- Reboiler || Bottom product || solid || flow || none

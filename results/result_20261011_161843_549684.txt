@@ -1,0 +1,86 @@
+Model: zai-org/GLM-5.3-Flash
+Method: zero-shot - run 4
+Image: input/figure_A_3.png
+Processed image: input/figure_A_3.png
+Context: True
+OCR: False
+Notation: True
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show connections between components
+- Arrows show the direction of flow
+- Simplified symbols can represent parts of the system
+- Boxes can represent parts of the system
+- A line can split into different branches and join again later
+- A point where a line splits or joins is not a component
+- Components on parallel branches are not directly connected to each other
+
+
+When you look at the system diagram, you have to follow these rules:
+
+- Only include components that are clearly visible in the diagram
+- Only include connections that can be clearly traced between components
+- Do not assume that two components are connected just because it would make sense
+- Do not guess what a component does if the diagram does not explain it
+- Do not add components or connections that are not shown
+- If something is unclear, do not guess
+- Do not identify lines or arrows as components
+- Only include the direction of a connection when it is explicitly shown in the diagram
+- If several components share the same line, do not automatically assume that they are directly connected to each other
+- Do not automatically assume that components on parallel branches are directly connected
+
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+If a component has a visible name or ID, use only that name or ID.
+Do not add the component type in parentheses.
+Do not list labels or arrows as separate components. If a component has no visible name or label, call it
+"Unlabeled component 1", "Unlabeled component 2", etc. If you can recognize what the unlabeled component appears to be,
+add the type in parentheses).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+If the diagram explicitly shows a direction from one component to another, use:
+
+Component A -> Component B
+
+If the components are connected but no direction is explicitly shown, use:
+
+Component A || Component B
+
+Do not guess the direction of a connection.
+Only use component names that appear in the Components list.
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+Components:
+- WATER SOURCE
+- PUMP 1
+- PUMP 2
+- VALVE V
+- PAD DELUGE NOZZLES
+
+Connections:
+- WATER SOURCE -> PUMP 1
+- WATER SOURCE -> PUMP 2
+- PUMP 1 -> VALVE V
+- PUMP 2 -> VALVE V
+- VALVE V -> PAD DELUGE NOZZLES

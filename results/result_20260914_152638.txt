@@ -1,0 +1,90 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: DSPy
+Image: input/figure_2_2.png
+Processed image: input/figure_2_2.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: True
+Notation: False
+
+--- PROMPT ---
+
+You are a certified plant-engineering documentation specialist. The structured description you produce will be handed to a safety-inspection and emergency-response team who, in the next 30 minutes, must execute a live maintenance shutdown on this exact system. A single misidentified valve, a missed parallel branch, or an unflagged ambiguity in your description could cause an operator to isolate the wrong line, leading to a catastrophic fuel release or uncontrolled motor startup. Precision and honesty are therefore non-negotiable: you must report only what is unambiguously visible in the diagram and explicitly flag everything you cannot confirm.
+
+Examine the provided engineering schematic image carefully and produce a textual description using **exactly** the following three numbered sections. Do not add any preamble, title, or closing remark—begin directly with "1. Components".
+
+**1. Components**
+Provide an itemized bulleted list of every labeled object visible in the diagram. For each component, state:
+- Its full name and, if present, its short tag/abbreviation (e.g., "BLOCK VALVE A (BVA)").
+- The type of graphical symbol used to represent it (e.g., rectangular block, bowtie/manual valve, valve with a semicircular actuator, circle, triangle, etc.).
+- Its positional location within the layout (e.g., "far left," "far right," "upper branch," "lower branch," "center," "top," "bottom").
+- The exact text labels associated with it and where they appear relative to the symbol (e.g., "labeled 'FUEL SUPPLY' inside the block," "labeled 'BLOCK VALVE A' above and 'BVA' below").
+
+**2. Connections**
+Describe every line, pipe, or conduit that links the components. For each connection or group of connections, specify:
+- Where the line originates and where it terminates.
+- Any junctions or split points where a single line divides into multiple branches (note the number and orientation of branches, e.g., "splits into two parallel horizontal branches, upper and lower").
+- The sequential (series) order of components along each branch (e.g., "the line passes through BVA, then continues through CVA").
+- Any recombination points where branches merge back into a single line.
+- A brief topological summary of the overall flow path (e.g., "the fuel supply feeds the motor via two parallel paths, each containing a block valve in series with a control valve").
+
+**3. Uncertainties**
+List every detail that is absent, ambiguous, or not explicitly indicated in the diagram. Use bullet points. Typical items to check for and report if missing include:
+- Flow-direction arrows on any line.
+- Specific actuator type, size, or control mode for valves that show a generic actuator symbol.
+- Pipe sizing, line numbers, pressure ratings, temperature, or other process parameters.
+- Any label that is partially obscured, too small to read confidently, or that you are unsure of.
+- Any component or connection you could not identify with certainty.
+
+**Critical rules:**
+- Describe ONLY what is visible in the provided image. Do not infer, assume, or fill in information from external knowledge, standard practice, or the diagram's likely real-world application.
+- If a label is illegible or a symbol is ambiguous, state your uncertainty explicitly in the Uncertainties section rather than guessing.
+- Use the exact text labels as they appear in the diagram (preserve capitalization, spacing, and punctuation).
+- Maintain the three-section structure in the order shown above. Do not merge, reorder, or omit any section.
+
+Now analyze the diagram below and produce the structured description.
+
+--- MODEL OUTPUT ---
+
+
+
+1. Components
+- **Condenser** — rectangular block containing several internal horizontal lines (tube-bundle style symbol), located at the top, slightly left of center. Labeled "Condenser" in text above the block.
+- **Cooling water (inlet line)** — horizontal line with a right-pointing arrowhead entering the left side of the condenser, far left top. Labeled "Cooling water" above the line.
+- **Cooling water (outlet line)** — horizontal line with a left-pointing arrowhead leaving the left side of the condenser, just below the inlet line.
+- **Liquid collector drum** — small gray-filled rounded rectangle with a wavy liquid surface line, positioned directly below the condenser. No text label.
+- **Top product line** — horizontal line with a left-pointing arrowhead at the far left, mid-upper area. Labeled "Top product" below the line.
+- **Reflux line** — line entering the top of the column from the left, with a right-pointing arrowhead at the column wall. Labeled "Reflux" below the line.
+- **Distillation column** — tall vertical vessel (rounded top and bottom) occupying the center-right of the diagram. Internally it shows five gray hatched horizontal bands each containing a row of small circles (tray/packing representation), plus a gray liquid pool at the very bottom. No text label on the vessel itself.
+- **Vapor arrows (red)** — multiple short red upward-pointing arrows distributed vertically inside the column (three per inter-tray section).
+- **Liquid arrows (blue)** — short blue downward-pointing arrows along the left and right inner walls of the column at several levels.
+- **Feed line** — horizontal line with a right-pointing arrowhead entering the column at mid-height. Labeled "Feed" above the line.
+- **Reboiler** — rounded-rectangle vessel at the bottom left containing a zigzag (coil) symbol and a gray liquid fill. Labeled "Reboiler" above the vessel.
+- **Steam (inlet line)** — horizontal line with a right-pointing arrowhead entering the left side of the reboiler. Labeled "Steam" above the line.
+- **Steam (outlet line)** — horizontal line with a left-pointing arrowhead leaving the lower left of the reboiler.
+- **Bottom product line** — line leaving the bottom of the reboiler, running right with a right-pointing arrowhead at the far right bottom. Labeled "Bottom product" below the line.
+
+2. Connections
+- The **cooling water inlet** line enters the left side of the **Condenser**; the **cooling water outlet** line exits the left side of the Condenser (separate in/out pair, no internal connection shown).
+- A line exits the **right side of the Condenser**, runs right and then down, and enters the **top of the column** (overhead vapor line).
+- A line exits the **bottom of the Condenser** and enters the **top of the liquid collector drum**.
+- A line exits the **bottom of the drum** and splits: one branch runs left to the **Top product** arrowhead; the other branch runs right and then up into the **top of the column** as the **Reflux** line.
+- The **Feed** line enters the **column** at mid-height (between the second and third gray bands from the top).
+- A line exits the **lower side of the column** (above the bottom liquid pool) and enters the **top of the Reboiler**.
+- A line exits the **bottom of the Reboiler**, runs right and then up, and re-enters the **bottom of the column** (vapor return line).
+- The **Steam** inlet enters the left of the **Reboiler**; the **Steam** outlet exits the lower left of the Reboiler.
+- A line exits the **bottom of the Reboiler** and runs right to the **Bottom product** arrowhead.
+- **Topological summary:** overhead vapor from the column top goes to the condenser; the condensed liquid collects in the drum and is split into a top-product draw and a reflux return to the column top. Feed enters the column mid-height. Column bottoms liquid is sent to the reboiler, which returns vapor to the column bottom and draws off the bottom product; steam supplies and removes heat in the reboiler.
+
+3. Uncertainties
+- No flow-direction arrows are shown on the overhead vapor line (condenser-to-column), the condenser-to-drum line, the drum-to-reflux line, the column-to-reboiler line, or the reboiler-to-column return line; direction on these is inferred only from context, not marked.
+- The small gray vessel below the condenser has no text label; its identity (reflux drum / receiver) is not stated.
+- The main vertical vessel has no text label identifying it as a "column" or "distillation column."
+- The exact number of trays/packing stages is not labeled; five gray hatched bands are visible, but their function (trays vs. packing) and count are not explicitly stated.
+- No valve symbols, control loops, instruments, or actuators of any kind are present in the diagram.
+- No pipe sizing, line numbers, pressure ratings, temperatures, or other process parameters are indicated.
+- No tag numbers or abbreviations (e.g., BVA, CVA) appear anywhere in the diagram.
+- The internal zigzag in the reboiler is interpreted as a heating coil, but no label confirms this.
+- The red and blue arrows indicate vapor/liquid movement but are not labeled as such in the diagram.

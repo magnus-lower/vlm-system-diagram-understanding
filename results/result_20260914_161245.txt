@@ -1,0 +1,64 @@
+Model: mistralai/Mistral-Medium-3.5-128B
+Method: zero-shot
+Image: input/figure_5_1.png
+Processed image: input/figure_5_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+1. Components
+- LS (Level Sensor)
+- LC (Level Controller)
+- Pump (a)
+- Valve (b)
+- Valve (b)
+- FM (Flow Meter)
+- FM (Flow Meter)
+- FC (Flow Controller)
+- Reflux line (L)
+- Distillate line (D)
+- Tank
+
+2. Connections
+- The Tank is connected to LS.
+- LS is connected to LC with a dashed line.
+- LC is connected to Valve (b) with a dashed line.
+- The Tank is connected to Pump (a).
+- Pump (a) is connected to Valve (b).
+- Valve (b) is connected to FM.
+- FM is connected to Valve (b).
+- Valve (b) is connected to FM.
+- FM is connected to FC with a dashed line.
+- FM is connected to the Distillate line (D).
+- The Reflux line (L) is connected to FM.
+
+3. Uncertainties
+- It is unclear what the dashed lines represent.
+- It is unclear if there are any other components or connections not shown in the image.

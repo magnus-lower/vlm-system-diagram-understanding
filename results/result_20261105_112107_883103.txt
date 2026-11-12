@@ -1,0 +1,64 @@
+Model: moonshotai/Kimi-K2.6
+Method: Literature Baseline - run 2
+Image: input/figure_4.png
+Processed image: input/figure_4.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+Two-stage: False
+
+--- PROMPT ---
+
+Express the attached System Diagram in JSON format as shown
+below. Include component labels and connections, including their directions, exactly as they
+appear in the diagram. If no direction is explicitly shown, set "directed" to false.
+
+{
+  "nodes": [
+    {"id": "A"},
+    {"id": "B"},
+    {"id": "C"}
+  ],
+  "edges": [
+    {"source": "A", "target": "B", "directed": true},
+    {"source": "B", "target": "C", "directed": false}
+  ]
+}
+
+--- RAW JSON ---
+
+ ```json
+{
+  "nodes": [
+    {"id": "Power supply"},
+    {"id": "Pump start/stop switch"},
+    {"id": "Transfer pump"},
+    {"id": "Sensor"},
+    {"id": "Transmitter"},
+    {"id": "Indicator"}
+  ],
+  "edges": [
+    {"source": "Power supply", "target": "Pump start/stop switch", "directed": true},
+    {"source": "Pump start/stop switch", "target": "Transfer pump", "directed": false},
+    {"source": "Sensor", "target": "Transmitter", "directed": false},
+    {"source": "Transmitter", "target": "Indicator", "directed": false}
+  ]
+}
+```
+
+--- MODEL OUTPUT ---
+
+Components:
+- Power supply
+- Pump start/stop switch
+- Transfer pump
+- Sensor
+- Transmitter
+- Indicator
+
+Connections:
+- Power supply -> Pump start/stop switch
+- Pump start/stop switch || Transfer pump
+- Sensor || Transmitter
+- Transmitter || Indicator

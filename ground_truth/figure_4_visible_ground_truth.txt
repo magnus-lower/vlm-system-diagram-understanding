@@ -1,0 +1,19 @@
+Components:
+- Transfer pump
+- Pump start/stop switch
+- Unlabeled component 1 (Valve)
+- Unlabeled component 2 (Storage tank)
+- Sensor
+- LT: Transmitter
+- LI: Indicator
+- Unlabeled component 3 (Operator)
+- Power supply
+
+Connections:
+- Transfer pump -> Unlabeled component 1 (Valve)
+- Unlabeled component 1 (Valve) -> Unlabeled component 2 (Storage tank)
+- Unlabeled component 2 (Storage tank) || Sensor
+- Sensor || LT: Transmitter
+- LT: Transmitter || LI: Indicator
+- Pump start/stop switch || Transfer pump
+- Power supply -> Pump start/stop switch

@@ -1,0 +1,62 @@
+Experiment: context zero-shot
+Model: Qwen/Qwen3.8-27B-FP8
+Temperature: 0
+Input: input/figure_11_1.png
+Prompt: prompts/zero_shot_image.txt
+Context: context/context_rules.txt
+Time: 2026-09-08 18:37:27
+
+--- MODEL OUTPUT ---
+
+
+
+## 1. Components
+
+**Process side (right / center‑right):**
+- **TK1** – Inert gas pressurization tank (circle)
+- **RV1** – Relief valve (valve symbol with filled arrow)
+- **IV1** – Inert gas isolation valve
+- **RG1** – Inert gas pressure regulator
+- **CV1** – Inert gas check valve
+- **PT1** – Propellant tank with bladder
+- **RV2** – Relief valve
+- **RV3** – Relief valve
+- **IV2** – Thruster isolation valve
+- **RV4** – Relief valve
+- **IV3** – Thrust chamber inlet valve
+- **Catalyst** – labeled hatched region inside the thruster
+- Thruster body (bell‑shaped outline at the bottom) – visible but **not** given an ID label
+- Three **unlabeled circular symbols** located immediately to the left of IV1, IV2 and IV3
+
+**Control / electrical side (left / center):**
+- **S1**, **S2**, **S3** – switch symbols
+- **K1**, **K2**, **K3**, **K4**, **K5** – circular symbols (relays/coils, not further labeled)
+- **K6** – Timer relay (circle)
+- Several **battery / power‑source symbols** (parallel‑line symbols), unlabeled
+- A few small two‑triangle switch symbols that carry **no label** (e.g., the one above K6 and the one left of K6)
+
+## 2. Connections
+
+**Process lines (thick lines) – traceable:**
+- TK1 → RV1 (branch off the line leaving TK1)
+- TK1 → IV1
+- IV1 → RG1
+- RG1 → CV1
+- CV1 → PT1 (top of tank)
+- PT1 → RV2 (side branch on the upper right of the tank)
+- PT1 (bottom) → RV3 (branch)
+- PT1 (bottom) → IV2
+- IV2 → RV4 (branch)
+- IV2 → IV3
+- IV3 → thruster / Catalyst region
+
+**Control circuit (thin and dashed lines):**
+The left/center portion is a dense control circuit. The components S1–S3, K1–K6, the battery symbols, and the three unlabeled circles next to IV1/IV2/IV3 are interconnected by thin and dashed lines, and thin lines run from those unlabeled circles toward the valves IV1, IV2 and IV3. The exact point‑to‑point routing of these control lines **cannot be traced with high confidence**, so individual control connections are not listed (see Uncertainties).
+
+## 3. Uncertainties
+- The exact wiring of the control circuit (left/center) is dense; dashed lines and thin lines branch and run along the edges, so the precise point‑to‑point connections among S1–S3, K1–K6, the battery symbols, and the valve‑adjacent circles are **uncertain**.
+- The long dashed line running down the far‑left edge and the dashed lines around S1, K3, K4 and K5 could not all be followed to a single unambiguous endpoint.
+- The unlabeled circles (next to IV1/IV2/IV3 and the K‑circles) have no function label; whether they are relays, sensors, or actuation indicators is **not stated** in the diagram.
+- The thruster bell at the bottom has no ID; only the hatched section is labeled "Catalyst."
+- No flow‑direction arrows are shown on the main process piping, so **no flow direction is reported** (the filled arrows inside the relief‑valve symbols are part of those symbols only).
+- Some small two‑triangle switch symbols (e.g., above K6 and left of K6) are not labeled, so their identity is unclear.

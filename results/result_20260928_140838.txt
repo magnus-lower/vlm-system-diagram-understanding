@@ -1,0 +1,101 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_7.png
+Processed image: input/figure_7.png
+Context: False
+OCR: False
+Notation: True
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show connections between components
+- Boxes can represent tanks
+- Pump symbols represent pumps
+- Valve symbols represent valves
+- Small rectangular symbols can represent flow meters
+- Temperature symbols represent temperature sensors
+- Diamond symbols represent level sensors
+- A line can split into different branches
+- Components on different branches are not directly connected just because they share the same tank or line
+- Symbols that are shown inside the dotted rectangle are examples and are not part of the system
+
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+For each connection, only use this format:
+
+Component A || Component B
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- Front Tank (FT)
+- Rear Tank (RT)
+- Central Reservation Tank (CRT)
+- FTT (temperature sensor)
+- FTL (level sensor)
+- RTT (temperature sensor)
+- RTL (level sensor)
+- CRTT (temperature sensor)
+- CRTL (level sensor)
+- FTV (valve)
+- RIV (valve)
+- CLV (valve)
+- CRV (valve)
+- CRPV (valve)
+- FTP (pump)
+- CLP (pump)
+- CRP (pump)
+- RTP (pump)
+- CRPP (pump)
+- FTF (flow meter)
+- CLF (flow meter)
+- CRF (flow meter)
+- RTF (flow meter)
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+
+Connections:
+- Front Tank (FT) || FTV
+- FTV || FTP
+- FTP || FTF
+- FTF || Port Engine
+- Front Tank (FT) || CLF
+- CLF || CLP
+- CLP || CLV
+- CLV || Central Reservation Tank (CRT)
+- Rear Tank (RT) || CRF
+- CRF || CRP
+- CRP || CRV
+- CRV || Central Reservation Tank (CRT)
+- Rear Tank (RT) || RIV
+- RIV || RTP
+- RTP || RTF
+- RTF || Starboard Engine
+- Central Reservation Tank (CRT) || CRPV
+- CRPV || CRPP
+- CRPP || Refuelling Point

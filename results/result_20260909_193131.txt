@@ -1,0 +1,47 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Context: False
+OCR: False
+RAG: False
+Vectorized: False
+One-shot: False
+
+--- MODEL OUTPUT ---
+
+
+
+## What the diagram shows
+
+This is a **P&ID with electrical interlock logic for a monopropellant thruster system** (a bladder‑pressurized propellant tank feeding a catalytic thruster). The right‑hand side is the *process* (piping/valves); the left‑hand side is the *control* circuit (relays, switches, power) that sequences and interlocks the valves so the thruster can only fire in the correct order and for a limited time.
+
+### Process side (right)
+| Tag | Item | Function |
+|---|---|---|
+| **TK1** | Inert gas pressurization tank | Source of pressurizing gas |
+| **RV1** | Relief valve | Protects the gas tank |
+| **IV1** | Inert gas isolation valve | Admits pressurizing gas to the bladder |
+| **RG1** | Inert gas pressure regulator | Sets the bladder/pressurization pressure |
+| **CV1** | Inert gas check valve | Prevents backflow into the gas line |
+| **PT1** | Propellant tank with bladder | Stores propellant; bladder is inflated by the inert gas |
+| **RV2 / RV3** | Relief valves | Protect the gas side and liquid side of PT1 |
+| **IV2** | Thruster isolation valve | Isolates the tank from the thruster line |
+| **RV4** | Relief valve | Protects the line between IV2 and IV3 |
+| **IV3** | Thrust chamber inlet valve | Final valve admitting propellant to the chamber |
+| **Catalyst** | Catalyst bed in the thruster | Decomposes the monopropellant to produce thrust |
+
+### Control side (left)
+- **S1, S2, S3** – manual/interlock switches (contacts).
+- **K1, K2, K3, K4, K5** – relays whose coils drive the valve actuators (the small circles on the piping next to IV1, IV2, IV3) and whose contacts form the interlock chain.
+- **K6** – **timer relay**: limits the firing (valve‑open) time.
+- Battery symbols – power supplies for the control circuits.
+- Dashed lines = electrical/control wiring; solid lines = process piping.
+
+### Intended firing / interlock sequence
+1. **Pressurize:** Energize the circuit that closes **IV1** (via K1). Inert gas from TK1, through RG1 and CV1, inflates the bladder in PT1, pressurizing the propellant.
+2. **Isolate the thruster line:** With IV1 confirmed closed, the interlock (K3 / S3 path) permits **IV2** to open, connecting the tank to the thruster line.
+3. **Fire:** With IV2 confirmed open, the circuit through **K5** energizes the **timer relay K6**. After its set delay, K6's contact closes and **IV3** opens, sending propellant over the catalyst to produce thrust.
+4. **Time‑out:** K6's timer opens the circuit after the programmed duration, closing IV3 and ending the burn (prevents over‑firing).
+5. **Safety:** RV1–RV4 vent each isolated section to protect against over‑pressure; the check valve CV1 and the staged interlocks prevent the thruster from being opened before the tank is pressurized.
+
+In short, the diagram defines a **sequenced, time‑limited, interlocked firing procedure** for a bladder‑pressurized monopropellant thruster, with relief valves protecting every pressure boundary.
+
+If you had a specific question about this diagram (e.g., tracing a particular interlock, identifying a fault, or explaining one relay's role), let me know and I'll walk through that path in detail.

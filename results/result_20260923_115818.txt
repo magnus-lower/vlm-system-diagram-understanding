@@ -1,0 +1,82 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: two-stage
+Image: input/figure_5_1.png
+Processed image: input/figure_5_1.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+DSPy: False
+Two-stage: True
+
+--- PROMPT ---
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components).
+
+
+Return only:
+
+Components:
+- ...
+
+
+Look at the system diagram in the image. The following system components
+were identified in the first stage:
+
+
+
+Components:
+- Tank / vessel (feed tank, top left)
+- Level sensor (LS)
+- Level controller (LC)
+- Control valve on the upper line (with actuator (b))
+- Pump (a)
+- Flow meter (FM) on the reflux line (L)
+- Control valve on the lower line (with actuator (b))
+- Flow controller (FC)
+- Flow meter (FM) on the distillate line (D)
+
+
+Identify the connections between these components. Do not introduce new components or rename the existing ones.
+Only include a connection if it can be traced in the image. For each connection, only use this format:
+
+Component A || Component B
+
+
+Return only:
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- Tank / vessel (feed tank, top left)
+- Level sensor (LS)
+- Level controller (LC)
+- Control valve on the upper line (with actuator (b))
+- Pump (a)
+- Flow meter (FM) on the reflux line (L)
+- Control valve on the lower line (with actuator (b))
+- Flow controller (FC)
+- Flow meter (FM) on the distillate line (D)
+
+
+
+Connections:
+- Tank / vessel (feed tank, top left) || Level sensor (LS)
+- Level sensor (LS) || Level controller (LC)
+- Level controller (LC) || Control valve on the upper line (with actuator (b))
+- Tank / vessel (feed tank, top left) || Pump (a)
+- Pump (a) || Control valve on the upper line (with actuator (b))
+- Control valve on the upper line (with actuator (b)) || Control valve on the lower line (with actuator (b))
+- Control valve on the upper line (with actuator (b)) || Flow meter (FM) on the distillate line (D)
+- Control valve on the lower line (with actuator (b)) || Flow meter (FM) on the reflux line (L)
+- Flow meter (FM) on the reflux line (L) || Flow controller (FC)
+- Flow controller (FC) || Control valve on the lower line (with actuator (b))

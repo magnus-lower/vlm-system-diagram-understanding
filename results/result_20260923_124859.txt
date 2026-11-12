@@ -1,0 +1,75 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_5_1.png
+Processed image: input/figure_5_1.png
+Context: False
+OCR: False
+Notation: True
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show connections between components in the process
+- Dashed lines show control or signal connections
+- LS means level sensor
+- LC means level controller
+- FM means flow meter
+- FC means flow controller
+- Valves that are shown on a line are components
+- A line can be split into different branches
+- A point where a line splits is not a component
+
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+For each connection, only use this format:
+
+Component A || Component B
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- Tank (vessel)
+- Level sensor (LS)
+- Level controller (LC)
+- Valve (upper, with actuator (b))
+- Pump (a)
+- Flow meter (FM, left)
+- Valve (lower, with actuator (b))
+- Flow controller (FC)
+- Flow meter (FM, right)
+
+Connections:
+- Tank || Level sensor (LS)
+- Tank || Pump (a)
+- Pump (a) || Valve (upper)
+- Pump (a) || Flow meter (FM, left)
+- Valve (upper) || Flow meter (FM, right)
+- Flow meter (FM, left) || Valve (lower)
+- Valve (lower) || Flow meter (FM, right)
+- Level sensor (LS) || Level controller (LC)
+- Level controller (LC) || Valve (upper)
+- Flow meter (FM, left) || Flow controller (FC)
+- Flow controller (FC) || Valve (lower)

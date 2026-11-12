@@ -1,0 +1,75 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_9.png
+Processed image: input/figure_9.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+For each connection, only use this format:
+
+Component A || Component B
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- COMP
+- S1
+- S2
+- HEAT EXCHANGER (HX2)
+- HEAT EXCHANGER (HX1)
+- PRESSURE VESSEL
+- VALVE (V1)
+- P3
+- TANK 2 (T2)
+- RELAY (R1)
+- FAN (F)
+- MOTOR (M)
+- TANK 1 (T1)
+- P1
+- P2
+
+Connections:
+- COMP || S1
+- COMP || S2
+- S1 || R1
+- S2 || R1
+- R1 || V1
+- R1 || M
+- M || F
+- HX2 || PRESSURE VESSEL
+- HX1 || PRESSURE VESSEL
+- HX2 || T2
+- HX2 || V1
+- V1 || P3
+- P3 || T2
+- HX1 || T1
+- HX1 || P1
+- P1 || P2
+- P2 || T1
+- P1 || T1

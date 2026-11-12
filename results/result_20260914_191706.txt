@@ -1,0 +1,78 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_13_1.png
+Processed image: input/figure_13_1.png
+Context: True
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+When interpreting the system diagram:
+
+- Only include components that are clearly visible in the diagram.
+- Only describe connections that can be seen in the diagram.
+- Do not assume that two components are connected just because it would make sense.
+- Do not guess the direction of flow unless it is clearly shown.
+- Do not guess what a component does if the diagram does not explain it.
+- Do not add components that are not shown.
+- If something is unclear, put it under Uncertainties instead of guessing.
+- Prefer a simple and careful answer over a detailed answer that may be wrong.
+- If a control circuit or control system is hard to follow, do not guess the exact connections.
+- Only describe a specific connection if both ends can be clearly traced in the diagram.
+- If several components connect to the same bus or common line, do not assume that they are directly connected to each other.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- A1
+- A2
+- Cold Spare A
+- Memory Interface Unit 1
+- Memory Interface Unit 2
+- Operator console, Operator, & Software
+- M1, M2, M3, M4, M5
+- Redundant Bus (the horizontal line(s) at the top, labeled on the right)
+
+**2. Connections**
+
+- M1 is connected to Memory Interface Unit 1 (diagonal line).
+- M2 is connected to Memory Interface Unit 1 (vertical line).
+- M3 is connected to both Memory Interface Unit 1 and Memory Interface Unit 2 (one diagonal line to each).
+- M4 is connected to Memory Interface Unit 2 (vertical line).
+- M5 is connected to Memory Interface Unit 2 (diagonal line).
+- A1, A2, Cold Spare A, Memory Interface Unit 1, Memory Interface Unit 2, and the Operator console each have two vertical lines running upward to the horizontal Redundant Bus line(s).
+
+**3. Uncertainties**
+
+- The top of the diagram shows two parallel horizontal lines. It is not clearly traceable which of the two lines each component's pair of vertical lines attaches to, and it is not certain whether the upper line is part of the "Redundant Bus" or a separate line.
+- No flow direction is indicated on any line.
+- The diagram does not describe the function of any component.
+- It is not clear whether the two vertical lines from each component to the bus represent a single connection or two separate connections.

@@ -1,0 +1,63 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Image: input/figure_4_1.png
+Processed image: input/figure_4_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Tank / vessel** (left): an open‑top container holding liquid (gray fill with a wavy surface line). It has no label or ID in the diagram.
+- **(a)** – a pump (circle with an internal arrow on a triangular base).
+- **(b)** – a control valve (bowtie symbol) with a diaphragm/actuator (trapezoid) mounted on top.
+- **FC** – a controller block labeled "FC".
+- **(c)** – a flow meter block labeled "FM".
+- **(d)** – a horizontal element (pipe/heat‑exchanger‑like body with two end flanges) with two red arrows (one entering from the top, one leaving from the bottom).
+- **(e)** – a vertical manifold line with four horizontal branches; each branch contains a valve (bowtie) followed by an arrow pointing right.
+
+**2. Connections**
+
+- The bottom of the **tank** is connected by a line to the inlet of pump **(a)**.
+- The outlet of pump **(a)** is connected by a line to the inlet of valve **(b)**.
+- The outlet of valve **(b)** is connected by a line to the inlet of flow meter **(c) / FM**.
+- The outlet of **(c) / FM** is connected by a line to the left end of element **(d)**.
+- The right end of **(d)** is connected by a line to the vertical manifold **(e)**.
+- The vertical manifold **(e)** feeds four horizontal branches, each passing through a valve and ending in a right‑pointing arrow.
+- **Dashed (signal) lines:** a dashed line runs from the top of **(c) / FM** up and into the right side of **FC** (arrow into FC). A second dashed line runs from the left side of **FC** leftward and down into the actuator on top of valve **(b)**.
+
+**3. Uncertainties**
+
+- The tank on the left has no name or ID, so it is referred to only as "tank/vessel."
+- The two red arrows on **(d)** indicate an external medium entering and leaving, but the source and destination of that medium are not shown.
+- The exact function of **(d)** (e.g., heat exchanger vs. simple pipe) is not labeled, so it is described only by its visible shape.
+- The four branches of **(e)** end in open arrows; the downstream destinations are not shown.
+- The dashed line from **FC** to the actuator on **(b)** is interpreted as a control signal, but the diagram does not explicitly label it as such.

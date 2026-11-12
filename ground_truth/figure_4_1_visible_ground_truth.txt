@@ -1,0 +1,17 @@
+Components:
+- Feed storage reservoir
+- (a) Pump
+- (b) Pneumatic valve
+- FC: Flow controller
+- (c) FM: Flow meter
+- (d) Heat exchanger
+- (e) Manifold and valves
+
+Connections:
+- Feed storage reservoir -> (a) Pump
+- (a) Pump -> (b) Pneumatic valve
+- (b) Pneumatic valve || (c) FM: Flow meter
+- (c) FM: Flow meter || (d) Heat exchanger
+- (d) Heat exchanger || (e) Manifold and valves
+- (c) FM: Flow meter -> FC: Flow controller
+- FC: Flow controller -> (b) Pneumatic valve

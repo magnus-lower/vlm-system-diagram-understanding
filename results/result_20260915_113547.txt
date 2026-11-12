@@ -1,0 +1,134 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_11_1.png
+Processed image: input/figure_11_1.png
+Context: True
+OCR: True
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+When interpreting the system diagram:
+
+- Only include components that are clearly visible in the diagram.
+- Only describe connections that can be seen in the diagram.
+- Do not assume that two components are connected just because it would make sense.
+- Do not guess the direction of flow unless it is clearly shown.
+- Do not guess what a component does if the diagram does not explain it.
+- Do not add components that are not shown.
+- If something is unclear, put it under Uncertainties instead of guessing.
+- Prefer a simple and careful answer over a detailed answer that may be wrong.
+- If a control circuit or control system is hard to follow, do not guess the exact connections.
+- Only describe a specific connection if both ends can be clearly traced in the diagram.
+- If several components connect to the same bus or common line, do not assume that they are directly connected to each other.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+OCR text from the diagram:
+1 _l_ 1 Inert gas pressurization
+TK
+A A KI tank
+K2 C) Relief valve
+; RVI
+'
+VV t oo.
+—— ! Inert gas isolation
+! H valve IV1
+=> toon '
+Inert gas pressure
+K3 regulator RG1
+©) Inert gas check
+valve CV1
+' Relief
+! valve RV2
+A Propellant tank
+with bladder
+53 pri Relief
+bon nnnnenne valve RV3
+Thruster isolation
+C valve
+Iv2
+b V_V
+| > H S2 Timer relay! Relief valve
+K6 a7 RV4
+i
+LY
+' K5 a Thrust chamber inlet
+! valve
+aa K4 Iv3
+It Catalyst
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+Process / main line (right side):
+- **TK1** – Inert gas pressurization tank
+- **RV1** – Relief valve
+- **IV1** – Inert gas isolation valve
+- **RG1** – Inert gas pressure regulator
+- **CV1** – Inert gas check valve
+- **PT1** – Propellant tank with bladder
+- **RV2** – Relief valve
+- **RV3** – Relief valve
+- **IV2** – Thruster isolation valve
+- **RV4** – Relief valve
+- **IV3** – Thrust chamber inlet valve
+- **Catalyst** – element at the bottom of the thruster (with nozzle)
+
+Indicators / sensors / relays (circles, left and middle):
+- **K1**, **K2**, **K3**, **K4**, **K5** – circular symbols (sensors/indicators)
+- **K6** – Timer relay
+
+Switches:
+- **S1** (top), **S2** (middle‑left, multi‑contact block), **S3** (middle)
+
+Unlabeled small circles on the right‑hand line (one left of IV1, one left of IV2, one left of IV3) – function not labeled.
+
+**2. Connections (clearly traceable)**
+
+Main process line (top to bottom on the right):
+- Bottom of **TK1** joins a node. From this node a branch goes right to **RV1**; the line continues down through **IV1**, then **RG1**, then **CV1**, and enters the top of **PT1**.
+- A branch from the top‑right side of **PT1** goes to **RV2**.
+- The bottom of **PT1** joins a node; a branch from this node goes right to **RV3**, and the line continues down through **IV2**.
+- A branch from the line below **IV2** goes right to **RV4**; the line continues down through **IV3** and into the **Catalyst** / thruster.
+
+Left / control side (only the clearly traceable parts):
+- **K1** connects on its right to the line that leads to the small circle at the TK1/IV1 node.
+- **K2** connects to the left contact of **S1**; **K1** connects to the right contact of **S1**.
+- **K3** connects on its right to **S3**.
+- **K6** (timer relay) connects to a switch contact and, on its right, to the small circle near **IV2**.
+- **K4** and **K5** connect to **S2** and to each other's lines at the bottom left.
+
+**3. Uncertainties**
+
+- The left‑hand control circuit (K1–K6, S1–S3, dashed signal lines, battery/ground symbols) is dense; many of the exact solid‑line and dashed‑line connections between K1, K2, K3, K4, K5, K6 and S1, S2, S3 cannot be traced unambiguously, so they are not stated as definite connections.
+- The three small unlabeled circles on the right‑hand line (left of IV1, IV2, IV3) are not named; their function and exact wiring to the K‑circles are unclear.
+- The dashed lines (e.g., from the top‑left corner, from K2, from K1, from K3, from K4, from K5) appear to be control/signal lines, but their exact endpoints are not all clearly traceable.
+- Flow direction is not explicitly marked on the main line; the top‑to‑bottom ordering is inferred from the layout, not from arrows.

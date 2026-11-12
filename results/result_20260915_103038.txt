@@ -1,0 +1,106 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_2_2.png
+Processed image: input/figure_2_2.png
+Context: True
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: True
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show visible connections between components. Depending on the diagram, these can be electrical, physical, or fluid connections.
+- Dashed lines can represent control or signal connections.
+- Labels such as K1, K2, etc. can refer to relays.
+- Labels such as S1, S2, etc. can refer to switches or switch contacts.
+- FC can mean flow controller.
+- FM can mean flow meter.
+- LC can mean level controller.
+- LS can mean level sensor.
+- Valve symbols are usually placed directly on fluid lines.
+- RV can mean relief valve.
+- IV can mean isolation valve.
+- CV can mean check valve.
+- Pumps can be connected directly to fluid lines.
+- Tanks, vessels, and reboilers can be shown using container-like shapes.
+- Arrows can show direction when they are clearly visible.
+- A bus can be shown as one or more shared lines connected to several components.
+- Components that are connected to the same bus are not necessarily directly connected to each other.
+- A line that splits can show one connection branching into several paths.
+
+Do not assume the direction of flow unless it is clearly shown.
+Do not guess the control logic if the connections are difficult to trace.
+
+
+When interpreting the system diagram:
+
+- Only include components that are clearly visible in the diagram.
+- Only describe connections that can be seen in the diagram.
+- Do not assume that two components are connected just because it would make sense.
+- Do not guess the direction of flow unless it is clearly shown.
+- Do not guess what a component does if the diagram does not explain it.
+- Do not add components that are not shown.
+- If something is unclear, put it under Uncertainties instead of guessing.
+- Prefer a simple and careful answer over a detailed answer that may be wrong.
+- If a control circuit or control system is hard to follow, do not guess the exact connections.
+- Only describe a specific connection if both ends can be clearly traced in the diagram.
+- If several components connect to the same bus or common line, do not assume that they are directly connected to each other.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Condenser** – heat‑exchanger symbol at the top, with a "Cooling water" inlet and outlet on its left side.
+- **Reflux drum / receiver** – small vessel directly below the condenser.
+- **Distillation column** – tall vertical vessel containing five gray tray/packing bands (trays).
+- **Reboiler** – vessel at the bottom left with a zig‑zag (heat‑transfer) element, with a "Steam" inlet and outlet on its left side.
+- **Labeled streams:** Cooling water, Top product, Reflux, Feed, Steam, Bottom product.
+- **Schematic arrows inside the column:** red arrows pointing upward (vapor) and blue arrows pointing downward (liquid) along the sides.
+
+**2. Connections**
+
+- **Cooling water** line enters the left side of the condenser and a second cooling‑water line leaves the left side (arrows shown).
+- A line from the **right side of the condenser** runs right, then down, and connects to the **top of the column** (vapor path from column top to condenser).
+- The **bottom of the condenser** connects down to the **reflux drum**.
+- From the **reflux drum**, a line runs left to the **Top product** outlet (arrow out).
+- From the same drum line, a branch runs right and up into the **top of the column**, marked **Reflux** with a blue downward arrow.
+- The **Feed** line enters the column at the level of the middle tray (arrow into the column).
+- A line from the **bottom of the column** runs down and left into the **bottom of the reboiler** (liquid path).
+- A line from the **top of the reboiler** runs up into the **bottom of the column** (vapor path).
+- **Steam** enters the left side of the reboiler and a second steam line leaves the left side (arrows shown).
+- The **Bottom product** line leaves the bottom of the reboiler and runs right (arrow out).
+
+**3. Uncertainties**
+
+- The exact number of trays is not labeled; I counted five gray bands, but the diagram does not state this.
+- The small vessel under the condenser is not explicitly labeled; I infer it is a reflux/receiver drum from its position.
+- The internal red (up) and blue (down) arrows are schematic indicators of vapor/liquid movement; they are not drawn as physical piping.
+- The precise routing of the vapor line between the column top and the condenser (whether it is the same line as the reflux return) is not unambiguously drawn, so I describe them as separate visible lines.
+- No control instruments, valves, or control (dashed) lines are visible in the diagram.

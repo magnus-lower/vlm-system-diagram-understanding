@@ -1,0 +1,75 @@
+Model: zai-org/GLM-5.3-Flash
+Method: Literature Baseline - run 5
+Image: input/tank.png
+Processed image: input/tank.png
+Context: False
+OCR: False
+Notation: False
+One-shot: False
+Two-stage: False
+
+--- PROMPT ---
+
+Express the attached System Diagram in JSON format as shown
+below. Include component labels and connections, including their directions, exactly as they
+appear in the diagram. If no direction is explicitly shown, set "directed" to false.
+
+{
+  "nodes": [
+    {"id": "A"},
+    {"id": "B"},
+    {"id": "C"}
+  ],
+  "edges": [
+    {"source": "A", "target": "B", "directed": true},
+    {"source": "B", "target": "C", "directed": false}
+  ]
+}
+
+--- RAW JSON ---
+
+```json
+{
+  "nodes": [
+    {"id": "Controller"},
+    {"id": "Valve B"},
+    {"id": "Valve A"},
+    {"id": "Tank"},
+    {"id": "Sensor X"},
+    {"id": "Sensor Y"}
+  ],
+  "edges": [
+    {"source": "Controller", "target": "Valve B", "directed": true},
+    {"source": "Controller", "target": "Sensor X", "directed": true},
+    {"source": "Controller", "target": "Sensor Y", "directed": true},
+    {"source": "Valve B", "target": "Tank", "directed": true},
+    {"source": "Tank", "target": "Valve A", "directed": true}
+  ]
+}
+```
+
+**Explanation of the diagram:**
+
+- **Controller** — a control unit connected by signal lines to Valve B and to the two level sensors (X and Y) mounted on the side of the tank.
+- **Valve B** — located on the inlet pipe at the top, controlling flow into the tank (pipe flows downward into the tank).
+- **Tank** — the vessel holding the liquid (blue), with sensors X and Y on its side.
+- **Valve A** — located on the outlet pipe at the bottom right, through which liquid exits the tank.
+
+All connections are shown with explicit flow/control directions, so every edge is marked as directed.
+
+--- MODEL OUTPUT ---
+
+Components:
+- Controller
+- Valve B
+- Valve A
+- Tank
+- Sensor X
+- Sensor Y
+
+Connections:
+- Controller -> Valve B
+- Controller -> Sensor X
+- Controller -> Sensor Y
+- Valve B -> Tank
+- Tank -> Valve A

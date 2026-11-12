@@ -1,0 +1,83 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: DSPy
+Image: input/figure_4_1.png
+Processed image: input/figure_4_1.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: True
+Notation: False
+
+--- PROMPT ---
+
+You are a certified plant-engineering documentation specialist. The structured description you produce will be handed to a safety-inspection and emergency-response team who, in the next 30 minutes, must execute a live maintenance shutdown on this exact system. A single misidentified valve, a missed parallel branch, or an unflagged ambiguity in your description could cause an operator to isolate the wrong line, leading to a catastrophic fuel release or uncontrolled motor startup. Precision and honesty are therefore non-negotiable: you must report only what is unambiguously visible in the diagram and explicitly flag everything you cannot confirm.
+
+Examine the provided engineering schematic image carefully and produce a textual description using **exactly** the following three numbered sections. Do not add any preamble, title, or closing remark—begin directly with "1. Components".
+
+**1. Components**
+Provide an itemized bulleted list of every labeled object visible in the diagram. For each component, state:
+- Its full name and, if present, its short tag/abbreviation (e.g., "BLOCK VALVE A (BVA)").
+- The type of graphical symbol used to represent it (e.g., rectangular block, bowtie/manual valve, valve with a semicircular actuator, circle, triangle, etc.).
+- Its positional location within the layout (e.g., "far left," "far right," "upper branch," "lower branch," "center," "top," "bottom").
+- The exact text labels associated with it and where they appear relative to the symbol (e.g., "labeled 'FUEL SUPPLY' inside the block," "labeled 'BLOCK VALVE A' above and 'BVA' below").
+
+**2. Connections**
+Describe every line, pipe, or conduit that links the components. For each connection or group of connections, specify:
+- Where the line originates and where it terminates.
+- Any junctions or split points where a single line divides into multiple branches (note the number and orientation of branches, e.g., "splits into two parallel horizontal branches, upper and lower").
+- The sequential (series) order of components along each branch (e.g., "the line passes through BVA, then continues through CVA").
+- Any recombination points where branches merge back into a single line.
+- A brief topological summary of the overall flow path (e.g., "the fuel supply feeds the motor via two parallel paths, each containing a block valve in series with a control valve").
+
+**3. Uncertainties**
+List every detail that is absent, ambiguous, or not explicitly indicated in the diagram. Use bullet points. Typical items to check for and report if missing include:
+- Flow-direction arrows on any line.
+- Specific actuator type, size, or control mode for valves that show a generic actuator symbol.
+- Pipe sizing, line numbers, pressure ratings, temperature, or other process parameters.
+- Any label that is partially obscured, too small to read confidently, or that you are unsure of.
+- Any component or connection you could not identify with certainty.
+
+**Critical rules:**
+- Describe ONLY what is visible in the provided image. Do not infer, assume, or fill in information from external knowledge, standard practice, or the diagram's likely real-world application.
+- If a label is illegible or a symbol is ambiguous, state your uncertainty explicitly in the Uncertainties section rather than guessing.
+- Use the exact text labels as they appear in the diagram (preserve capitalization, spacing, and punctuation).
+- Maintain the three-section structure in the order shown above. Do not merge, reorder, or omit any section.
+
+Now analyze the diagram below and produce the structured description.
+
+--- MODEL OUTPUT ---
+
+
+
+1. Components
+- **Tank / vessel** (far left): Open-top container drawn as two vertical side walls with a rounded bottom, containing a gray fill and a wavy liquid-level line near the top. No text label is associated with it.
+- **Pump (a)** (lower-left, on the main horizontal line): A circle containing a right-pointing arrow, resting on a small trapezoidal base. Labeled "(a)" centered below the symbol.
+- **Valve (b)** (center-left, on the main horizontal line): A bowtie symbol (two triangles meeting at a center point) with a vertical stem rising to a dome / semicircular actuator cap. Labeled "(b)" centered below the symbol.
+- **FC block** (upper center): A rectangle with the text "FC" inside it. No positional tag.
+- **FM block (c)** (center, on the main horizontal line): A rectangle with the text "FM" inside it. Labeled "(c)" centered below the symbol.
+- **Element (d)** (center-right, on the main horizontal line): A long horizontal rectangle with short vertical end-caps at its left and right ends. Two red arrows are drawn on it: one pointing downward onto the top surface (left-of-center) and one pointing downward from the bottom surface (right-of-center). Labeled "(d)" centered below the symbol.
+- **Header / manifold (e)** (far right): A single vertical line. Labeled "(e)" centered below its lower end.
+- **Four outlet valves** (far right): Four identical bowtie (two-triangle) valve symbols, one on each of four horizontal branches extending rightward from the vertical header (e). Each branch ends in a right-pointing arrowhead. None of these four valves carries a text label.
+
+2. Connections
+- **Tank → Pump (a):** A line leaves the bottom of the tank, runs downward, then turns right and enters the left side of the pump circle (a).
+- **Pump (a) → Valve (b):** A horizontal line leaves the right side of the pump, carries a right-pointing arrowhead, and enters the left side of valve (b).
+- **Valve (b) → FM (c):** A horizontal line leaves the right side of valve (b) and enters the left side of the FM block (c).
+- **FM (c) → Element (d):** A horizontal line leaves the right side of the FM block and enters the left end-cap of element (d).
+- **Element (d) → Header (e):** A horizontal line leaves the right end-cap of element (d) and connects to the vertical header line (e).
+- **Header (e) → four outlets:** The vertical line (e) splits into four parallel horizontal branches extending to the right; each branch passes through one bowtie valve and terminates in a right-pointing arrowhead.
+- **Dashed signal line 1 (FC → actuator of b):** A dashed line leaves the left side of the FC block, runs left, then turns down with a downward arrowhead into the dome actuator of valve (b).
+- **Dashed signal line 2 (FM → FC):** A dashed line leaves the top of the FM block (c), runs up, then right, then turns left with a left-pointing arrowhead into the right side of the FC block.
+- **Topological summary:** A single series path runs tank → pump (a) → valve (b) → FM (c) → element (d) → vertical header (e); the header then distributes flow into four parallel outlet branches, each containing one valve in series with an outlet arrow. The FC block is connected only by dashed (signal) lines: it receives a signal from FM (c) and sends a signal to the actuator of valve (b).
+
+3. Uncertainties
+- No flow-direction arrows are shown on the main process line between valve (b) and FM (c), between FM (c) and element (d), or between element (d) and header (e); direction there is inferred only from the pump arrow and the outlet arrows.
+- The tank/vessel has no text label, tag, or level indication beyond the drawn wavy line.
+- The actuator on valve (b) is a generic dome/semicircle; its type (pneumatic, electric, etc.), size, and control mode are not indicated.
+- The meaning of the two red arrows on element (d) (inlet/outlet, measurement, or heat) is not stated in the diagram.
+- The nature of element (d) (pipe, orifice, heat exchanger, etc.) is not labeled.
+- The four outlet valves on header (e) have no tags or labels.
+- The function of the "FC" and "FM" blocks is not spelled out; only the two-letter tags are visible.
+- No line numbers, pipe sizes, pressure ratings, temperatures, or other process parameters appear anywhere in the diagram.
+- The vertical line (e) is drawn as a simple line; whether it is a header, a wall, or a boundary is not explicitly labeled.

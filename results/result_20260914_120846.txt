@@ -1,0 +1,61 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_2_3.png
+Processed image: input/figure_2_3.png
+Context: False
+OCR: False
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **FUEL SUPPLY** – rectangular block on the left.
+- **BLOCK VALVE A (BVA)** – valve symbol on the upper branch.
+- **CONTROL VALVE A (CVA)** – valve symbol with a dome/actuator on top, on the upper branch.
+- **BLOCK VALVE B (BVB)** – valve symbol on the lower branch.
+- **CONTROL VALVE B (CVB)** – valve symbol with a dome/actuator on top, on the lower branch.
+- **MOTOR** – rectangular block on the right.
+
+**2. Connections**
+
+- The **FUEL SUPPLY** block connects via a line to a left-side junction (vertical line) that splits the flow into two parallel branches.
+- **Upper branch:** the left junction connects to **BVA**, which connects to **CVA**, which connects to the right-side junction.
+- **Lower branch:** the left junction connects to **BVB**, which connects to **CVB**, which connects to the right-side junction.
+- The right-side junction connects via a line to the **MOTOR** block.
+
+In summary, FUEL SUPPLY feeds two parallel paths (BVA→CVA and BVB→CVB) that recombine before going to the MOTOR.
+
+**3. Uncertainties**
+
+- The small vertical line from each actuator dome (on CVA and CVB) down into the valve symbol is not labeled; it is unclear whether it represents a control signal, a stem, or something else.
+- No source or signal for the control valves (CVA, CVB) is shown in the diagram.
+- Flow direction is not indicated by arrows.
+- Label placement is slightly inconsistent (e.g., "CVA" appears below its symbol while "CVB" appears above its symbol), though the association with each valve is still clear.

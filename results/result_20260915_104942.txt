@@ -1,0 +1,93 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_4_1.png
+Processed image: input/figure_4_1.png
+Context: False
+OCR: True
+Vectorized: False
+One-shot: False
+DSPy: False
+Notation: True
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show visible connections between components. Depending on the diagram, these can be electrical, physical, or fluid connections.
+- Dashed lines can represent control or signal connections.
+- Labels such as K1, K2, etc. can refer to relays.
+- Labels such as S1, S2, etc. can refer to switches or switch contacts.
+- FC can mean flow controller.
+- FM can mean flow meter.
+- LC can mean level controller.
+- LS can mean level sensor.
+- Valve symbols are usually placed directly on fluid lines.
+- RV can mean relief valve.
+- IV can mean isolation valve.
+- CV can mean check valve.
+- Pumps can be connected directly to fluid lines.
+- Tanks, vessels, and reboilers can be shown using container-like shapes.
+- Arrows can show direction when they are clearly visible.
+- A bus can be shown as one or more shared lines connected to several components.
+- Components that are connected to the same bus are not necessarily directly connected to each other.
+- A line that splits can show one connection branching into several paths.
+
+Do not assume the direction of flow unless it is clearly shown.
+Do not guess the control logic if the connections are difficult to trace.
+
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+OCR text from the diagram:
+
+
+The OCR text may contain errors. Use the image as the main source.
+
+--- MODEL OUTPUT ---
+
+
+
+**1. Components**
+
+- **Tank / vessel** (left): an open‑top container with a liquid level (wavy line) and gray fill. No label/ID.
+- **(a) Pump**: circle with an internal arrow, mounted on a base.
+- **(b) Control valve**: bowtie valve symbol with a dome/actuator on top.
+- **FC**: flow controller (box).
+- **(c) FM**: flow meter (box).
+- **(d)**: a horizontal cylindrical component (pipe/vessel‑like) with two red arrows (one entering the top, one leaving the bottom).
+- **(e)**: a vertical bus line with four horizontal branches; each branch contains a valve (bowtie) and an arrow pointing to the right (outlet).
+
+**2. Connections**
+
+- The tank's bottom outlet line runs to the inlet of pump **(a)** (arrow into the pump).
+- Pump **(a)** outlet runs to the inlet of valve **(b)** (arrow into the valve).
+- Valve **(b)** outlet runs to the left side of flow meter **(c)**.
+- Flow meter **(c)** right side runs to the left end of component **(d)**.
+- The right end of **(d)** connects to the vertical bus **(e)**.
+- The bus **(e)** branches into four lines, each passing through a valve and ending in a right‑pointing arrow.
+- **Dashed (signal) lines:** the top of **(c) FM** connects by a dashed line to the right side of **FC** (arrow into FC). The left side of **FC** connects by a dashed line down to the actuator on top of valve **(b)** (arrow into the actuator).
+
+**3. Uncertainties**
+
+- The exact identity/function of component **(d)** is not labeled; the two red arrows (top in, bottom out) are not explained and their meaning (e.g., heat transfer, side stream) is unclear.
+- The flow direction through **(d)** is not shown with a flow arrow, so it is not assumed.
+- The tank and the four valves on the bus **(e)** have no IDs/labels in the diagram.
+- The four branches on the bus **(e)** are connected to the same bus, so they are not directly connected to each other.

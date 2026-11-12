@@ -1,0 +1,48 @@
+Components:
+- Front Tank (FT)
+- FTT: Temperature sensor
+- FTL: Level sensor
+- FTV: Valve
+- FTP: Pump
+- FTF: Flow meter
+- CLF: Flow meter
+- CLP: Pump
+- CLV: Valve
+- Rear Tank (RT)
+- RTT: Temperature sensor
+- RTL: Level sensor
+- RTV: Valve
+- RTP: Pump
+- RTF: Flow meter
+- CRF: Flow meter
+- CRP: Pump
+- CRV: Valve
+- Central Reservation Tank (CRT)
+- CRTT: Temperature sensor
+- CRTL: Level sensor
+- CRPV: Valve
+- CRPP: Pump
+- Port Engine
+- Starboard Engine
+- Refuelling Point
+
+Connections:
+- Front Tank (FT) || FTV: Valve
+- FTV: Valve || FTP: Pump
+- FTP: Pump || FTF: Flow meter
+- FTF: Flow meter || Port Engine
+- Front Tank (FT) || CLF: Flow meter
+- CLF: Flow meter || CLP: Pump
+- CLP: Pump || CLV: Valve
+- CLV: Valve || Central Reservation Tank (CRT)
+- Rear Tank (RT) || RTV: Valve
+- RTV: Valve || RTP: Pump
+- RTP: Pump || RTF: Flow meter
+- RTF: Flow meter || Starboard Engine
+- Rear Tank (RT) || CRF: Flow meter
+- CRF: Flow meter || CRP: Pump
+- CRP: Pump || CRV: Valve
+- CRV: Valve || Central Reservation Tank (CRT)
+- Central Reservation Tank (CRT) || CRPV: Valve
+- CRPV: Valve || CRPP: Pump
+- CRPP: Pump || Refuelling Point

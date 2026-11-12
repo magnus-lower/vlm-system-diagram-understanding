@@ -1,0 +1,91 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_11_1.png
+Processed image: results\vectorized\figure_11_1.png
+Context: False
+OCR: False
+Vectorized: True
+One-shot: False
+DSPy: False
+Notation: False
+
+--- PROMPT ---
+
+Look at the system diagram in the image.
+
+Describe:
+
+1. Components
+List the components you can see. Use the names and IDs from the diagram when possible.
+
+2. Connections
+Describe which components are connected to each other.
+Only describe a connection if you can clearly trace it in the image.
+
+3. Uncertainties
+Write down anything that is unclear or difficult to understand from the image.
+If a connection is unclear, put it here instead of guessing.
+
+Only use information that you can see in the image.
+Do not use outside knowledge about the system.
+Do not guess if something is unclear.
+
+
+--- MODEL OUTPUT ---
+
+
+
+## 1. Components
+
+**Tanks / vessels**
+- **TK1** – Inert gas pressurization tank (top‑right circle)
+- **PT1** – Propellant tank with bladder (right‑center vessel)
+- **Catalyst** – catalyst bed / chamber at the bottom (nozzle‑shaped element)
+
+**Valves (process)**
+- **RV1** – Relief valve (top right, outlet arrow)
+- **RV2** – Relief valve (right, outlet arrow)
+- **RV3** – Relief valve (right, outlet arrow)
+- **RV4** – Relief valve (right, outlet arrow)
+- **IV1** – Inert gas isolation valve
+- **RG1** – Inert gas pressure regulator
+- **CV1** – Inert gas check valve
+- **IV2** – Thruster isolation valve
+- **IV3** – Thrust chamber inlet valve
+
+**Switches / relays / sensors (circles and switch symbols)**
+- **K1, K2, K3, K4, K5, K6** – circular components (K6 is labelled *Timer relay*)
+- **S1, S2, S3** – switch symbols
+- A 4‑way valve symbol (rectangle with four triangles) on the left
+- Several **unlabelled circular components** (e.g. between K1 and the IV1 line, between the K3/S3 line and IV2, and adjacent to IV3)
+
+## 2. Connections (clearly traceable)
+
+**Inert‑gas / propellant fluid path (right side):**
+- TK1 → branch to **RV1** (outlet)
+- TK1 → **IV1** → **RG1** → **CV1** → top of **PT1**
+- Top of PT1 → branch to **RV2** (outlet)
+- Bottom of PT1 → branch to **RV3** (outlet)
+- Bottom of PT1 → **IV2**
+- IV2 → branch to **RV4** (outlet)
+- IV2 → **IV3** → **Catalyst** chamber
+
+**Control / signal side (left and centre):**
+- **S1** → **K2** → **K1**
+- **K1** → unlabelled circle (top‑middle)
+- **K3** → (left) to an earth/ground symbol; (right) to **S3** and to the unlabelled circle that links to **IV2**
+- **S3** → unlabelled circle → **IV2**
+- **K6** (timer relay) → unlabelled circle adjacent to **IV3**
+- **K5** → switch symbol and to **K4**
+- **K4** → 4‑way valve symbol and to **S2**
+- **S2** → 4‑way valve symbol
+- Dashed (control) lines: S1→K2, K1→(switch below it), K3→(switch below it), K4→S2, K5→(switch symbol)
+
+## 3. Uncertainties
+
+- The **unlabelled circles** (top‑middle, middle near IV2, and near IV3) have no ID or name; their function (valve, actuator, sensor) cannot be confirmed from the image.
+- The exact role of **K1–K6** (sensor vs. switch vs. relay) is not stated except for K6 ("Timer relay"); they are shown only as circles.
+- Several **dashed lines** (e.g. from S1, K1, K3, K4, K5) represent control/signal links, but their precise endpoints and meaning (actuation vs. feedback) are not fully legible.
+- The connection between the **4‑way valve symbol** and the upper switch symbol / K3 on the left is partly obscured by the dashed line and is not clearly traceable.
+- Whether the unlabelled top‑middle circle ties into the **IV1** line or only to K1 is ambiguous.
+- The lower part of the **Catalyst** nozzle extends off the bottom of the image, so its downstream connection is not visible.

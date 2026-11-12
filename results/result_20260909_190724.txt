@@ -1,0 +1,58 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Context: True
+OCR: False
+RAG: True
+Vectorized: False
+One-shot: False
+
+--- MODEL OUTPUT ---
+
+
+
+## 1. Components
+
+**Tanks / vessels**
+- **TK1** – Inert gas pressurization tank (circle, top right)
+- **PT1** – Propellant tank with bladder (rounded vessel, middle right)
+
+**Process valves / regulators (right‑hand piping)**
+- **RV1** – Relief valve (top right, with flow arrow)
+- **IV1** – Inert gas isolation valve
+- **RG1** – Inert gas pressure regulator
+- **CV1** – Inert gas check valve
+- **RV2** – Relief valve (right of PT1, upper)
+- **RV3** – Relief valve (right of PT1, lower)
+- **IV2** – Thruster isolation valve
+- **RV4** – Relief valve (right, lower)
+- **IV3** – Thrust chamber inlet valve
+- **Catalyst** – at the thruster (bottom)
+
+**Relays (circles with K labels)**
+- **K1**, **K2**, **K3**, **K4**, **K5** – relays
+- **K6** – Timer relay
+
+**Switches**
+- **S1**, **S2**, **S3** – switches (shown with open‑contact / actuator symbols)
+
+**Other visible symbols**
+- Several unlabeled circles adjacent to IV1, IV2 and IV3 (likely valve actuators/solenoids; not labeled in the diagram).
+- Several battery / power‑source symbols (parallel‑line symbols) in the left‑hand control circuit.
+
+## 2. Connections
+
+**Process (piping) side – clearly traceable:**
+- TK1 → down through **IV1** → **RG1** → **CV1** → into the top of **PT1**.
+- TK1 → right to **RV1**.
+- Top of PT1 → right to **RV2**.
+- Bottom of PT1 → right to **RV3**.
+- Bottom of PT1 → down through **IV2** → branch right to **RV4** → down through **IV3** → to the **Catalyst** / thruster.
+- The unlabeled circles are each tied by a line to IV1, IV2 and IV3 respectively (actuator side).
+
+**Control circuit (left side):**
+- The relays K1–K6, switches S1–S3 and the power‑source symbols are interconnected by a network of solid and dashed lines forming the control circuit. Because this network is dense and the dashed (control‑signal) lines cross and branch in a way that cannot be traced point‑to‑point with confidence, the exact wiring is reported as **uncertain** rather than enumerated.
+
+## 3. Uncertainties
+- The exact point‑to‑point wiring of the left‑hand control circuit (how K1–K6, S1–S3 and the power sources interconnect, and which dashed line is a control signal vs. a mechanical linkage) cannot be traced with high confidence.
+- The function of the unlabeled circles next to IV1, IV2, IV3 is not stated in the diagram (assumed to be valve actuators, but not labeled).
+- The precise role of each relay (K1–K6) and each switch (S1–S3) is not given by the diagram and is not inferred here.
+- Flow/actuation direction in the control circuit is not explicitly indicated and is not assumed.

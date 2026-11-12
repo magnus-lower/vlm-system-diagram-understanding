@@ -1,0 +1,67 @@
+Model: Qwen/Qwen3.8-27B-FP8
+Method: zero-shot
+Image: input/figure_1.png
+Processed image: input/figure_1.png
+Context: False
+OCR: False
+Notation: True
+One-shot: False
+DSPy: False
+Two-stage: False
+
+--- PROMPT ---
+
+Diagram notation:
+
+- Solid lines show connections between components
+- Arrows show the direction of flow
+- Pump symbols represent pumps
+- A fan symbol represents a fan
+- A large vessel shape can represent a scrubber
+- A separate symbol on a line can represent a component even if it has no label
+- Labels such as Tail Gas, Quench water, Feed water, Purge Stream and To Absorber describe flows and are not components
+- A line can split or join without creating a new component
+- A line can form a loop and connect back to the system
+- Two pumps shown together under the same label can be treated as one pump group
+
+
+Look at the system diagram in the image. Then identify:
+
+1. Components (list the system components you can see. Use names and IDs from the diagram when it is relevant.
+Do not list labels or arrows as separate components).
+
+2. Connections (list the connections between the components that you have identified).
+
+
+For each connection, only use this format:
+
+Component A || Component B
+
+
+Return only:
+
+Components:
+- ...
+
+Connections:
+- ...
+
+
+--- MODEL OUTPUT ---
+
+
+
+Components:
+- Booster Fan (A)
+- Heat Exchanger (unlabeled horizontal vessel)
+- Scrubber
+- (2) Quench Pumps (B,C)
+- Feedwater Pump (D)
+- (2) Scrubber Circulation Pumps (E,F)
+
+Connections:
+- Booster Fan (A) || Heat Exchanger
+- Heat Exchanger || Scrubber
+- (2) Quench Pumps (B,C) || Heat Exchanger
+- Feedwater Pump (D) || Scrubber
+- Scrubber || (2) Scrubber Circulation Pumps (E,F)

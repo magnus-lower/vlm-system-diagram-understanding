@@ -1,0 +1,60 @@
+Experiment: context zero-shot
+Model: mistralai/Mistral-Medium-3.5-128B
+Temperature: 0
+Input: input/figure_11_1.png
+Prompt: prompts/zero_shot_image.txt
+Context: context/context_rules.txt
+Time: 2026-09-08 18:21:16
+
+--- MODEL OUTPUT ---
+
+1. Components:
+- Inert gas pressurization tank (TK1)
+- Relief valve (RV1)
+- Inert gas isolation valve (IV1)
+- Inert gas pressure regulator (RG1)
+- Inert gas check valve (CV1)
+- Propellant tank with bladder (PT1)
+- Relief valve (RV2)
+- Relief valve (RV3)
+- Thruster isolation valve (IV2)
+- Relief valve (RV4)
+- Thrust chamber inlet valve (IV3)
+- Catalyst
+- Switch (S1)
+- Relay (K1)
+- Relay (K2)
+- Switch (S2)
+- Relay (K3)
+- Relay (K4)
+- Relay (K5)
+- Switch (S3)
+- Timer relay (K6)
+
+2. Connections:
+- TK1 is connected to RV1.
+- TK1 is connected to IV1.
+- IV1 is connected to RG1.
+- RG1 is connected to CV1.
+- CV1 is connected to PT1.
+- PT1 is connected to RV2.
+- PT1 is connected to RV3.
+- PT1 is connected to IV2.
+- IV2 is connected to RV4.
+- IV2 is connected to IV3.
+- IV3 is connected to the Catalyst.
+- S1 is connected to K2.
+- K2 is connected to K1.
+- K1 is connected to IV1.
+- S2 is connected to K5.
+- K5 is connected to K4.
+- K4 is connected to K3.
+- K3 is connected to S3.
+- S3 is connected to K6.
+- K6 is connected to IV2.
+- K6 is connected to IV3.
+
+3. Uncertainties:
+- The exact nature of the connections between the relays (K1, K2, K3, K4, K5, K6) and their respective switches (S1, S2, S3) is not entirely clear due to the complexity of the wiring diagram.
+- The flow direction of the inert gas and propellant is not explicitly shown, making it difficult to determine the exact operational flow.
+- The specific functions of the relays and switches are not explicitly detailed in the diagram, leading to some ambiguity in their roles.
